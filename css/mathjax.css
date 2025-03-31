@@ -1,0 +1,30 @@
+/* 行内公式样式 */
+.MathJax {
+  font-size: 1.1em !important;
+  color: #333;
+}
+
+/* 行间公式样式 */
+.MathJax_Display {
+  overflow-x: auto;
+  overflow-y: hidden;
+  margin: 1em 0;
+}
+
+/* 具有has-jax类的元素样式 */
+.has-jax {
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+/* 增加公式与文本的间距 */
+.MathJax_Display + p {
+  margin-top: 1em;
+}
+
+/* 优化移动设备上的公式显示 */
+@media screen and (max-width: 768px) {
+  .MathJax_Display {
+    font-size: 0.9em;
+  }
+} 
