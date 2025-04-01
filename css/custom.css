@@ -1,0 +1,31 @@
+/* 自定义Markdown样式 */
+
+/* 行内代码样式 - 使用反引号包围的文本 */
+code {
+  color: rgb(255,128,10) !important;
+  background-color: rgba(199, 125, 187, 0.1) !important;
+  padding: 2px 4px !important;
+  border-radius: 3px !important;
+}
+
+/* 代码块中的代码不应该受到行内代码样式的影响 */
+pre code {
+  color: inherit !important;
+  background-color: transparent !important;
+}
+
+/* 链接样式 */
+.article-content a,
+.post-content a,
+.markdown-body a {
+  color: rgb(153,255,255) !important;
+  text-decoration: none !important;
+  transition: all 0.3s ease !important;
+}
+
+.article-content a:hover,
+.post-content a:hover,
+.markdown-body a:hover {
+  opacity: 0.8 !important;
+  border-bottom-color: transparent !important;
+} 

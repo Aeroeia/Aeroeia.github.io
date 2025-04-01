@@ -1,7 +1,7 @@
 /* 行内公式样式 */
 .MathJax {
   font-size: 1.1em !important;
-  color: #333;
+  color: rgb(153,255,255);
 }
 
 /* 行间公式样式 */
