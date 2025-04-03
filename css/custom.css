@@ -2,10 +2,32 @@
 
 /* 行内代码样式 - 使用反引号包围的文本 */
 code {
-  color: rgb(255,128,10) !important;
-  background-color: rgba(199, 125, 187, 0.1) !important;
+  color: rgb(235, 111, 62) !important; /* 柔和的玫红色，更符合现代审美 */
+  background-color: #f4f1f21a !important; /* 淡玫红背景 */
   padding: 2px 4px !important;
   border-radius: 3px !important;
+}
+
+/* 自定义全屏加载动画背景 */
+.preloader {
+  background-image: url('/static/wallhaven-575or9.jpg') !important;
+  background-size: cover !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+}
+
+/* 调整loading文字颜色和样式，使其在背景图上更清晰 */
+.preloader .ml13 {
+  color: #ffffff !important; /* 白色文字 */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8) !important; /* 更强的文字阴影增加可读性 */
+  font-weight: bold !important;
+  padding: 15px 25px !important;
+  border-radius: 10px !important;
+}
+
+/* 确保在深色模式下文本也清晰可见 */
+:root {
+  --preloader-text-color: #ffffff !important;
 }
 
 /* 代码块中的代码不应该受到行内代码样式的影响 */
@@ -18,14 +40,15 @@ pre code {
 .article-content a,
 .post-content a,
 .markdown-body a {
-  color: rgb(153,255,255) !important;
+  color: #3498db !important; /* 明亮但不刺眼的蓝色 */
   text-decoration: none !important;
+  border-bottom: 1px solid rgba(52, 152, 219, 0.3) !important; /* 淡淡的下划线 */
   transition: all 0.3s ease !important;
 }
 
 .article-content a:hover,
 .post-content a:hover,
 .markdown-body a:hover {
-  opacity: 0.8 !important;
-  border-bottom-color: transparent !important;
+  color: #2980b9 !important; /* 鼠标悬停时颜色加深 */
+  border-bottom-color: rgba(41, 128, 185, 0.5) !important; /* 悬停时下划线加深 */
 } 

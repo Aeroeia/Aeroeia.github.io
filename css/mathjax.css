@@ -1,7 +1,7 @@
 /* 行内公式样式 */
 .MathJax {
   font-size: 1.1em !important;
-  color: rgb(153,255,255);
+  color: #333; /* 默认亮色模式下的颜色 */
 }
 
 /* 行间公式样式 */
@@ -9,12 +9,14 @@
   overflow-x: auto;
   overflow-y: hidden;
   margin: 1em 0;
+  color: #333; /* 默认亮色模式下的颜色 */
 }
 
 /* 具有has-jax类的元素样式 */
 .has-jax {
   overflow-x: auto;
   overflow-y: hidden;
+  color: #333; /* 默认亮色模式下的颜色 */
 }
 
 /* 增加公式与文本的间距 */
@@ -27,4 +29,19 @@
   .MathJax_Display {
     font-size: 0.9em;
   }
-} 
+}
+
+/* 仅在暗色模式下应用的样式 */
+@media (prefers-color-scheme: dark) {
+  body.theme-dark .MathJax, 
+  body.theme-dark .MathJax_Display, 
+  body.theme-dark .has-jax,
+  .dark-mode .MathJax,
+  .dark-mode .MathJax_Display,
+  .dark-mode .has-jax,
+  [data-theme="dark"] .MathJax,
+  [data-theme="dark"] .MathJax_Display,
+  [data-theme="dark"] .has-jax {
+    color: #f5f5f5;
+  }
+}
