@@ -19,7 +19,7 @@
     
     <!--- Seo Part-->
     
-    <link rel="canonical" href="http://example.com/uncategorized/result/"/>
+    <link rel="canonical" href="http://example.com/算法/algorithm/lanqiao-2023-coprime/"/>
     <meta name="robots" content="index,follow">
     <meta name="googlebot" content="index,follow">
     <meta name="revisit-after" content="1 days">
@@ -29,15 +29,16 @@
         
         <meta name="description" content="Hexo Theme Redefine, Redefine Your Hexo Journey.">
 <meta property="og:type" content="article">
-<meta property="og:title" content="技术路线、拟解决的问题、研究重点和难点">
-<meta property="og:url" content="http://example.com/uncategorized/result/index.html">
+<meta property="og:title" content="蓝桥杯2023年第十四届省赛真题-互质数的个数">
+<meta property="og:url" content="http://example.com/%E7%AE%97%E6%B3%95/algorithm/lanqiao-2023-coprime/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="Hexo Theme Redefine, Redefine Your Hexo Journey.">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://example.com/images/redefine-og.webp">
-<meta property="article:published_time" content="2025-04-02T15:48:15.953Z">
-<meta property="article:modified_time" content="2025-04-03T08:22:47.730Z">
+<meta property="article:published_time" content="2025-04-04T16:09:56.000Z">
+<meta property="article:modified_time" content="2025-04-04T16:29:36.156Z">
 <meta property="article:author" content="John Doe">
+<meta property="article:tag" content="蓝桥杯">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://example.com/images/redefine-og.webp">
     
@@ -51,7 +52,7 @@
     
     <title>
         
-            技术路线、拟解决的问题、研究重点和难点 | Aer-Home
+            蓝桥杯2023年第十四届省赛真题-互质数的个数 | Aer-Home
         
     </title>
 
@@ -91,32 +92,6 @@
             
                 
                     <link rel="stylesheet" href="/css/custom.css">
-                
-    
-            
-                
-                    <script data-swup-reload-script>
-  window.addEventListener('DOMContentLoaded', function() {
-    setTimeout(function() {
-      var preloader = document.querySelector('.preloader');
-      if (preloader) {
-        preloader.style.backgroundImage = 'url("/static/wallhaven-575or9.jpg")';
-        preloader.style.backgroundSize = 'cover';
-        preloader.style.backgroundPosition = 'center';
-        
-        var text = preloader.querySelector('.ml13');
-        if (text) {
-          text.style.color = '#ffffff';
-          text.style.textShadow = '2px 2px 4px rgba(0, 0, 0, 0.8)';
-          text.style.fontWeight = 'bold';
-          text.style.padding = '15px 25px';
-          text.style.borderRadius = '10px';
-        }
-      }
-    }, 10);
-  });
-</script>
-
                 
     
 
@@ -511,7 +486,7 @@
 		<div class="article-title relative w-full">
 			
 			<div class="w-full flex items-center pt-6 justify-start">
-				<h1 class="article-title-regular text-second-text-color tracking-tight text-4xl md:text-6xl font-semibold px-2 sm:px-6 md:px-8 py-3">技术路线、拟解决的问题、研究重点和难点</h1>
+				<h1 class="article-title-regular text-second-text-color tracking-tight text-4xl md:text-6xl font-semibold px-2 sm:px-6 md:px-8 py-3">蓝桥杯2023年第十四届省赛真题-互质数的个数</h1>
 			</div>
 			
 		</div>
@@ -532,20 +507,47 @@
 					<div class="article-meta-info">
     <span class="article-date article-meta-item">
         <i class="fa-regular fa-pen-fancy"></i>&nbsp;
-        <span class="desktop">2025-04-02 23:48:15</span>
-        <span class="mobile">2025-04-02 23:48:15</span>
+        <span class="desktop">2025-04-05 00:09:56</span>
+        <span class="mobile">2025-04-05 00:09:56</span>
         <span class="hover-info">Created</span>
     </span>
     
         <span class="article-date article-meta-item">
             <i class="fa-regular fa-wrench"></i>&nbsp;
-            <span class="desktop">2025-04-03 16:22:47</span>
-            <span class="mobile">2025-04-03 16:22:47</span>
+            <span class="desktop">2025-04-05 00:29:36</span>
+            <span class="mobile">2025-04-05 00:29:36</span>
             <span class="hover-info">Updated</span>
         </span>
     
 
     
+        <span class="article-categories article-meta-item">
+            <i class="fa-regular fa-folders"></i>&nbsp;
+            <ul>
+                
+                
+                    
+                        
+                        <li>
+                            <a href="/categories/%E7%AE%97%E6%B3%95/">算法</a>&nbsp;
+                        </li>
+                    
+                    
+                
+            </ul>
+        </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fa-regular fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/%E8%93%9D%E6%A1%A5%E6%9D%AF/">蓝桥杯</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
     
 
     
@@ -567,20 +569,58 @@
 
 
 		<div class="article-content markdown-body px-2 sm:px-6 md:px-8 pb-8">
-			<h2 id="技术路线"><a href="#技术路线" class="headerlink" title="技术路线"></a>技术路线</h2><h2 id="拟解决的关键性问题和重点难点问题，分别阐述解决这些问题的理由和依据"><a href="#拟解决的关键性问题和重点难点问题，分别阐述解决这些问题的理由和依据" class="headerlink" title="拟解决的关键性问题和重点难点问题，分别阐述解决这些问题的理由和依据"></a>拟解决的关键性问题和重点难点问题，分别阐述解决这些问题的理由和依据</h2><h3 id="一-本课题拟解决的关键性问题"><a href="#一-本课题拟解决的关键性问题" class="headerlink" title="(一)本课题拟解决的关键性问题"></a>(一)本课题拟解决的关键性问题</h3><ul>
-<li>关键性问题之一：识别广东省高校人工智能学科建设与国际先进水平的差距。中国正致力于成为世界科技强国，人工智能是这一战略的关键领域。广东省作为经济和教育大省，提升其高校人工智能学科的水平，对实现国家战略具有重要意义。通过实地调研和问卷调查的方法，收集广东省高校在人工智能教育的课程设置、教学方法、师资力量、学生就业等方面的数据，并与国际高校的相关数据进行对比分析，以评估教育质量的差异。同时，计划评估广东省高校在人工智能领域的科研水平、研究成果和科研环境，并与国际高校进行比较，以识别科研水平和国际合作能力的差距。</li>
+			<p><a class="link"   target="_blank" rel="noopener" href="https://www.lanqiao.cn/problems/3522/learning/?page=1&first_category_id=1&sort=students_count&second_category_id=3&problem_id=3522" >原题链接<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></p>
+<hr>
+<p><strong>时间限制</strong>: 2s<br><strong>内存限制</strong>: 320MB  </p>
+<hr>
+<h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>给定两个整数 $ a $ 和 $ b $，求在范围 $ 1 \leq x &lt; a^b $ 内，有多少个整数 $ x $ 与 $ a^b $ 互质（即 $ \gcd(x, a^b) &#x3D; 1 $）。由于答案可能非常大，你只需要输出答案对 ​<strong>998244353</strong> 取模的结果。</p>
+<hr>
+<h2 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h2><p>输入一行包含两个整数 $ a $ 和 $ b $，用一个空格分隔。</p>
+<h2 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h2><p>输出一行包含一个整数，表示答案对 ​<strong>998244353</strong> 取模后的结果。</p>
+<hr>
+<h2 id="样例输入"><a href="#样例输入" class="headerlink" title="样例输入"></a>样例输入</h2><p>2 5</p>
+<h2 id="样例输出"><a href="#样例输出" class="headerlink" title="样例输出"></a>样例输出</h2><p>16</p>
+<hr>
+<h2 id="数据范围"><a href="#数据范围" class="headerlink" title="数据范围"></a>数据范围</h2><ul>
+<li>​<strong>30%​</strong> 的评测用例：$ a^b \leq 10^6 $；</li>
+<li>​<strong>70%​</strong> 的评测用例：$ a \leq 10^6 $，$ b \leq 10^9 $；</li>
+<li>​<strong>所有评测用例</strong>：$ 1 \leq a \leq 10^9 $，$ 1 \leq b \leq 10^{18} $。</li>
 </ul>
-<h3 id="二-本课题拟解决的重点问题"><a href="#二-本课题拟解决的重点问题" class="headerlink" title="(二)本课题拟解决的重点问题"></a>(二)本课题拟解决的重点问题</h3><ul>
-<li>重点问题之一：认清广东省高校人工智能本科专业的发展现状。本科教育是高等教育的基石，对学生的专业基础和创新能力培养至关重要。广东省高校人工智能本科专业的发展现状直接关系到人才培养的质量。因此，需要对广东省内开设了人工智能本科专业的高校进行了详细的调研，包括课程设置、科研水平、师资力量和学生培养等方面的现状，调研结果将反映在生成的调研报告中。</li>
-</ul>
-<h3 id="三-拟解决的难点问题"><a href="#三-拟解决的难点问题" class="headerlink" title="(三)拟解决的难点问题"></a>(三)拟解决的难点问题</h3><ul>
-<li>难点问题之一：确保国际比较研究既具深度又有广度。在全球化背景下，广东省高校需要具备国际视野，通过与国际先进水平的比较，学习借鉴先进经验，提升自身的学科建设水平。通过定量和定性研究方法，结合数据挖掘技术，确保了国际比较研究的深度和广度，并对如何获取和利用国际数据进行了研究。</li>
-</ul>
+<hr>
+<p><strong>注意</strong>：本题考察数学推导与优化，直接暴力计算在 $ a^b $ 极大时不可行。</p>
+<h2 id="前置理论"><a href="#前置理论" class="headerlink" title="前置理论"></a>前置理论</h2><h3 id="求小于n的与n互质个数-欧拉函数"><a href="#求小于n的与n互质个数-欧拉函数" class="headerlink" title="求小于n的与n互质个数-欧拉函数"></a>求小于n的与n互质个数-欧拉函数</h3><p><strong>具体证明</strong>:  <a class="link"   target="_blank" rel="noopener" href="https://blog.csdn.net/ltrbless/article/details/87373633" >https://blog.csdn.net/ltrbless/article/details/87373633<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a>  (转载)</p>
+<div class="code-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//返回质因数</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="title function_">main</span><span class="params">(String[] args)</span>&#123;</span><br><span class="line">        <span class="type">BufferedReader</span> <span class="variable">br</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">BufferedReader</span>(<span class="keyword">new</span> <span class="title class_">InputStreamReader</span>(System.in));</span><br><span class="line">        <span class="type">PrintWriter</span> <span class="variable">pt</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">PrintWriter</span>(System.out);</span><br><span class="line">        <span class="type">int</span> <span class="variable">n</span> <span class="operator">=</span> Integer.parseInt(br.readLine());</span><br><span class="line">        List&lt;Integer&gt; list = el(n);</span><br><span class="line">        <span class="type">int</span> <span class="variable">total</span> <span class="operator">=</span> n;</span><br><span class="line">         <span class="comment">//求出小于x与x互质的个数</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> x:list)&#123;</span><br><span class="line">            total = total/x*(x-<span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        pt.println(total);</span><br><span class="line">        pt.flush();</span><br><span class="line">        pt.close();</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> List&lt;Integer&gt; <span class="title function_">el</span><span class="params">(<span class="type">int</span> x)</span>&#123;</span><br><span class="line">        List&lt;Integer&gt; ans = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">2</span>;i&lt;=x;i++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(x%i==<span class="number">0</span>)&#123;</span><br><span class="line">                <span class="comment">//添加质因数</span></span><br><span class="line">                ans.add(i);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">while</span>(x%i==<span class="number">0</span>)&#123;</span><br><span class="line">                x/=i;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></div>
+
+<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><blockquote>
+<p>欧拉函数:$​φ(a^b) &#x3D; φ(a) × a^{b-1}$</p>
+</blockquote>
+<h3 id="推导"><a href="#推导" class="headerlink" title="推导"></a>推导</h3><h4 id="​欧拉函数公式应用"><a href="#​欧拉函数公式应用" class="headerlink" title="​欧拉函数公式应用"></a>​<strong>欧拉函数公式应用</strong></h4><p>根据欧拉函数的定义：<br>$$<br>\varphi(n) &#x3D; n \times \prod_{p | n} \left(1 - \frac{1}{p}\right)<br>$$</p>
+<p>对<code>aᵇ</code>计算：<br>$$<br>\varphi(a^b) &#x3D; a^b \times \left(1 - \frac{1}{p_1}\right) \times \left(1 - \frac{1}{p_2}\right) \times \dots \times \left(1 - \frac{1}{p_m}\right)<br>$$</p>
+<p>对<code>a</code>计算：<br>$$<br>\varphi(a) &#x3D; a \times \left(1 - \frac{1}{p_1}\right) \times \left(1 - \frac{1}{p_2}\right) \times \dots \times \left(1 - \frac{1}{p_m}\right)<br>$$</p>
+<hr>
+<h4 id="​最终推导"><a href="#​最终推导" class="headerlink" title="​最终推导"></a>​<strong>最终推导</strong></h4><p>将两式关联：<br>$$<br>\varphi(a^b) &#x3D; a^b \times \frac{\varphi(a)}{a} &#x3D; \varphi(a) \times a^{b-1}<br>$$</p>
+<p><strong>结论</strong>：<br>$$<br>\varphi(a^b) &#x3D; \varphi(a) \times a^{b-1}<br>$$</p>
+<p><strong>关键</strong>:计算小于$a^b$的与$a^b$互质的数数量，我们只用先算出小于a的与a互质数个数，然后乘$a^{(b - 1)}$即可</p>
+<div class="code-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.io.BufferedReader;</span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"><span class="keyword">import</span> java.io.InputStreamReader;</span><br><span class="line"><span class="keyword">import</span> java.io.PrintWriter;</span><br><span class="line"><span class="keyword">import</span> java.util.ArrayList;</span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"><span class="keyword">import</span> java.util.StringTokenizer;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">java</span> &#123;</span><br><span class="line">    <span class="keyword">static</span> <span class="type">int</span> <span class="variable">MOD</span> <span class="operator">=</span> <span class="number">998244353</span>;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> IOException &#123;</span><br><span class="line">        <span class="type">BufferedReader</span> <span class="variable">br</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">BufferedReader</span>(<span class="keyword">new</span> <span class="title class_">InputStreamReader</span>(System.in));</span><br><span class="line">        <span class="type">PrintWriter</span> <span class="variable">pt</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">PrintWriter</span>(System.out);</span><br><span class="line">        <span class="type">StringTokenizer</span> <span class="variable">st</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">StringTokenizer</span>(br.readLine());</span><br><span class="line">        <span class="type">int</span> <span class="variable">base</span> <span class="operator">=</span> Integer.parseInt(st.nextToken());</span><br><span class="line">        <span class="type">long</span> <span class="variable">e</span> <span class="operator">=</span> Long.parseLong(st.nextToken());</span><br><span class="line">        List&lt;Integer&gt; list = el(base);</span><br><span class="line">        <span class="type">int</span> <span class="variable">total</span> <span class="operator">=</span> base;</span><br><span class="line">        <span class="comment">//求出小于x与x互质的个数</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> x:list)&#123;</span><br><span class="line">            total = total/x*(x-<span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="type">long</span> <span class="variable">res</span> <span class="operator">=</span> total*fp(base,e-<span class="number">1</span>)%MOD;</span><br><span class="line">        pt.println(res);</span><br><span class="line">        pt.flush();</span><br><span class="line">        pt.close();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//返回质因数</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> List&lt;Integer&gt; <span class="title function_">el</span><span class="params">(<span class="type">int</span> x)</span>&#123;</span><br><span class="line">        List&lt;Integer&gt; ans = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">2</span>;i&lt;=x;i++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(x%i==<span class="number">0</span>)&#123;</span><br><span class="line">                <span class="comment">//添加质因数</span></span><br><span class="line">                ans.add(i);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">while</span>(x%i==<span class="number">0</span>)&#123;</span><br><span class="line">                x/=i;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//快速幂</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="type">long</span> <span class="title function_">fp</span><span class="params">(<span class="type">long</span> x,<span class="type">long</span> y)</span>&#123;</span><br><span class="line">        <span class="type">long</span> <span class="variable">ans</span> <span class="operator">=</span> <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span>(y&gt;<span class="number">0</span>)&#123;</span><br><span class="line">            <span class="keyword">if</span>(y%<span class="number">2</span>==<span class="number">0</span>)&#123;</span><br><span class="line">                x = (x*x)%MOD;</span><br><span class="line">                y/=<span class="number">2</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span>&#123;</span><br><span class="line">                ans = (ans*x)%MOD;</span><br><span class="line">                y--;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+<p><code>在加、减、乘法运算中，​每一步都取模 和 ​最后一步取模 的结果是相同的​（前提是中间结果不会溢出）。</code><br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://free4.yunpng.top/2025/04/05/67f00218e83f7.png"
+                     
+                ></p>
 
 		</div>
 
 		
 
+		
+		<ul class="post-tags-box text-lg mt-1.5 flex-wrap justify-center flex md:hidden">
+			
+			<li class="tag-item mx-0.5">
+				<a href="/tags/%E8%93%9D%E6%A1%A5%E6%9D%AF/">#蓝桥杯</a>&nbsp;
+			</li>
+			
+		</ul>
 		
 
 		
@@ -590,9 +630,9 @@
 			
 			
 			<div class="article-next border-border-color shadow-redefine-flat shadow-shadow-color-2 rounded-medium px-4 py-2 hover:shadow-redefine-flat-hover hover:shadow-shadow-color-2">
-				<a class="next" rel="next" href="/%E6%95%B0%E8%AE%BA/Math/">
+				<a class="next" rel="next" href="/%E7%AE%97%E6%B3%95/algorithm/leetcode-1123/">
 					<span class="title flex justify-center items-center">
-						<span class="post-nav-title-item">数论</span>
+						<span class="post-nav-title-item">leetcode-1123 最深叶节点的最近公共祖先</span>
 						<span class="post-nav-item">Next posts</span>
 					</span>
 					<span class="right arrow-icon flex justify-center items-center">
@@ -656,8 +696,8 @@
 		<div class="post-toc-wrap">
 	<div class="post-toc">
 		<div class="toc-title">On this page</div>
-		<div class="page-title">技术路线、拟解决的问题、研究重点和难点</div>
-		<ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8A%80%E6%9C%AF%E8%B7%AF%E7%BA%BF"><span class="nav-text">技术路线</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8B%9F%E8%A7%A3%E5%86%B3%E7%9A%84%E5%85%B3%E9%94%AE%E6%80%A7%E9%97%AE%E9%A2%98%E5%92%8C%E9%87%8D%E7%82%B9%E9%9A%BE%E7%82%B9%E9%97%AE%E9%A2%98%EF%BC%8C%E5%88%86%E5%88%AB%E9%98%90%E8%BF%B0%E8%A7%A3%E5%86%B3%E8%BF%99%E4%BA%9B%E9%97%AE%E9%A2%98%E7%9A%84%E7%90%86%E7%94%B1%E5%92%8C%E4%BE%9D%E6%8D%AE"><span class="nav-text">拟解决的关键性问题和重点难点问题，分别阐述解决这些问题的理由和依据</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%80-%E6%9C%AC%E8%AF%BE%E9%A2%98%E6%8B%9F%E8%A7%A3%E5%86%B3%E7%9A%84%E5%85%B3%E9%94%AE%E6%80%A7%E9%97%AE%E9%A2%98"><span class="nav-text">(一)本课题拟解决的关键性问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%8C-%E6%9C%AC%E8%AF%BE%E9%A2%98%E6%8B%9F%E8%A7%A3%E5%86%B3%E7%9A%84%E9%87%8D%E7%82%B9%E9%97%AE%E9%A2%98"><span class="nav-text">(二)本课题拟解决的重点问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%89-%E6%8B%9F%E8%A7%A3%E5%86%B3%E7%9A%84%E9%9A%BE%E7%82%B9%E9%97%AE%E9%A2%98"><span class="nav-text">(三)拟解决的难点问题</span></a></li></ol></li></ol>
+		<div class="page-title">蓝桥杯2023年第十四届省赛真题-互质数的个数</div>
+		<ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE%E6%8F%8F%E8%BF%B0"><span class="nav-text">题目描述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BE%93%E5%85%A5%E6%A0%BC%E5%BC%8F"><span class="nav-text">输入格式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BE%93%E5%87%BA%E6%A0%BC%E5%BC%8F"><span class="nav-text">输出格式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A0%B7%E4%BE%8B%E8%BE%93%E5%85%A5"><span class="nav-text">样例输入</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A0%B7%E4%BE%8B%E8%BE%93%E5%87%BA"><span class="nav-text">样例输出</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E8%8C%83%E5%9B%B4"><span class="nav-text">数据范围</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%8D%E7%BD%AE%E7%90%86%E8%AE%BA"><span class="nav-text">前置理论</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B1%82%E5%B0%8F%E4%BA%8En%E7%9A%84%E4%B8%8En%E4%BA%92%E8%B4%A8%E4%B8%AA%E6%95%B0-%E6%AC%A7%E6%8B%89%E5%87%BD%E6%95%B0"><span class="nav-text">求小于n的与n互质个数-欧拉函数</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E8%A7%A3"><span class="nav-text">题解</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8E%A8%E5%AF%BC"><span class="nav-text">推导</span></a></li></ol></li></ol>
 
 	</div>
 </div>
