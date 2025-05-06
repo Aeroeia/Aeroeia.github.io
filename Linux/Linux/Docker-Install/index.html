@@ -19,7 +19,7 @@
     
     <!--- Seo Part-->
     
-    <link rel="canonical" href="http://example.com/uncategorized/docker/"/>
+    <link rel="canonical" href="http://example.com/linux/linux/docker-install/"/>
     <meta name="robots" content="index,follow">
     <meta name="googlebot" content="index,follow">
     <meta name="revisit-after" content="1 days">
@@ -29,14 +29,14 @@
         
         <meta name="description" content="Hexo Theme Redefine, Redefine Your Hexo Journey.">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Docker">
-<meta property="og:url" content="http://example.com/uncategorized/Docker/index.html">
+<meta property="og:title" content="关于Docker拉取镜像超时&#x2F;无法访问镜像仓库解决方案">
+<meta property="og:url" content="http://example.com/Linux/Linux/Docker-Install/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="Hexo Theme Redefine, Redefine Your Hexo Journey.">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://example.com/images/redefine-og.webp">
-<meta property="article:published_time" content="2025-04-20T14:57:06.000Z">
-<meta property="article:modified_time" content="2025-04-28T11:26:04.481Z">
+<meta property="article:published_time" content="2025-05-01T11:42:17.000Z">
+<meta property="article:modified_time" content="2025-05-01T12:43:45.576Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="Docker">
 <meta name="twitter:card" content="summary">
@@ -52,7 +52,7 @@
     
     <title>
         
-            Docker | Aer-Home
+            关于Docker拉取镜像超时/无法访问镜像仓库解决方案 | Aer-Home
         
     </title>
 
@@ -463,7 +463,7 @@
         <div class="label text-third-text-color text-sm">Categories</div>
     </a>
     <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/archives">
-        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">15</div>
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">16</div>
         <div class="label text-third-text-color text-sm">Posts</div>
     </a>
 </div>
@@ -486,7 +486,7 @@
 		<div class="article-title relative w-full">
 			
 			<div class="w-full flex items-center pt-6 justify-start">
-				<h1 class="article-title-regular text-second-text-color tracking-tight text-4xl md:text-6xl font-semibold px-2 sm:px-6 md:px-8 py-3">Docker</h1>
+				<h1 class="article-title-regular text-second-text-color tracking-tight text-4xl md:text-6xl font-semibold px-2 sm:px-6 md:px-8 py-3">关于Docker拉取镜像超时/无法访问镜像仓库解决方案</h1>
 			</div>
 			
 		</div>
@@ -500,26 +500,42 @@
 				<div class="author flex items-center">
 					<span class="name text-default-text-color text-lg font-semibold">Aer</span>
 					
-					<span class="author-label ml-1.5 text-xs px-2 py-0.5 rounded-small text-third-text-color border border-shadow-color-1">Lv2</span>
+					<span class="author-label ml-1.5 text-xs px-2 py-0.5 rounded-small text-third-text-color border border-shadow-color-1">Lv3</span>
 					
 				</div>
 				<div class="meta-info">
 					<div class="article-meta-info">
     <span class="article-date article-meta-item">
         <i class="fa-regular fa-pen-fancy"></i>&nbsp;
-        <span class="desktop">2025-04-20 22:57:06</span>
-        <span class="mobile">2025-04-20 22:57:06</span>
+        <span class="desktop">2025-05-01 19:42:17</span>
+        <span class="mobile">2025-05-01 19:42:17</span>
         <span class="hover-info">Created</span>
     </span>
     
         <span class="article-date article-meta-item">
             <i class="fa-regular fa-wrench"></i>&nbsp;
-            <span class="desktop">2025-04-28 19:26:04</span>
-            <span class="mobile">2025-04-28 19:26:04</span>
+            <span class="desktop">2025-05-01 20:43:45</span>
+            <span class="mobile">2025-05-01 20:43:45</span>
             <span class="hover-info">Updated</span>
         </span>
     
 
+    
+        <span class="article-categories article-meta-item">
+            <i class="fa-regular fa-folders"></i>&nbsp;
+            <ul>
+                
+                
+                    
+                        
+                        <li>
+                            <a href="/categories/Linux/">Linux</a>&nbsp;
+                        </li>
+                    
+                    
+                
+            </ul>
+        </span>
     
     
         <span class="article-tags article-meta-item">
@@ -553,7 +569,49 @@
 
 
 		<div class="article-content markdown-body px-2 sm:px-6 md:px-8 pb-8">
-			
+			<h1 id="关于Docker拉取镜像超时-无法访问镜像仓库解决方案"><a href="#关于Docker拉取镜像超时-无法访问镜像仓库解决方案" class="headerlink" title="关于Docker拉取镜像超时&#x2F;无法访问镜像仓库解决方案"></a>关于Docker拉取镜像超时&#x2F;无法访问镜像仓库解决方案</h1><p>我今天安装Docker后无论是配置阿里云镜像源或是按照网上以及ai说的配置dns、防火墙、关闭ipv6等方法都无法成功拉取镜像<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://free4.yunpng.top/2025/05/01/68135f70652db.png"
+                     
+                ><br>进行docker login、通过curl命令访问docker镜像仓库也是一律超时或拒绝访问,在我捣鼓了一个下午后终于成功找到解决方法。下面我将针对使用<code>VPN代理</code>的用户以及<code>不使用VPN</code>的用户分别给出解决方案</p>
+<h2 id="卸载原先安装的Docker及相关配置"><a href="#卸载原先安装的Docker及相关配置" class="headerlink" title="卸载原先安装的Docker及相关配置"></a>卸载原先安装的Docker及相关配置</h2><div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 1. 停止所有Docker容器和守护进程</span></span><br><span class="line"><span class="built_in">sudo</span> systemctl stop docker.socket docker.service containerd</span><br><span class="line"><span class="built_in">sudo</span> pkill -f docker</span><br><span class="line"></span><br><span class="line"><span class="comment"># 2. 卸载Docker软件包</span></span><br><span class="line"><span class="built_in">sudo</span> apt purge -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin</span><br><span class="line"></span><br><span class="line"><span class="comment"># 3. 删除残留数据和配置</span></span><br><span class="line"><span class="built_in">sudo</span> <span class="built_in">rm</span> -rf /var/lib/docker</span><br><span class="line"><span class="built_in">sudo</span> <span class="built_in">rm</span> -rf /var/lib/containerd</span><br><span class="line"><span class="built_in">sudo</span> <span class="built_in">rm</span> -rf /etc/docker</span><br><span class="line"><span class="built_in">sudo</span> <span class="built_in">rm</span> -rf /etc/apt/sources.list.d/docker*.list</span><br><span class="line"></span><br><span class="line"><span class="comment"># 4. 删除代理配置文件（之前配置的）</span></span><br><span class="line"><span class="built_in">sudo</span> <span class="built_in">rm</span> -rf /etc/systemd/system/docker.service.d/http-proxy.conf</span><br><span class="line"><span class="built_in">sudo</span> systemctl daemon-reload</span><br><span class="line"></span><br><span class="line"><span class="comment"># 5. 清理APT缓存</span></span><br><span class="line"><span class="built_in">sudo</span> apt autoremove -y</span><br><span class="line"><span class="built_in">sudo</span> apt clean</span><br></pre></td></tr></table></figure></div>
+<h2 id="使用VPN代理无法拉取镜像解决方案"><a href="#使用VPN代理无法拉取镜像解决方案" class="headerlink" title="使用VPN代理无法拉取镜像解决方案"></a>使用VPN代理无法拉取镜像解决方案</h2><h3 id="验证代理连通性"><a href="#验证代理连通性" class="headerlink" title="验证代理连通性"></a>验证代理连通性</h3><div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -I -x http://127.0.0.1:7890 https://hub.docker.com   <span class="comment"># 通过代理测试能否访问 Docker Hub</span></span><br></pre></td></tr></table></figure></div>
+<p>如果能返回 HTTP 200&#x2F;301 等响应，则表示代理连通正常。若以上命令失败，可尝试先导出环境变量后再测试：</p>
+<div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> http_proxy=<span class="string">&quot;http://127.0.0.1:7890&quot;</span>  <span class="comment"># 使用环境变量中的代理访问，注意改成自己的！！</span></span><br><span class="line">curl -I https://hub.docker.com  ！</span><br></pre></td></tr></table></figure></div>
+<h3 id="安装-Docker-最新版"><a href="#安装-Docker-最新版" class="headerlink" title="安装 Docker 最新版"></a>安装 Docker 最新版</h3><div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> apt-get remove -y docker.io docker-compose docker-compose-v2 docker-doc podman-docker containerd runc  <span class="comment"># 卸载旧版 Docker 及冲突软件</span></span><br><span class="line"><span class="built_in">sudo</span> apt-get update   <span class="comment"># 更新软件包索引</span></span><br><span class="line"><span class="built_in">sudo</span> apt-get install -y ca-certificates curl gnupg lsb-release  <span class="comment"># 安装必要工具</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 添加 Docker 官方 GPG 密钥并新建 Apt 仓库 keyrings 目录</span></span><br><span class="line"><span class="built_in">sudo</span> <span class="built_in">mkdir</span> -p /etc/apt/keyrings</span><br><span class="line">curl -fsSL https://download.docker.com/linux/ubuntu/gpg | <span class="built_in">sudo</span> <span class="built_in">tee</span> /etc/apt/keyrings/docker.asc  <span class="comment"># 获取 Docker GPG 密钥</span></span><br><span class="line"><span class="built_in">sudo</span> <span class="built_in">chmod</span> a+r /etc/apt/keyrings/docker.asc</span><br><span class="line"></span><br><span class="line"><span class="comment"># 添加 Docker 官方 apt 软件源（Ubuntu 24.04 代号为 noble）</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;deb [arch=<span class="subst">$(dpkg --print-architecture)</span> signed-by=/etc/apt/keyrings/docker.asc] \</span></span><br><span class="line"><span class="string">https://download.docker.com/linux/ubuntu <span class="subst">$(lsb_release -cs)</span> stable&quot;</span> \</span><br><span class="line">  | <span class="built_in">sudo</span> <span class="built_in">tee</span> /etc/apt/sources.list.d/docker.list  </span><br><span class="line"></span><br><span class="line"><span class="built_in">sudo</span> apt-get update  <span class="comment"># 更新仓库索引</span></span><br><span class="line"><span class="built_in">sudo</span> apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin  <span class="comment"># 安装 Docker 引擎及相关组件</span></span><br></pre></td></tr></table></figure></div>
+<h3 id="配置-Docker-Daemon-HTTP-代理"><a href="#配置-Docker-Daemon-HTTP-代理" class="headerlink" title="配置 Docker Daemon HTTP 代理"></a>配置 Docker Daemon HTTP 代理</h3><p><strong>注意下方将代理地址全都改为自己的，我这里使用的是<code>http://127.0.0.1:7890</code></strong></p>
+<div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> <span class="built_in">mkdir</span> -p /etc/systemd/system/docker.service.d   <span class="comment"># 创建 docker.service 的 drop-in 目录</span></span><br><span class="line"><span class="comment"># 编辑 /etc/systemd/system/docker.service.d/http-proxy.conf，添加以下内容：</span></span><br><span class="line"><span class="built_in">sudo</span> <span class="built_in">tee</span> /etc/systemd/system/docker.service.d/http-proxy.conf &lt;&lt;<span class="string">EOF</span></span><br><span class="line"><span class="string">[Service]</span></span><br><span class="line"><span class="string">Environment=&quot;HTTP_PROXY=http://127.0.0.1:7890&quot;</span></span><br><span class="line"><span class="string">Environment=&quot;HTTPS_PROXY=http://127.0.0.1:7890&quot;</span></span><br><span class="line"><span class="string">Environment=&quot;NO_PROXY=localhost,127.0.0.1&quot;</span></span><br><span class="line"><span class="string">EOF</span></span><br></pre></td></tr></table></figure></div>
+<p>上述配置将 Docker 守护进程的 HTTP&#x2F;HTTPS 代理都指向 <code>127.0.0.1:7890</code>，并在 NO_PROXY 中排除本地地址​​<br>。保存后执行以下命令使配置生效</p>
+<div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> systemctl daemon-reload   <span class="comment"># 重新加载 systemd</span></span><br><span class="line"><span class="built_in">sudo</span> systemctl restart docker  <span class="comment"># 重启 Docker </span></span><br></pre></td></tr></table></figure></div>
+<p>重启后，可用下面命令查看代理环境变量是否已被加载：</p>
+<div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> systemctl show --property=Environment docker  <span class="comment"># 查看 Docker 服务的环境变量</span></span><br></pre></td></tr></table></figure></div>
+<p>若输出中包含类似 <code>HTTP_PROXY=http://127.0.0.1:7890</code> 字样，则表示代理配置已生效</p>
+<h3 id="重启验证与拉取镜像"><a href="#重启验证与拉取镜像" class="headerlink" title="重启验证与拉取镜像"></a>重启验证与拉取镜像</h3><div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> docker run hello-world  <span class="comment"># 运行官方测试镜像确认安装成功</span></span><br></pre></td></tr></table></figure></div>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://free4.yunpng.top/2025/05/01/68136528c1dcf.png"
+                     
+                ><br>成功啦！！！</p>
+<h2 id="不使用VPN解决方案"><a href="#不使用VPN解决方案" class="headerlink" title="不使用VPN解决方案"></a>不使用VPN解决方案</h2><h3 id="安装-Docker-最新版-1"><a href="#安装-Docker-最新版-1" class="headerlink" title="安装 Docker 最新版"></a>安装 Docker 最新版</h3><div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> apt-get remove -y docker.io docker-compose docker-compose-v2 docker-doc podman-docker containerd runc  <span class="comment"># 卸载旧版 Docker 及冲突软件</span></span><br><span class="line"><span class="built_in">sudo</span> apt-get update   <span class="comment"># 更新软件包索引</span></span><br><span class="line"><span class="built_in">sudo</span> apt-get install -y ca-certificates curl gnupg lsb-release  <span class="comment"># 安装必要工具</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 添加 Docker 官方 GPG 密钥并新建 Apt 仓库 keyrings 目录</span></span><br><span class="line"><span class="built_in">sudo</span> <span class="built_in">mkdir</span> -p /etc/apt/keyrings</span><br><span class="line">curl -fsSL https://download.docker.com/linux/ubuntu/gpg | <span class="built_in">sudo</span> <span class="built_in">tee</span> /etc/apt/keyrings/docker.asc  <span class="comment"># 获取 Docker GPG 密钥</span></span><br><span class="line"><span class="built_in">sudo</span> <span class="built_in">chmod</span> a+r /etc/apt/keyrings/docker.asc</span><br><span class="line"></span><br><span class="line"><span class="comment"># 添加 Docker 官方 apt 软件源（Ubuntu 24.04 代号为 noble）</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;deb [arch=<span class="subst">$(dpkg --print-architecture)</span> signed-by=/etc/apt/keyrings/docker.asc] \</span></span><br><span class="line"><span class="string">https://download.docker.com/linux/ubuntu <span class="subst">$(lsb_release -cs)</span> stable&quot;</span> \</span><br><span class="line">  | <span class="built_in">sudo</span> <span class="built_in">tee</span> /etc/apt/sources.list.d/docker.list  </span><br><span class="line"></span><br><span class="line"><span class="built_in">sudo</span> apt-get update  <span class="comment"># 更新仓库索引</span></span><br><span class="line"><span class="built_in">sudo</span> apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin  <span class="comment"># 安装 Docker 引擎及相关组件</span></span><br></pre></td></tr></table></figure></div>
+<h3 id="配置阿里云容器镜像加速"><a href="#配置阿里云容器镜像加速" class="headerlink" title="配置阿里云容器镜像加速"></a>配置阿里云容器镜像加速</h3><blockquote>
+<p>从<code>阿里云容器镜像服务控制台</code>获取专属加速地址</p>
+</blockquote>
+<p><a class="link"   target="_blank" rel="noopener" href="https://cr.console.aliyun.com/cn-hangzhou/instances/mirrors" >阿里云镜像连接<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a>：<a class="link"   target="_blank" rel="noopener" href="https://cr.console.aliyun.com/cn-hangzhou/instances/mirrors" >https://cr.console.aliyun.com/cn-hangzhou/instances/mirrors<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a><br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://free4.yunpng.top/2025/04/30/6811d6119c5fc.png"
+                     
+                ><br><strong>复制下方命令在命令行输入</strong> </p>
+<div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ll /etc/docker</span><br></pre></td></tr></table></figure></div>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://free4.yunpng.top/2025/04/30/6811d727c7642.png"
+                     
+                ><br>出现这行即配置完成</p>
+
 		</div>
 
 		
@@ -573,23 +631,11 @@
 		
 		<div class="article-nav my-8 flex justify-between items-center px-2 sm:px-6 md:px-8">
 			
-			<div class="article-prev border-border-color shadow-redefine-flat shadow-shadow-color-2 rounded-medium px-4 py-2 hover:shadow-redefine-flat-hover hover:shadow-shadow-color-2">
-				<a class="prev" rel="prev" href="/Linux/Ubuntu/">
-					<span class="left arrow-icon flex justify-center items-center">
-						<i class="fa-solid fa-chevron-left"></i>
-					</span>
-					<span class="title flex justify-center items-center">
-						<span class="post-nav-title-item">Win11安装Ubuntu实现双系统</span>
-						<span class="post-nav-item">Prev posts</span>
-					</span>
-				</a>
-			</div>
-			
 			
 			<div class="article-next border-border-color shadow-redefine-flat shadow-shadow-color-2 rounded-medium px-4 py-2 hover:shadow-redefine-flat-hover hover:shadow-shadow-color-2">
-				<a class="next" rel="next" href="/SpringBoot/mybatis-plus/mp-api/">
+				<a class="next" rel="next" href="/Linux/Linux/shortcut/">
 					<span class="title flex justify-center items-center">
-						<span class="post-nav-title-item">BaseMapper、IService方法使用</span>
+						<span class="post-nav-title-item">在Ubuntu将可执行程序显示在应用程序中，以Cursor为例</span>
 						<span class="post-nav-item">Next posts</span>
 					</span>
 					<span class="right arrow-icon flex justify-center items-center">
@@ -653,8 +699,8 @@
 		<div class="post-toc-wrap">
 	<div class="post-toc">
 		<div class="toc-title">On this page</div>
-		<div class="page-title">Docker</div>
-		
+		<div class="page-title">关于Docker拉取镜像超时/无法访问镜像仓库解决方案</div>
+		<ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%85%B3%E4%BA%8EDocker%E6%8B%89%E5%8F%96%E9%95%9C%E5%83%8F%E8%B6%85%E6%97%B6-%E6%97%A0%E6%B3%95%E8%AE%BF%E9%97%AE%E9%95%9C%E5%83%8F%E4%BB%93%E5%BA%93%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-text">关于Docker拉取镜像超时&#x2F;无法访问镜像仓库解决方案</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8D%B8%E8%BD%BD%E5%8E%9F%E5%85%88%E5%AE%89%E8%A3%85%E7%9A%84Docker%E5%8F%8A%E7%9B%B8%E5%85%B3%E9%85%8D%E7%BD%AE"><span class="nav-text">卸载原先安装的Docker及相关配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8VPN%E4%BB%A3%E7%90%86%E6%97%A0%E6%B3%95%E6%8B%89%E5%8F%96%E9%95%9C%E5%83%8F%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-text">使用VPN代理无法拉取镜像解决方案</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%AA%8C%E8%AF%81%E4%BB%A3%E7%90%86%E8%BF%9E%E9%80%9A%E6%80%A7"><span class="nav-text">验证代理连通性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85-Docker-%E6%9C%80%E6%96%B0%E7%89%88"><span class="nav-text">安装 Docker 最新版</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE-Docker-Daemon-HTTP-%E4%BB%A3%E7%90%86"><span class="nav-text">配置 Docker Daemon HTTP 代理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%87%8D%E5%90%AF%E9%AA%8C%E8%AF%81%E4%B8%8E%E6%8B%89%E5%8F%96%E9%95%9C%E5%83%8F"><span class="nav-text">重启验证与拉取镜像</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%8D%E4%BD%BF%E7%94%A8VPN%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-text">不使用VPN解决方案</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85-Docker-%E6%9C%80%E6%96%B0%E7%89%88-1"><span class="nav-text">安装 Docker 最新版</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE%E9%98%BF%E9%87%8C%E4%BA%91%E5%AE%B9%E5%99%A8%E9%95%9C%E5%83%8F%E5%8A%A0%E9%80%9F"><span class="nav-text">配置阿里云容器镜像加速</span></a></li></ol></li></ol></li></ol>
 
 	</div>
 </div>
@@ -681,7 +727,7 @@
                 
                 <p class="post-count space-x-0.5">
                     <span>
-                        15 posts in total
+                        16 posts in total
                     </span>
                     
                 </p>

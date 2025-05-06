@@ -1,0 +1,1369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="Hexo Theme Redefine">
+    
+    <meta name="author" content="Aer">
+    <!-- preconnect -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    
+        
+        
+        
+            <link rel="preconnect" href="https://registry.npmmirror.com" crossorigin>
+        
+    
+    <!--- Seo Part-->
+    
+    <link rel="canonical" href="http://example.com/uncategorized/linux/docker/"/>
+    <meta name="robots" content="index,follow">
+    <meta name="googlebot" content="index,follow">
+    <meta name="revisit-after" content="1 days">
+    
+    
+    
+        
+        <meta name="description" content="Hexo Theme Redefine, Redefine Your Hexo Journey.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Docker">
+<meta property="og:url" content="http://example.com/uncategorized/Linux/Docker/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="Hexo Theme Redefine, Redefine Your Hexo Journey.">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/images/redefine-og.webp">
+<meta property="article:published_time" content="2025-04-20T14:57:06.000Z">
+<meta property="article:modified_time" content="2025-05-05T09:08:50.279Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="Docker">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/images/redefine-og.webp">
+    
+    
+    <!--- Icon Part-->
+    <link rel="icon" type="image/png" href="/static/Aer.jpg" sizes="192x192">
+    <link rel="apple-touch-icon" sizes="180x180" href="/static/Aer.jpg">
+    <meta name="theme-color" content="#A31F34">
+    <link rel="shortcut icon" href="/static/Aer.jpg">
+    <!--- Page Info-->
+    
+    <title>
+        
+            Docker | Aer-Home
+        
+    </title>
+
+    <link rel="stylesheet" href="https://registry.npmmirror.com/hexo-theme-redefine/2.8.2/files/source/fonts/Chillax/chillax.css">
+
+    <!--- Inject Part-->
+    
+        
+            
+    
+            
+    
+            
+                
+                    <script data-swup-reload-script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js"></script>
+                
+    
+            
+                
+                    <script data-swup-reload-script>
+  MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$', '$$'], ['\\[', '\\]']],
+      processEscapes: true
+    }
+  };
+</script>
+
+                
+    
+            
+                
+                    <link rel="stylesheet" href="/css/mathjax.css">
+                
+    
+            
+                
+                    <link rel="stylesheet" href="/css/custom.css">
+                
+    
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    
+        <link rel="stylesheet" href="https://registry.npmmirror.com/hexo-theme-redefine/2.8.2/files/source/css/build/tailwind.css">
+    
+
+    <link rel="stylesheet" href="https://registry.npmmirror.com/hexo-theme-redefine/2.8.2/files/source/fonts/GeistMono/geist-mono.css">
+    <link rel="stylesheet" href="https://registry.npmmirror.com/hexo-theme-redefine/2.8.2/files/source/fonts/Geist/geist.css">
+    <!--- Font Part-->
+    
+    
+    
+    
+    
+    
+        <script  src="https://registry.npmmirror.com/hexo-theme-redefine/2.8.2/files/source/js/build/libs/anime.min.js" ></script>
+    
+
+    <script id="hexo-configurations">
+    window.config = {"hostname":"example.com","root":"/","language":"en"};
+    window.theme = {"articles":{"style":{"font_size":"16px","line_height":1.5,"image_border_radius":"14px","image_alignment":"center","image_caption":false,"link_icon":true,"delete_mask":false,"title_alignment":"left","headings_top_spacing":{"h1":"3.2rem","h2":"2.4rem","h3":"1.9rem","h4":"1.6rem","h5":"1.4rem","h6":"1.3rem"}},"word_count":{"enable":true,"count":true,"min2read":true},"author_label":{"enable":true,"auto":false,"list":[]},"code_block":{"copy":true,"style":"mac","highlight_theme":{"light":"atom-one-light","dark":"vs2015"},"font":{"enable":false,"family":null,"url":null}},"toc":{"enable":true,"max_depth":3,"number":false,"expand":true,"init_open":true},"copyright":{"enable":false,"default":"cc_by_nc_sa"},"lazyload":true,"pangu_js":false,"recommendation":{"enable":false,"title":"推荐阅读","limit":3,"mobile_limit":2,"placeholder":"/images/wallhaven-wqery6-light.webp","skip_dirs":[]}},"colors":{"primary":"#A31F34","secondary":"#A31F34","default_mode":"light"},"global":{"fonts":{"chinese":{"enable":false,"family":null,"url":null},"english":{"enable":false,"family":null,"url":null},"title":{"enable":false,"family":null,"url":null}},"content_max_width":"1000px","sidebar_width":"210px","hover":{"shadow":true,"scale":false},"scroll_progress":{"bar":false,"percentage":true},"website_counter":{"url":"https://cn.vercount.one/js","enable":true,"site_pv":false,"site_uv":false,"post_pv":true},"single_page":true,"preloader":{"enable":true,"custom_message":"Aer-Home"},"open_graph":{"enable":true,"image":"/images/redefine-og.webp","description":"Hexo Theme Redefine, Redefine Your Hexo Journey."},"google_analytics":{"enable":false,"id":null}},"home_banner":{"enable":true,"style":"fixed","image":{"light":"/images/wallhaven-wqery6-light.webp","dark":"/images/wallhaven-wqery6-dark.webp"},"title":"Javaer","subtitle":{"text":[],"hitokoto":{"enable":false,"show_author":false,"api":"https://v1.hitokoto.cn"},"typing_speed":100,"backing_speed":80,"starting_delay":500,"backing_delay":1500,"loop":true,"smart_backspace":true},"text_color":{"light":"#fff","dark":"#d1d1b6"},"text_style":{"title_size":"2.8rem","subtitle_size":"1.5rem","line_height":1.2},"custom_font":{"enable":false,"family":null,"url":null},"social_links":{"enable":false,"style":"default","links":{"github":null,"instagram":null,"zhihu":null,"twitter":null,"email":null},"qrs":{"weixin":null}}},"plugins":{"feed":{"enable":false},"aplayer":{"enable":false,"type":"fixed","audios":[{"name":null,"artist":null,"url":null,"cover":null,"lrc":null}]},"mermaid":{"enable":true,"version":"11.4.1"}},"version":"2.8.2","navbar":{"auto_hide":true,"color":{"left":"#f78736","right":"#367df7","transparency":35},"width":{"home":"1200px","pages":"1000px"},"links":{"Home":{"path":"/","icon":"fa-regular fa-house"},"Tags":{"path":"/tags","icon":"fa-solid fa-tags"},"Categories":{"icon":"fa-solid fa-folder","path":"/categories/"}},"search":{"enable":false,"preload":true}},"page_templates":{"friends_column":2,"tags_style":"blur"},"home":{"sidebar":{"enable":true,"position":"left","first_item":"menu","announcement":null,"show_on_mobile":true,"links":{"Tags":{"path":"/tags","icon":"fa-solid fa-tags"},"Categories":{"icon":"fa-solid fa-folder","path":"/categories/"}}},"article_date_format":"auto","excerpt_length":200,"categories":{"enable":true,"limit":3},"tags":{"enable":true,"limit":3}},"footerStart":"2025/3/27 11:45:14"};
+    window.lang_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"};
+    window.data = {"masonry":false};
+  </script>
+    
+    <!--- Fontawesome Part-->
+    <link rel="stylesheet" href="https://registry.npmmirror.com/hexo-theme-redefine/2.8.2/files/source/fontawesome/fontawesome.min.css">
+    <link rel="stylesheet" href="https://registry.npmmirror.com/hexo-theme-redefine/2.8.2/files/source/fontawesome/brands.min.css">
+    <link rel="stylesheet" href="https://registry.npmmirror.com/hexo-theme-redefine/2.8.2/files/source/fontawesome/solid.min.css">
+    <link rel="stylesheet" href="https://registry.npmmirror.com/hexo-theme-redefine/2.8.2/files/source/fontawesome/regular.min.css">
+    
+    
+    
+    
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+
+<body>
+	<div class="progress-bar-container">
+	
+
+	
+	<span class="pjax-progress-bar"></span>
+	<!--        <span class="swup-progress-icon">-->
+	<!--            <i class="fa-solid fa-circle-notch fa-spin"></i>-->
+	<!--        </span>-->
+	
+</div>
+
+<style>
+    :root {
+        --preloader-background-color: #fff;
+        --preloader-text-color: #000;
+    }
+
+    @media (prefers-color-scheme: dark) {
+        :root {
+            --preloader-background-color: #202124;
+            --preloader-text-color: #fff;
+        }
+    }
+
+    @media (prefers-color-scheme: light) {
+        :root {
+            --preloader-background-color: #fff;
+            --preloader-text-color: #000;
+        }
+    }
+
+    @media (max-width: 600px) {
+        .ml13 {
+            font-size: 2.6rem !important; /* Adjust this value as needed */
+        }
+    }
+
+    .preloader {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem; /* Tailwind 'gap-4' is 1rem */
+        align-items: center;
+        justify-content: center;
+        position: fixed;
+        padding: 12px;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh; /* 'h-screen' is 100% of the viewport height */
+        background-color: var(--preloader-background-color);
+        z-index: 1100; /* 'z-[1100]' sets the z-index */
+        transition: opacity 0.2s ease-in-out;
+    }
+
+    .ml13 {
+        font-size: 3.2rem;
+        /* text-transform: uppercase; */
+        color: var(--preloader-text-color);
+        letter-spacing: -1px;
+        font-weight: 500;
+        font-family: 'Chillax-Variable', sans-serif;
+        text-align: center;
+    }
+
+    .ml13 .word {
+        display: inline-flex;
+        flex-wrap: wrap;
+        white-space: nowrap;
+    }
+
+    .ml13 .letter {
+        display: inline-block;
+        line-height: 1em;
+    }
+</style>
+
+<div class="preloader">
+    <h2 class="ml13">
+        Aer-Home
+    </h2>
+    <script>
+        var textWrapper = document.querySelector('.ml13');
+        // Split text into words
+        var words = textWrapper.textContent.trim().split(' ');
+
+        // Clear the existing content
+        textWrapper.innerHTML = '';
+
+        // Wrap each word and its letters in spans
+        words.forEach(function(word) {
+            var wordSpan = document.createElement('span');
+            wordSpan.classList.add('word');
+            wordSpan.innerHTML = word.replace(/\S/g, "<span class='letter'>$&</span>");
+            textWrapper.appendChild(wordSpan);
+            textWrapper.appendChild(document.createTextNode(' ')); // Add space between words
+        });
+
+        var animation = anime.timeline({ loop: true })
+            .add({
+                targets: '.ml13 .letter',
+                translateY: [20, 0],
+                translateZ: 0,
+                opacity: [0, 1],
+                filter: ['blur(5px)', 'blur(0px)'],
+                easing: "easeOutExpo",
+                duration: 1200,
+                delay: (el, i) => 300 + 20 * i,
+            })
+            .add({
+                targets: '.ml13 .letter',
+                translateY: [0, -20],
+                opacity: [1, 0],
+                filter: ['blur(0px)', 'blur(5px)'],
+                easing: "easeInExpo",
+                duration: 1000,
+                delay: (el, i) => 15 * i,
+                complete: function() {
+                    hidePreloader();
+                }
+            }, '-=700');
+
+
+        let themeStatus = JSON.parse(localStorage.getItem('REDEFINE-THEME-STATUS'))?.isDark;
+
+        // If the theme status is not found in local storage, check the preferred color scheme
+        if (themeStatus === undefined || themeStatus === null) {
+            if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                themeStatus = 'dark';
+            } else {
+                themeStatus = 'light';
+            }
+        }
+
+        // Now you can use the themeStatus variable in your code
+        if (themeStatus) {
+            document.documentElement.style.setProperty('--preloader-background-color', '#202124');
+            document.documentElement.style.setProperty('--preloader-text-color', '#fff');
+        } else {
+            document.documentElement.style.setProperty('--preloader-background-color', '#fff');
+            document.documentElement.style.setProperty('--preloader-text-color', '#000');
+        }
+
+        window.addEventListener('load', function () {
+            setTimeout(hidePreloader, 5000); // Call hidePreloader after 5000 milliseconds if not already called by animation
+        });
+
+        function hidePreloader() {
+            var preloader = document.querySelector('.preloader');
+            preloader.style.opacity = '0';
+            setTimeout(function () {
+                preloader.style.display = 'none';
+            }, 200);
+        }
+    </script>
+</div>
+
+<main class="page-container" id="swup">
+
+	
+
+	<div class="main-content-container flex flex-col justify-between min-h-dvh">
+		<div class="main-content-header">
+			<header class="navbar-container px-6 md:px-12">
+    <div class="navbar-content transition-navbar ">
+        <div class="left">
+            
+            <a class="logo-title" href="/">
+                
+                Aer-Home
+                
+            </a>
+        </div>
+
+        <div class="right">
+            <!-- PC -->
+            <div class="desktop">
+                <ul class="navbar-list">
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class=""
+                                   href="/"
+                                        >
+                                    <i class="fa-regular fa-house fa-fw"></i>
+                                    HOME
+                                    
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class=""
+                                   href="/tags"
+                                        >
+                                    <i class="fa-solid fa-tags fa-fw"></i>
+                                    TAGS
+                                    
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class=""
+                                   href="/categories/"
+                                        >
+                                    <i class="fa-solid fa-folder fa-fw"></i>
+                                    CATEGORIES
+                                    
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                    
+                </ul>
+            </div>
+            <!-- Mobile -->
+            <div class="mobile">
+                
+                <div class="icon-item navbar-bar">
+                    <div class="navbar-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mobile sheet -->
+    <div class="navbar-drawer h-dvh w-full absolute top-0 left-0 bg-background-color flex flex-col justify-between">
+        <ul class="drawer-navbar-list flex flex-col px-4 justify-center items-start">
+            
+                
+                    
+
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                           href="/"
+                        >
+                            <span>
+                                HOME
+                            </span>
+                            
+                                <i class="fa-regular fa-house fa-sm fa-fw"></i>
+                            
+                        </a>
+                        
+
+                        
+                    </li>
+            
+                
+                    
+
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                           href="/tags"
+                        >
+                            <span>
+                                TAGS
+                            </span>
+                            
+                                <i class="fa-solid fa-tags fa-sm fa-fw"></i>
+                            
+                        </a>
+                        
+
+                        
+                    </li>
+            
+                
+                    
+
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                           href="/categories/"
+                        >
+                            <span>
+                                CATEGORIES
+                            </span>
+                            
+                                <i class="fa-solid fa-folder fa-sm fa-fw"></i>
+                            
+                        </a>
+                        
+
+                        
+                    </li>
+            
+
+            
+            
+                
+                    
+                    
+            
+        </ul>
+
+        <div class="statistics flex justify-around my-2.5">
+    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/tags">
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">7</div>
+        <div class="label text-third-text-color text-sm">Tags</div>
+    </a>
+    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/categories">
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">6</div>
+        <div class="label text-third-text-color text-sm">Categories</div>
+    </a>
+    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/archives">
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">16</div>
+        <div class="label text-third-text-color text-sm">Posts</div>
+    </a>
+</div>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+		</div>
+
+		<div class="main-content-body transition-fade-up">
+			
+
+			<div class="main-content">
+				<div class="post-page-container flex relative justify-between box-border w-full h-full">
+	<div class="article-content-container">
+
+		<div class="article-title relative w-full">
+			
+			<div class="w-full flex items-center pt-6 justify-start">
+				<h1 class="article-title-regular text-second-text-color tracking-tight text-4xl md:text-6xl font-semibold px-2 sm:px-6 md:px-8 py-3">Docker</h1>
+			</div>
+			
+		</div>
+
+		
+		<div class="article-header flex flex-row gap-2 items-center px-2 sm:px-6 md:px-8">
+			<div class="avatar w-[46px] h-[46px] flex-shrink-0 rounded-medium border border-border-color p-[1px]">
+				<img src="/static/Aer.jpg">
+			</div>
+			<div class="info flex flex-col justify-between">
+				<div class="author flex items-center">
+					<span class="name text-default-text-color text-lg font-semibold">Aer</span>
+					
+					<span class="author-label ml-1.5 text-xs px-2 py-0.5 rounded-small text-third-text-color border border-shadow-color-1">Lv3</span>
+					
+				</div>
+				<div class="meta-info">
+					<div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fa-regular fa-pen-fancy"></i>&nbsp;
+        <span class="desktop">2025-04-20 22:57:06</span>
+        <span class="mobile">2025-04-20 22:57:06</span>
+        <span class="hover-info">Created</span>
+    </span>
+    
+        <span class="article-date article-meta-item">
+            <i class="fa-regular fa-wrench"></i>&nbsp;
+            <span class="desktop">2025-05-05 17:08:50</span>
+            <span class="mobile">2025-05-05 17:08:50</span>
+            <span class="hover-info">Updated</span>
+        </span>
+    
+
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fa-regular fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/Docker/">Docker</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+    
+    
+        <span class="article-pv article-meta-item">
+            <i class="fa-regular fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+        </span>
+    
+</div>
+
+				</div>
+			</div>
+		</div>
+		
+
+		
+
+
+		<div class="article-content markdown-body px-2 sm:px-6 md:px-8 pb-8">
+			<h1 id="Docker安装与使用"><a href="#Docker安装与使用" class="headerlink" title="Docker安装与使用"></a>Docker安装与使用</h1><h2 id="安装Docker"><a href="#安装Docker" class="headerlink" title="安装Docker"></a>安装Docker</h2><p><em><a class="link"   target="_blank" rel="noopener" href="https://blog.csdn.net/SoulruiA/article/details/147655089?spm=1001.2014.3001.5501" >参考该文章<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></em>:<a class="link"   target="_blank" rel="noopener" href="https://blog.csdn.net/SoulruiA/article/details/147655089?spm=1001.2014.3001.5501" >https://blog.csdn.net/SoulruiA/article/details/147655089?spm=1001.2014.3001.5501<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></p>
+<h2 id="Docker常用命令"><a href="#Docker常用命令" class="headerlink" title="Docker常用命令"></a>Docker常用命令</h2><h3 id="运行容器"><a href="#运行容器" class="headerlink" title="运行容器"></a>运行容器</h3><div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run [选项] 镜像名 [命令]</span><br></pre></td></tr></table></figure></div>
+<p><strong>常用选项：</strong></p>
+<ul>
+<li><code>-d</code> 后台运行  </li>
+<li><code>-it</code> 交互模式（通常与 <code>bash</code> 结合）  </li>
+<li><code>--name</code> 指定容器名称  </li>
+<li><code>-p 主机端口:容器端口</code> 端口映射  </li>
+<li><code>-v 主机路径:容器路径</code> 挂载数据卷  </li>
+<li><code>--rm</code> 退出后自动删除容器  </li>
+<li><code>-e</code> 设置环境变量</li>
+</ul>
+<p>以<code>MySql</code>为例</p>
+<div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">docker run -d \ <span class="comment">#创建并运行一个容器 -d是让容器后台运行</span></span><br><span class="line"> --name mysql \ <span class="comment">#容器名字 必须唯一</span></span><br><span class="line"> -p 3306:3306 \ <span class="comment">#mysql端口映射 宿主端口:容器内端口</span></span><br><span class="line"> -e MYSQL_ROOT_PASSWORD=123456 \ <span class="comment">#设置密码</span></span><br><span class="line"> mysql <span class="comment">#镜像名字完整写法:[repository]:[tag] 镜像名：版本 默认latest</span></span><br></pre></td></tr></table></figure></div>
+
+<h3 id="查看镜像"><a href="#查看镜像" class="headerlink" title="查看镜像"></a>查看镜像</h3><p><strong>语法：<code>docker images</code></strong></p>
+<h3 id="拉取镜像"><a href="#拉取镜像" class="headerlink" title="拉取镜像"></a>拉取镜像</h3><p><strong>语法：<code>docker pull [repository]:[tag]</code></strong></p>
+<ul>
+<li>repository 镜像名</li>
+<li>tag 版本号</li>
+</ul>
+<div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker pull nginx:latest</span><br><span class="line"><span class="comment">#拉取nginx最新版</span></span><br></pre></td></tr></table></figure></div>
+<h3 id="删除镜像"><a href="#删除镜像" class="headerlink" title="删除镜像"></a>删除镜像</h3><p><strong>语法：<code>docker rmi 镜像名</code></strong></p>
+<div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker rmi nginx:latest</span><br></pre></td></tr></table></figure></div>
+<h3 id="导出镜像"><a href="#导出镜像" class="headerlink" title="导出镜像"></a>导出镜像</h3><p><strong>语法：<code>docker save [-o 文件名] 镜像</code></strong></p>
+<div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker save -o nginx.tar nginx:latest</span><br><span class="line"><span class="comment">#将nginx:latest打包成名为nginx.tar的包</span></span><br></pre></td></tr></table></figure></div>
+<h3 id="导入镜像"><a href="#导入镜像" class="headerlink" title="导入镜像"></a>导入镜像</h3><p><strong>语法：<code>docker load -i 输入文件名.tar</code></strong></p>
+<ul>
+<li>-<code>i</code>：<code>input</code> 指定输入名</li>
+</ul>
+<div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker load -i nginx.tar</span><br></pre></td></tr></table></figure></div>
+<h3 id="查看容器状态"><a href="#查看容器状态" class="headerlink" title="查看容器状态"></a>查看容器状态</h3><p><strong>语法：<code>docker ps [选项]</code></strong></p>
+<table>
+<thead>
+<tr>
+<th>选项</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>-a</code> 或 <code>--all</code></td>
+<td>显示 所有容器（包括已停止的）</td>
+</tr>
+<tr>
+<td><code>-q</code> 或 <code>--quiet</code></td>
+<td>仅显示 容器ID（适合脚本处理）</td>
+</tr>
+<tr>
+<td><code>-s</code> 或 <code>--size</code></td>
+<td>显示容器占用磁盘大小</td>
+</tr>
+<tr>
+<td><code>--filter</code> 或 <code>-f</code></td>
+<td>按条件过滤容器（见下方示例）</td>
+</tr>
+<tr>
+<td><code>--format</code></td>
+<td>自定义输出格式（Go模板语法,见下方）</td>
+</tr>
+<tr>
+<td><code>--no-trunc</code></td>
+<td>显示完整信息（不截断输出）</td>
+</tr>
+<tr>
+<td><strong>条件过滤</strong></td>
+<td></td>
+</tr>
+</tbody></table>
+<div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 按名称过滤</span></span><br><span class="line">docker ps --filter <span class="string">&quot;name=webserver&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 按状态过滤</span></span><br><span class="line">docker ps --filter <span class="string">&quot;status=exited&quot;</span>  <span class="comment"># 已停止的容器</span></span><br><span class="line">docker ps --filter <span class="string">&quot;status=running&quot;</span> <span class="comment"># 运行中的容器</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 按镜像过滤</span></span><br><span class="line">docker ps --filter <span class="string">&quot;ancestor=nginx&quot;</span>  <span class="comment"># 使用 nginx 镜像的容器</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 按标签过滤（自定义标签）</span></span><br><span class="line">docker ps --filter <span class="string">&quot;label=env=prod&quot;</span></span><br></pre></td></tr></table></figure></div>
+<p><strong>格式输出</strong></p>
+<div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 仅显示容器ID和镜像名</span></span><br><span class="line">docker ps --format <span class="string">&quot;&#123;&#123;.ID&#125;&#125;: &#123;&#123;.Image&#125;&#125;&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 表格形式显示名称、状态、端口</span></span><br><span class="line">docker ps --format <span class="string">&quot;table &#123;&#123;.Names&#125;&#125;\t&#123;&#123;.Status&#125;&#125;\t&#123;&#123;.Ports&#125;&#125;&quot;</span></span><br></pre></td></tr></table></figure></div>
+<h3 id="查看日志"><a href="#查看日志" class="headerlink" title="查看日志"></a>查看日志</h3><p><strong>语法：<code>docker logs [选项] 容器名或ID</code></strong></p>
+<table>
+<thead>
+<tr>
+<th>选项</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>-f</code> 或 <code>--follow</code></td>
+<td>实时跟踪日志（类似 <code>tail -f</code>）</td>
+</tr>
+<tr>
+<td><code>--tail N</code></td>
+<td>仅显示最后 N 行日志（默认全部）</td>
+</tr>
+<tr>
+<td><code>-t</code> 或 <code>--timestamps</code></td>
+<td>显示时间戳</td>
+</tr>
+<tr>
+<td><code>--since</code></td>
+<td>显示指定时间之后的日志（如 <code>--since 2024-01-01</code> 或 <code>--since 1h</code>）</td>
+</tr>
+<tr>
+<td><code>--until</code></td>
+<td>显示指定时间之前的日志</td>
+</tr>
+<tr>
+<td><code>--details</code></td>
+<td>显示额外的日志元数据</td>
+</tr>
+</tbody></table>
+<div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker logs -f mysql</span><br><span class="line"><span class="comment">#跟踪mysql日志</span></span><br></pre></td></tr></table></figure></div>
+<h3 id="进入容器内部"><a href="#进入容器内部" class="headerlink" title="进入容器内部"></a>进入容器内部</h3><p><strong>语法：<code>docker exec [选项] 容器名或ID</code></strong></p>
+<table>
+<thead>
+<tr>
+<th>选项</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>-it</code></td>
+<td>交互式操作（组合 <code>-i</code> 保持输入 + <code>-t</code> 分配伪终端）</td>
+</tr>
+<tr>
+<td><code>-d</code></td>
+<td>后台执行命令（不阻塞终端）</td>
+</tr>
+<tr>
+<td><code>-u</code></td>
+<td>指定用户执行（如 <code>-u root</code> 或 <code>-u www-data</code>）</td>
+</tr>
+<tr>
+<td><code>-e</code></td>
+<td>设置环境变量（如 <code>-e VAR=value</code>）</td>
+</tr>
+<tr>
+<td><code>-w</code></td>
+<td>指定工作目录（如 <code>-w /app</code>）</td>
+</tr>
+</tbody></table>
+<h3 id="容器启用、停用、删除"><a href="#容器启用、停用、删除" class="headerlink" title="容器启用、停用、删除"></a>容器启用、停用、删除</h3><p><strong>语法：<code>docker [start stop rm] 容器名或ID</code></strong></p>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>start</td>
+<td>启动暂停的容器</td>
+</tr>
+<tr>
+<td>stop</td>
+<td>停止容器运行</td>
+</tr>
+<tr>
+<td>rm</td>
+<td>删除容器</td>
+</tr>
+</tbody></table>
+<h3 id="数据卷"><a href="#数据卷" class="headerlink" title="数据卷"></a>数据卷</h3><blockquote>
+<p>容器内目录和主机目录之间映射的桥梁，当修改宿主机对应的文件，容器内文件也会修改，实现双向绑定,数据共享,查看官方文档进行目录挂载,<code>docher hub</code></p>
+</blockquote>
+<hr>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>作用</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>docker volume create</code></td>
+<td>创建数据卷</td>
+<td><code>docker volume create my_vol</code></td>
+</tr>
+<tr>
+<td><code>docker volume ls</code></td>
+<td>列出所有数据卷</td>
+<td><code>docker volume ls</code></td>
+</tr>
+<tr>
+<td><code>docker volume inspect</code></td>
+<td>查看数据卷详情</td>
+<td><code>docker volume inspect my_vol</code></td>
+</tr>
+<tr>
+<td><code>docker volume rm</code></td>
+<td>删除数据卷</td>
+<td><code>docker volume rm my_vol</code></td>
+</tr>
+<tr>
+<td><code>docker volume prune</code></td>
+<td>清理未使用的数据卷</td>
+<td><code>docker volume prune</code></td>
+</tr>
+</tbody></table>
+<p><strong>案例1：实现将静态资源部署到nginx容器的html目录</strong></p>
+<div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">docker run -d --name nginx -p 80:80 -v html:/usr/share/nginx/html nginx <span class="comment">#挂在目录需要在创建时就执行，数据卷名:所要挂载的目录</span></span><br><span class="line"></span><br><span class="line">docker volume inspect html <span class="comment">#查看数据卷挂在宿主机位置</span></span><br><span class="line"></span><br><span class="line">打开宿主机对应挂载目录并修改，容器内文件也会进行相应修改</span><br></pre></td></tr></table></figure></div>
+
+<p><strong>案例2：实现MySql容器数据挂载到自定义目录</strong></p>
+<div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"> docker run --name mysql -p 3306:3306 -e MYSQL_ROOT_PASSWORD=123456 -v /home/aer/mysql/data:/var/lib/mysql mysql</span><br><span class="line"><span class="comment">#将mysql数据目录挂载到/home/aer/mysql下</span></span><br></pre></td></tr></table></figure></div>
+<h3 id="自定义镜像"><a href="#自定义镜像" class="headerlink" title="自定义镜像"></a>自定义镜像</h3><blockquote>
+<p>镜像就是包含了应用程序、程序运行的系统函数库、运行配置等文件的打包</p>
+</blockquote>
+<hr>
+<p>部署一个Java应用的步骤：</p>
+<ol>
+<li>准备一个Linux服务器</li>
+<li>安装JRE并配置环境变量</li>
+<li>拷贝jar包</li>
+<li>运行jar包</li>
+</ol>
+<p><strong>Dockerfile 常用指令</strong></p>
+<table>
+<thead>
+<tr>
+<th>指令</th>
+<th>作用</th>
+<th>Java 项目示例</th>
+<th>最佳实践</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>FROM</code></td>
+<td>指定基础镜像</td>
+<td><code>FROM eclipse-temurin:17-jdk-jammy</code></td>
+<td>使用官方 OpenJDK 镜像（如 <code>eclipse-temurin</code>），明确版本号；生产环境避免使用 <code>latest</code>。</td>
+</tr>
+<tr>
+<td><code>WORKDIR</code></td>
+<td>设置工作目录</td>
+<td><code>WORKDIR /app</code></td>
+<td>所有后续命令基于此目录执行，避免硬编码路径。</td>
+</tr>
+<tr>
+<td><code>COPY</code></td>
+<td>复制文件到镜像</td>
+<td><code>COPY target/my-app.jar app.jar</code><br><code>COPY src/main/resources/conf/ /conf/</code></td>
+<td>优先用 <code>COPY</code> 而非 <code>ADD</code>（除非需自动解压）；分阶段复制以减少层数。</td>
+</tr>
+<tr>
+<td><code>RUN</code></td>
+<td>执行命令（构建阶段）</td>
+<td><code>RUN apt-get update &amp;&amp; apt-get install -y curl</code></td>
+<td>合并命令（用 <code>&amp;&amp;</code> 和 <code>\</code>），清理缓存（如 <code>apt</code> 或 <code>mvn</code> 临时文件）。</td>
+</tr>
+<tr>
+<td><code>ENV</code>**</td>
+<td>设置环境变量</td>
+<td><code>ENV JAVA_OPTS=&quot;-Xms512m -Xmx1024m&quot;</code><br><code>ENV PROFILE=&quot;prod&quot;</code></td>
+<td>统一管理配置（如 JVM 参数、Spring Profile）。</td>
+</tr>
+<tr>
+<td><code>EXPOSE</code></td>
+<td>声明容器暴露端口</td>
+<td><code>EXPOSE 8080</code></td>
+<td>仅文档作用，实际端口映射在 <code>docker run</code> 时通过 <code>-p</code> 指定。</td>
+</tr>
+<tr>
+<td><code>CMD</code></td>
+<td>容器启动时执行的命令（可被覆盖）</td>
+<td><code>CMD [&quot;java&quot;, &quot;-jar&quot;, &quot;app.jar&quot;]</code><br><code>CMD [&quot;java&quot;, &quot;$&#123;JAVA_OPTS&#125;&quot;, &quot;-jar&quot;, &quot;app.jar&quot;]</code></td>
+<td>使用 JSON 数组格式（避免 Shell 解析问题），参数通过环境变量注入。</td>
+</tr>
+<tr>
+<td><code>ENTRYPOINT</code></td>
+<td>容器入口命令（不可被覆盖）</td>
+<td><code>ENTRYPOINT [&quot;java&quot;, &quot;-jar&quot;, &quot;app.jar&quot;]</code></td>
+<td>与 <code>CMD</code> 结合使用（<code>ENTRYPOINT</code> 定义固定命令，<code>CMD</code> 提供默认参数）。</td>
+</tr>
+<tr>
+<td><code>ARG</code></td>
+<td>构建时传递变量（构建后消失）</td>
+<td><code>ARG MAVEN_VERSION=3.8.6</code><br><code>RUN curl -O https://archive.apache.org/dist/maven/maven-3/$&#123;MAVEN_VERSION&#125;/binaries/...</code></td>
+<td>用于动态指定依赖版本（如 Maven、JDK 版本）。</td>
+</tr>
+<tr>
+<td><code>VOLUME</code></td>
+<td>声明数据卷挂载点</td>
+<td><code>VOLUME /tmp</code></td>
+<td>挂载临时目录（如 Spring Boot 的 <code>/tmp</code>）或日志目录，避免数据丢失。</td>
+</tr>
+</tbody></table>
+<hr>
+<div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#指定Ubuntu镜像</span></span><br><span class="line">FROM ubuntu:24.04</span><br><span class="line"><span class="comment">#配置环境变量，JDK安装目录</span></span><br><span class="line">ENV JAVA_DIR=/usr/local </span><br><span class="line"><span class="comment">#拷贝JDK和JAVA项目包</span></span><br><span class="line">COPY ./jdk8.tar.gz <span class="variable">$JAVA_DIR</span>/</span><br><span class="line">COPY ./docker-demo.jar /tmp/app.jar</span><br><span class="line"><span class="comment">#安装JDK</span></span><br><span class="line">RUN <span class="built_in">cd</span> <span class="variable">$JAVA_DIR</span> \ &amp;&amp; tar -xf ./jdk8.tar.gz \ &amp;&amp; <span class="built_in">mv</span> ./jdk1.8.0_144 ./java8</span><br><span class="line"><span class="comment">#配置环境变量</span></span><br><span class="line">ENV JAVA_HOME=<span class="variable">$JAVA_DIR</span>/java8</span><br><span class="line">ENV PATH=<span class="variable">$PATH</span>:<span class="variable">$JAVA_HOME</span>/bin</span><br><span class="line"><span class="comment">#入口,JAVA项目启动命令</span></span><br><span class="line">ENTRYPOINT [<span class="string">&quot;java&quot;</span>,<span class="string">&quot;-jar&quot;</span>,<span class="string">&quot;/app.jar&quot;</span>]</span><br></pre></td></tr></table></figure></div>
+
+<p><strong>使用基于JDK基础镜像简化操作</strong></p>
+<div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 使用官方轻量级 JRE 镜像（无需手动安装 Java）</span></span><br><span class="line">FROM FROM openjdk:11.0-jre-buster</span><br><span class="line"></span><br><span class="line"><span class="comment"># 设置工作目录</span></span><br><span class="line">WORKDIR /app</span><br><span class="line"></span><br><span class="line"><span class="comment"># 复制 JAR 文件到镜像</span></span><br><span class="line">COPY target/your-app.jar app.jar</span><br><span class="line"></span><br><span class="line"><span class="comment"># 启动命令（直接运行 JAR）</span></span><br><span class="line">ENTRYPOINT [<span class="string">&quot;java&quot;</span>, <span class="string">&quot;-jar&quot;</span>, <span class="string">&quot;app.jar&quot;</span>]</span><br></pre></td></tr></table></figure></div>
+<p><strong>构建镜像</strong></p>
+<div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">docker built -t myImage:1.o .</span><br><span class="line"><span class="comment">#- -t：给镜像起名，格式为repository:tag</span></span><br><span class="line"><span class="comment">#- . 指定Dockerfile所在目录，如果在当前目录则指定为.</span></span><br></pre></td></tr></table></figure></div>
+<h3 id="网络"><a href="#网络" class="headerlink" title="网络"></a>网络</h3><blockquote>
+<p>加入自定义网络的容器可以通过容器名互相访问</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>作用</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>docker network ls</code></td>
+<td>列出所有网络</td>
+<td><code>docker network ls</code></td>
+</tr>
+<tr>
+<td><code>docker network inspect &lt;网络名&gt;</code></td>
+<td>查看网络详细信息</td>
+<td><code>docker network inspect bridge</code></td>
+</tr>
+<tr>
+<td><code>docker network create &lt;网络名&gt;</code></td>
+<td>创建自定义网络</td>
+<td><code>docker network create my_net</code></td>
+</tr>
+<tr>
+<td><code>docker network rm &lt;网络名&gt;</code></td>
+<td>删除网络（需无容器连接）</td>
+<td><code>docker network rm my_net</code></td>
+</tr>
+<tr>
+<td><code>docker network prune</code></td>
+<td>删除所有未使用的网络</td>
+<td><code>docker network prune</code></td>
+</tr>
+<tr>
+<td><code>docker run --network=&lt;网络名&gt;</code></td>
+<td>指定容器运行时的网络</td>
+<td><code>docker run -d --network=my_net nginx</code></td>
+</tr>
+<tr>
+<td><code>docker network connect &lt;网络名&gt; &lt;容器&gt;</code></td>
+<td>将运行中的容器连接到网络</td>
+<td><code>docker network connect my_net my_container</code></td>
+</tr>
+<tr>
+<td><code>docker network disconnect &lt;网络名&gt; &lt;容器&gt;</code></td>
+<td>断开容器与网络的连接</td>
+<td><code>docker network disconnect my_net my_container</code></td>
+</tr>
+</tbody></table>
+<hr>
+<p><strong>将mysql加入自定义网络</strong></p>
+<div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">docker network create net </span><br><span class="line"><span class="comment">#创建一个名为net的网络</span></span><br><span class="line"></span><br><span class="line">docker network connect net mysql</span><br><span class="line"><span class="comment">#将先前创建的mysql容器加入net网络</span></span><br><span class="line"></span><br><span class="line">docker inspect mysql</span><br><span class="line"><span class="comment">#查看mysql容器的ip,发现除默认网桥外还有一个新的网桥</span></span><br></pre></td></tr></table></figure></div>
+<h3 id="Docker-Compose"><a href="#Docker-Compose" class="headerlink" title="Docker Compose"></a>Docker Compose</h3><blockquote>
+<p>Docker Compose 是一个用于定义和运行多容器 Docker 应用的工具，通过一个 YAML 配置文件（<code>docker-compose.yml</code>）来管理多个容器的启动、网络、存储等配置。它特别适合开发环境和微服务架构的部署。</p>
+</blockquote>
+<hr>
+<p><strong>1. Docker Compose 核心概念</strong></p>
+<table>
+<thead>
+<tr>
+<th>概念</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Service（服务）</td>
+<td>一个容器化的应用（如 <code>nginx</code>, <code>mysql</code>, <code>redis</code>），在 <code>docker-compose.yml</code> 中定义。</td>
+</tr>
+<tr>
+<td>Project（项目）</td>
+<td>由多个服务组成的完整应用（如 <code>web + db + cache</code>）。</td>
+</tr>
+<tr>
+<td>YAML 配置文件</td>
+<td><code>docker-compose.yml</code> 定义服务、网络、卷等配置。</td>
+</tr>
+</tbody></table>
+<hr>
+<p><strong>2. Docker Compose 核心命令</strong></p>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>作用</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>docker-compose up</code></td>
+<td>启动所有服务（<code>-d</code> 后台运行）</td>
+<td><code>docker-compose up -d</code></td>
+</tr>
+<tr>
+<td><code>docker-compose down</code></td>
+<td>停止并删除所有容器、网络</td>
+<td><code>docker-compose down</code></td>
+</tr>
+<tr>
+<td><code>docker-compose ps</code></td>
+<td>查看运行中的服务</td>
+<td><code>docker-compose ps</code></td>
+</tr>
+<tr>
+<td><code>docker-compose logs</code></td>
+<td>查看服务日志（<code>-f</code> 实时查看）</td>
+<td><code>docker-compose logs -f web</code></td>
+</tr>
+<tr>
+<td><code>docker-compose exec</code></td>
+<td>进入容器执行命令</td>
+<td><code>docker-compose exec db bash</code></td>
+</tr>
+<tr>
+<td><code>docker-compose build</code></td>
+<td>重新构建镜像</td>
+<td><code>docker-compose build</code></td>
+</tr>
+<tr>
+<td><code>docker-compose pull</code></td>
+<td>拉取服务所需的镜像</td>
+<td><code>docker-compose pull</code></td>
+</tr>
+<tr>
+<td><code>docker-compose restart</code></td>
+<td>重启服务</td>
+<td><code>docker-compose restart web</code></td>
+</tr>
+<tr>
+<td><code>docker-compose config</code></td>
+<td>检查 <code>docker-compose.yml</code> 语法是否正确</td>
+<td><code>docker-compose config</code></td>
+</tr>
+</tbody></table>
+<hr>
+<p><strong>3. <code>docker-compose.yml</code> 文件结构</strong></p>
+<div class="code-container" data-rel="Yaml"><figure class="iseeu highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">version:</span> <span class="string">&quot;3.8&quot;</span>  <span class="comment"># Compose 文件版本（推荐 3.x）</span></span><br><span class="line"><span class="attr">services:</span>       <span class="comment"># 定义所有服务</span></span><br><span class="line">  <span class="attr">web:</span>          <span class="comment"># 服务名称（自定义）</span></span><br><span class="line">    <span class="attr">image:</span> <span class="string">nginx:latest</span>  <span class="comment"># 使用的镜像</span></span><br><span class="line">    <span class="attr">ports:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&quot;80:80&quot;</span>          <span class="comment"># 端口映射（宿主机:容器）</span></span><br><span class="line">    <span class="attr">volumes:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">./html:/usr/share/nginx/html</span>  <span class="comment"># 挂载数据卷</span></span><br><span class="line">    <span class="attr">depends_on:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">db</span>              <span class="comment"># 依赖的服务（先启动 db）</span></span><br><span class="line">    <span class="attr">networks:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">my_net</span>          <span class="comment"># 使用的网络</span></span><br><span class="line"></span><br><span class="line">  <span class="attr">db:</span>            <span class="comment"># 另一个服务（MySQL）</span></span><br><span class="line">    <span class="attr">image:</span> <span class="string">mysql:5.7</span></span><br><span class="line">    <span class="attr">environment:</span>  <span class="comment"># 环境变量</span></span><br><span class="line">      <span class="attr">MYSQL_ROOT_PASSWORD:</span> <span class="string">&quot;123456&quot;</span></span><br><span class="line">    <span class="attr">volumes:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">mysql_data:/var/lib/mysql</span>  <span class="comment"># 命名卷</span></span><br><span class="line">    <span class="attr">networks:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">my_net</span></span><br><span class="line"></span><br><span class="line"><span class="attr">volumes:</span>         <span class="comment"># 定义数据卷</span></span><br><span class="line">  <span class="attr">mysql_data:</span>    <span class="comment"># 命名卷（持久化存储）</span></span><br><span class="line"></span><br><span class="line"><span class="attr">networks:</span>        <span class="comment"># 定义网络</span></span><br><span class="line">  <span class="attr">my_net:</span>        <span class="comment"># 自定义网络</span></span><br><span class="line">    <span class="attr">driver:</span> <span class="string">bridge</span></span><br></pre></td></tr></table></figure></div>
+
+<hr>
+<p><strong>4. 常用配置项</strong><br><strong>服务配置</strong></p>
+<table>
+<thead>
+<tr>
+<th>配置项</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>image</code></td>
+<td>指定镜像（如 <code>nginx:latest</code>）</td>
+</tr>
+<tr>
+<td><code>build</code></td>
+<td>通过 <code>Dockerfile</code> 构建镜像（如 <code>build: ./app</code>）</td>
+</tr>
+<tr>
+<td><code>ports</code></td>
+<td>端口映射（<code>&quot;宿主机端口:容器端口&quot;</code>）</td>
+</tr>
+<tr>
+<td><code>volumes</code></td>
+<td>挂载数据卷（<code>./local:/container</code> 或 <code>named_volume:/container</code>）</td>
+</tr>
+<tr>
+<td><code>environment</code></td>
+<td>设置环境变量（<code>MYSQL_ROOT_PASSWORD: &quot;123456&quot;</code>）</td>
+</tr>
+<tr>
+<td><code>depends_on</code></td>
+<td>定义服务启动顺序（但不保证服务完全就绪）</td>
+</tr>
+<tr>
+<td><code>restart</code></td>
+<td>容器重启策略（<code>no</code> &#x2F; <code>always</code> &#x2F; <code>on-failure</code> &#x2F; <code>unless-stopped</code>）</td>
+</tr>
+<tr>
+<td><code>command</code></td>
+<td>覆盖默认启动命令（如 <code>command: [&quot;npm&quot;, &quot;start&quot;]</code>）</td>
+</tr>
+</tbody></table>
+<hr>
+<p><strong>5. 实战示例</strong><br><strong>运行 WordPress + MySQL</strong></p>
+<div class="code-container" data-rel="Yaml"><figure class="iseeu highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">version:</span> <span class="string">&quot;3.8&quot;</span></span><br><span class="line"><span class="attr">services:</span></span><br><span class="line">  <span class="attr">db:</span></span><br><span class="line">    <span class="attr">image:</span> <span class="string">mysql:5.7</span></span><br><span class="line">    <span class="attr">environment:</span></span><br><span class="line">      <span class="attr">MYSQL_ROOT_PASSWORD:</span> <span class="string">&quot;wordpress&quot;</span></span><br><span class="line">      <span class="attr">MYSQL_DATABASE:</span> <span class="string">&quot;wordpress&quot;</span></span><br><span class="line">      <span class="attr">MYSQL_USER:</span> <span class="string">&quot;wordpress&quot;</span></span><br><span class="line">      <span class="attr">MYSQL_PASSWORD:</span> <span class="string">&quot;wordpress&quot;</span></span><br><span class="line">    <span class="attr">volumes:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">mysql_data:/var/lib/mysql</span></span><br><span class="line">    <span class="attr">networks:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">wordpress_net</span></span><br><span class="line"></span><br><span class="line">  <span class="attr">wordpress:</span></span><br><span class="line">    <span class="attr">image:</span> <span class="string">wordpress:latest</span></span><br><span class="line">    <span class="attr">ports:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&quot;8000:80&quot;</span></span><br><span class="line">    <span class="attr">environment:</span></span><br><span class="line">      <span class="attr">WORDPRESS_DB_HOST:</span> <span class="string">&quot;db&quot;</span></span><br><span class="line">      <span class="attr">WORDPRESS_DB_USER:</span> <span class="string">&quot;wordpress&quot;</span></span><br><span class="line">      <span class="attr">WORDPRESS_DB_PASSWORD:</span> <span class="string">&quot;wordpress&quot;</span></span><br><span class="line">      <span class="attr">WORDPRESS_DB_NAME:</span> <span class="string">&quot;wordpress&quot;</span></span><br><span class="line">    <span class="attr">depends_on:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">db</span></span><br><span class="line">    <span class="attr">networks:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">wordpress_net</span></span><br><span class="line"></span><br><span class="line"><span class="attr">volumes:</span></span><br><span class="line">  <span class="attr">mysql_data:</span></span><br><span class="line"></span><br><span class="line"><span class="attr">networks:</span></span><br><span class="line">  <span class="attr">wordpress_net:</span></span><br><span class="line">    <span class="attr">driver:</span> <span class="string">bridge</span></span><br></pre></td></tr></table></figure></div>
+<p>启动命令：</p>
+<div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker-compose up -d</span><br></pre></td></tr></table></figure></div>
+<p>访问 <code>http://localhost:8000</code> 即可进入 WordPress 安装界面。</p>
+<hr>
+
+		</div>
+
+		
+
+		
+		<ul class="post-tags-box text-lg mt-1.5 flex-wrap justify-center flex md:hidden">
+			
+			<li class="tag-item mx-0.5">
+				<a href="/tags/Docker/">#Docker</a>&nbsp;
+			</li>
+			
+		</ul>
+		
+
+		
+
+		
+		<div class="article-nav my-8 flex justify-between items-center px-2 sm:px-6 md:px-8">
+			
+			<div class="article-prev border-border-color shadow-redefine-flat shadow-shadow-color-2 rounded-medium px-4 py-2 hover:shadow-redefine-flat-hover hover:shadow-shadow-color-2">
+				<a class="prev" rel="prev" href="/Linux/Linux/Ubuntu/">
+					<span class="left arrow-icon flex justify-center items-center">
+						<i class="fa-solid fa-chevron-left"></i>
+					</span>
+					<span class="title flex justify-center items-center">
+						<span class="post-nav-title-item">Win11安装Ubuntu实现双系统</span>
+						<span class="post-nav-item">Prev posts</span>
+					</span>
+				</a>
+			</div>
+			
+			
+			<div class="article-next border-border-color shadow-redefine-flat shadow-shadow-color-2 rounded-medium px-4 py-2 hover:shadow-redefine-flat-hover hover:shadow-shadow-color-2">
+				<a class="next" rel="next" href="/SpringBoot/mybatis-plus/mp-api/">
+					<span class="title flex justify-center items-center">
+						<span class="post-nav-title-item">BaseMapper、IService方法使用</span>
+						<span class="post-nav-item">Next posts</span>
+					</span>
+					<span class="right arrow-icon flex justify-center items-center">
+						<i class="fa-solid fa-chevron-right"></i>
+					</span>
+				</a>
+			</div>
+			
+		</div>
+		
+
+
+		
+		<div class="comment-container px-2 sm:px-6 md:px-8 pb-8">
+			<div class="comments-container mt-10 w-full ">
+    <div id="comment-anchor" class="w-full h-2.5"></div>
+    <div class="comment-area-title w-full my-1.5 md:my-2.5 text-xl md:text-3xl font-bold">
+        Comments
+    </div>
+    
+
+        
+            
+    <div id="waline"></div>
+    <script type="module" data-swup-reload-script>
+      import { init } from '/js/libs/waline.mjs';
+
+      function loadWaline() {
+        init({
+          el: '#waline',
+          serverURL: 'https://example.example.com',
+          lang: 'zh-CN',
+          dark: 'body[class~="dark-mode"]',
+          reaction: false,
+          requiredMeta: ['nick', 'mail'],
+          emoji: [],
+          
+          
+        });
+      }
+
+      if (typeof swup !== 'undefined') {
+        loadWaline();
+      } else {
+        window.addEventListener('DOMContentLoaded', loadWaline);
+      }
+    </script>
+
+
+
+        
+    
+</div>
+
+		</div>
+		
+	</div>
+
+	
+	<div class="toc-content-container">
+		<div class="post-toc-wrap">
+	<div class="post-toc">
+		<div class="toc-title">On this page</div>
+		<div class="page-title">Docker</div>
+		<ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Docker%E5%AE%89%E8%A3%85%E4%B8%8E%E4%BD%BF%E7%94%A8"><span class="nav-text">Docker安装与使用</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85Docker"><span class="nav-text">安装Docker</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Docker%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4"><span class="nav-text">Docker常用命令</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%90%E8%A1%8C%E5%AE%B9%E5%99%A8"><span class="nav-text">运行容器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9F%A5%E7%9C%8B%E9%95%9C%E5%83%8F"><span class="nav-text">查看镜像</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8B%89%E5%8F%96%E9%95%9C%E5%83%8F"><span class="nav-text">拉取镜像</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%A0%E9%99%A4%E9%95%9C%E5%83%8F"><span class="nav-text">删除镜像</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AF%BC%E5%87%BA%E9%95%9C%E5%83%8F"><span class="nav-text">导出镜像</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AF%BC%E5%85%A5%E9%95%9C%E5%83%8F"><span class="nav-text">导入镜像</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9F%A5%E7%9C%8B%E5%AE%B9%E5%99%A8%E7%8A%B6%E6%80%81"><span class="nav-text">查看容器状态</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9F%A5%E7%9C%8B%E6%97%A5%E5%BF%97"><span class="nav-text">查看日志</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%9B%E5%85%A5%E5%AE%B9%E5%99%A8%E5%86%85%E9%83%A8"><span class="nav-text">进入容器内部</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%B9%E5%99%A8%E5%90%AF%E7%94%A8%E3%80%81%E5%81%9C%E7%94%A8%E3%80%81%E5%88%A0%E9%99%A4"><span class="nav-text">容器启用、停用、删除</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E5%8D%B7"><span class="nav-text">数据卷</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%87%AA%E5%AE%9A%E4%B9%89%E9%95%9C%E5%83%8F"><span class="nav-text">自定义镜像</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BD%91%E7%BB%9C"><span class="nav-text">网络</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Docker-Compose"><span class="nav-text">Docker Compose</span></a></li></ol></li></ol></li></ol>
+
+	</div>
+</div>
+	</div>
+	
+</div>
+			</div>
+
+			
+		</div>
+
+		<div class="main-content-footer">
+			<footer class="footer mt-5 py-5 h-auto text-base text-third-text-color relative border-t-2 border-t-border-color">
+    <div class="info-container py-3 text-center">
+        
+        <div class="text-center">
+            &copy;
+            
+              <span>2025</span>
+              -
+            
+            2025&nbsp;&nbsp;<i class="fa-solid fa-bell fa-shake" style="--fa-animation-duration: 0.5s; color: rgb(251,181,147)"></i>&nbsp;&nbsp;<a href="/">Aer</a>
+            
+                
+                <p class="post-count space-x-0.5">
+                    <span>
+                        16 posts in total
+                    </span>
+                    
+                </p>
+            
+        </div>
+        
+            <script data-swup-reload-script src="https://cn.vercount.one/js"></script>
+            <div class="relative text-center lg:absolute lg:right-[20px] lg:top-1/2 lg:-translate-y-1/2 lg:text-right">
+                
+                
+            </div>
+        
+        <div class="relative text-center lg:absolute lg:left-[20px] lg:top-1/2 lg:-translate-y-1/2 lg:text-left">
+            <span class="lg:block text-sm">POWERED BY <?xml version="1.0" encoding="utf-8"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg class="relative top-[2px] inline-block align-baseline" version="1.1" id="圖層_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="1rem" height="1rem" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve"><path fill="#0E83CD" d="M256.4,25.8l-200,115.5L56,371.5l199.6,114.7l200-115.5l0.4-230.2L256.4,25.8z M349,354.6l-18.4,10.7l-18.6-11V275H200v79.6l-18.4,10.7l-18.6-11v-197l18.5-10.6l18.5,10.8V237h112v-79.6l18.5-10.6l18.5,10.8V354.6z"/></svg><a target="_blank" class="text-base" href="https://hexo.io">Hexo</a></span>
+            <span class="text-sm lg:block">THEME&nbsp;<a class="text-base" target="_blank" href="https://github.com/EvanNotFound/hexo-theme-redefine">Redefine v2.8.2</a></span>
+        </div>
+        
+        
+            <div>
+                Blog up for <span class="odometer" id="runtime_days" ></span> days <span class="odometer" id="runtime_hours"></span> hrs <span class="odometer" id="runtime_minutes"></span> Min <span class="odometer" id="runtime_seconds"></span> Sec
+            </div>
+        
+        
+            <script data-swup-reload-script>
+                try {
+                    function odometer_init() {
+                    const elements = document.querySelectorAll('.odometer');
+                    elements.forEach(el => {
+                        new Odometer({
+                            el,
+                            format: '( ddd).dd',
+                            duration: 200
+                        });
+                    });
+                    }
+                    odometer_init();
+                } catch (error) {}
+            </script>
+        
+        
+            
+                
+        
+                
+        
+        
+    </div>  
+</footer>
+		</div>
+	</div>
+
+	
+	<div class="post-tools">
+		<div class="post-tools-container">
+	<ul class="article-tools-list">
+		<!-- TOC aside toggle -->
+		
+		<li class="right-bottom-tools page-aside-toggle">
+			<i class="fa-regular fa-outdent"></i>
+		</li>
+		
+
+		<!-- go comment -->
+		
+		<li class="go-comment">
+			<i class="fa-regular fa-comments"></i>
+		</li>
+		
+	</ul>
+</div>
+	</div>
+	
+
+	<div class="right-side-tools-container">
+		<div class="side-tools-container">
+	<ul class="hidden-tools-list">
+		<li class="right-bottom-tools tool-font-adjust-plus flex justify-center items-center">
+			<i class="fa-regular fa-magnifying-glass-plus"></i>
+		</li>
+
+		<li class="right-bottom-tools tool-font-adjust-minus flex justify-center items-center">
+			<i class="fa-regular fa-magnifying-glass-minus"></i>
+		</li>
+
+		<li class="right-bottom-tools tool-dark-light-toggle flex justify-center items-center">
+			<i class="fa-regular fa-moon"></i>
+		</li>
+
+		<!-- rss -->
+		
+
+		
+
+		<li class="right-bottom-tools tool-scroll-to-bottom flex justify-center items-center">
+			<i class="fa-regular fa-arrow-down"></i>
+		</li>
+	</ul>
+
+	<ul class="visible-tools-list">
+		<li class="right-bottom-tools toggle-tools-list flex justify-center items-center">
+			<i class="fa-regular fa-cog fa-spin"></i>
+		</li>
+		
+		<li class="right-bottom-tools tool-scroll-to-top flex justify-center items-center">
+			<i class="arrow-up fas fa-arrow-up"></i>
+			<span class="percent"></span>
+		</li>
+		
+		
+	</ul>
+</div>
+	</div>
+
+	<div class="image-viewer-container">
+	<img src="">
+</div>
+
+	
+
+</main>
+
+
+<script  src="https://registry.npmmirror.com/hexo-theme-redefine/2.8.2/files/source/js/build/libs/Swup.min.js" ></script><script  src="https://registry.npmmirror.com/hexo-theme-redefine/2.8.2/files/source/js/build/libs/SwupSlideTheme.min.js" ></script><script  src="https://registry.npmmirror.com/hexo-theme-redefine/2.8.2/files/source/js/build/libs/SwupScriptsPlugin.min.js" ></script><script  src="https://registry.npmmirror.com/hexo-theme-redefine/2.8.2/files/source/js/build/libs/SwupProgressPlugin.min.js" ></script><script  src="https://registry.npmmirror.com/hexo-theme-redefine/2.8.2/files/source/js/build/libs/SwupScrollPlugin.min.js" ></script><script  src="https://registry.npmmirror.com/hexo-theme-redefine/2.8.2/files/source/js/build/libs/SwupPreloadPlugin.min.js" ></script>
+<script>
+    const swup = new Swup({
+        plugins: [
+            new SwupScriptsPlugin({
+                optin: true,
+            }),
+            new SwupProgressPlugin(),
+            new SwupScrollPlugin({
+                offset: 80,
+            }),
+            new SwupSlideTheme({
+                mainElement: ".main-content-body",
+            }),
+            new SwupPreloadPlugin(),
+        ],
+        containers: ["#swup"],
+    });
+</script>
+
+
+
+
+	<script type="module" src="https://registry.npmmirror.com/hexo-theme-redefine/2.8.2/files/source/js/build/tools/imageViewer.js" ></script><script type="module" src="https://registry.npmmirror.com/hexo-theme-redefine/2.8.2/files/source/js/build/utils.js" ></script><script type="module" src="https://registry.npmmirror.com/hexo-theme-redefine/2.8.2/files/source/js/build/main.js" ></script><script type="module" src="https://registry.npmmirror.com/hexo-theme-redefine/2.8.2/files/source/js/build/layouts/navbarShrink.js" ></script><script type="module" src="https://registry.npmmirror.com/hexo-theme-redefine/2.8.2/files/source/js/build/tools/scrollTopBottom.js" ></script><script type="module" src="https://registry.npmmirror.com/hexo-theme-redefine/2.8.2/files/source/js/build/tools/lightDarkSwitch.js" ></script><script type="module" src="https://registry.npmmirror.com/hexo-theme-redefine/2.8.2/files/source/js/build/layouts/categoryList.js" ></script>
+
+
+
+
+    <script type="module" src="https://registry.npmmirror.com/hexo-theme-redefine/2.8.2/files/source/js/build/tools/codeBlock.js" ></script>
+
+
+
+    <script type="module" src="https://registry.npmmirror.com/hexo-theme-redefine/2.8.2/files/source/js/build/layouts/lazyload.js" ></script>
+
+
+
+    <script  src="https://registry.npmmirror.com/hexo-theme-redefine/2.8.2/files/source/js/build/tools/runtime.js" ></script>
+    <script  src="https://registry.npmmirror.com/hexo-theme-redefine/2.8.2/files/source/js/build/libs/odometer.min.js" ></script>
+    <link rel="stylesheet" href="https://registry.npmmirror.com/hexo-theme-redefine/2.8.2/files/source/assets/odometer-theme-minimal.css">
+
+
+
+  <script  src="https://registry.npmmirror.com/hexo-theme-redefine/2.8.2/files/source/js/build/libs/Typed.min.js" ></script>
+  <script type="module" src="https://registry.npmmirror.com/hexo-theme-redefine/2.8.2/files/source/js/build/plugins/typed.js" ></script>
+
+
+
+    
+        <script  src="https://registry.npmmirror.com/hexo-theme-redefine/2.8.2/files/source/js/build/libs/mermaid.min.js" ></script>
+    
+    <script  src="https://registry.npmmirror.com/hexo-theme-redefine/2.8.2/files/source/js/build/plugins/mermaid.js" ></script>
+
+
+
+
+
+
+
+
+    <script type="module" src="https://registry.npmmirror.com/hexo-theme-redefine/2.8.2/files/source/js/build/tools/tocToggle.js" data-swup-reload-script></script><script type="module" src="https://registry.npmmirror.com/hexo-theme-redefine/2.8.2/files/source/js/build/layouts/toc.js" data-swup-reload-script></script><script type="module" src="https://registry.npmmirror.com/hexo-theme-redefine/2.8.2/files/source/js/build/plugins/tabs.js" data-swup-reload-script></script>
+
+
+<script  src="https://registry.npmmirror.com/hexo-theme-redefine/2.8.2/files/source/js/build/libs/moment-with-locales.min.js" data-swup-reload-script></script>
+<script type="module" src="https://registry.npmmirror.com/hexo-theme-redefine/2.8.2/files/source/js/build/layouts/essays.js" data-swup-reload-script></script>
+
+
+
+
+	
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</body>
+
+</html>
