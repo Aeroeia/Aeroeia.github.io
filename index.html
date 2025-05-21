@@ -517,7 +517,7 @@
         <div class="label text-third-text-color text-sm">Categories</div>
     </a>
     <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/archives">
-        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">16</div>
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">17</div>
         <div class="label text-third-text-color text-sm">Posts</div>
     </a>
 </div>
@@ -585,7 +585,7 @@
         <div class="label text-third-text-color text-sm">Categories</div>
     </a>
     <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/archives">
-        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">16</div>
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">17</div>
         <div class="label text-third-text-color text-sm">Posts</div>
     </a>
 </div>
@@ -610,6 +610,91 @@
                 
                 <div class="flex flex-col gap-5 px-7 pb-7 pt-7">
                     <h3 class="home-article-title">
+                        <a href="/uncategorized/nacos/">
+                            nacos配置与使用
+                        </a>
+                    </h3>
+
+                    <div class="home-article-content markdown-body">
+                        
+                            
+                            通过docker搭建Nacos注册中心Nacos 需要绑定数据库（如 MySQL）的主要原因是为了实现数据的持久化存储，即使服务重启或集群环境下也能保证配置和服务信息的可靠性，即将服务信息写入数据库
+创建自定义网络12docker network create net #创建一个名为net的网络
+
+启动一个mysql服务1docker run --name nacosdb -d -p 330...
+                        
+                    </div>
+
+                    <div class="home-article-meta-info-container">
+    <div class="home-article-meta-info">
+        <span><i class="fa-solid fa-calendars"></i>&nbsp;
+            <span class="home-article-date" data-date="Wed May 21 2025 01:23:24 GMT+0800">
+                
+                    2025-05-21
+                
+            </span>
+        </span>
+        
+        
+    </div>
+
+    <a href="/uncategorized/nacos/">Read more<span class="seo-reader-text">nacos配置与使用</span>&nbsp;<i class="fa-solid fa-angle-right"></i></a>
+</div>
+
+                </div>
+            </li>
+        
+            <li class="home-article-item">
+
+                
+
+                
+
+                
+                <div class="flex flex-col gap-5 px-7 pb-7 pt-7">
+                    <h3 class="home-article-title">
+                        <a href="/uncategorized/Java/filter/">
+                            关于我在使用stream().toList()遇到的问题
+                        </a>
+                    </h3>
+
+                    <div class="home-article-content markdown-body">
+                        
+                            
+                            问题描述在测试以上程序的时候抛出了空指针异常于是我以为是我数据库中存在null字段，但查看后发现并不存在为null的数据
+问题排查起初我以为问题出现在sort排序方法这，事实也确实是，当我把sort语句去掉的时候程序就跑通了，但我想不明白是为什么，于是我对每次对比都加上一个非空判断但程序仍然报错，于是我猜问题应该不出在这里。然后我往前找问题最终发现问题出在这条语句上
+123courseSel...
+                        
+                    </div>
+
+                    <div class="home-article-meta-info-container">
+    <div class="home-article-meta-info">
+        <span><i class="fa-solid fa-calendars"></i>&nbsp;
+            <span class="home-article-date" data-date="Mon May 19 2025 15:03:46 GMT+0800">
+                
+                    2025-05-19
+                
+            </span>
+        </span>
+        
+        
+    </div>
+
+    <a href="/uncategorized/Java/filter/">Read more<span class="seo-reader-text">关于我在使用stream().toList()遇到的问题</span>&nbsp;<i class="fa-solid fa-angle-right"></i></a>
+</div>
+
+                </div>
+            </li>
+        
+            <li class="home-article-item">
+
+                
+
+                
+
+                
+                <div class="flex flex-col gap-5 px-7 pb-7 pt-7">
+                    <h3 class="home-article-title">
                         <a href="/Linux/Linux/Docker-Install/">
                             关于Docker拉取镜像超时/无法访问镜像仓库解决方案
                         </a>
@@ -618,7 +703,8 @@
                     <div class="home-article-content markdown-body">
                         
                             
-                            关于Docker拉取镜像超时&#x2F;无法访问镜像仓库解决方案我今天安装Docker后无论是配置阿里云镜像源或是按照网上以及ai说的配置dns、防火墙、关闭ipv6等方法都无法成功拉取镜像进行docker login、通过curl命令访问docker镜像仓库也是一律超时或拒绝访问,在我捣鼓了一个下午后终于成功找到解决方法。下面我将针对使用VPN代理的用户以及不使用VPN的用户分别给出解决方...
+                            我今天安装Docker后无论是配置阿里云镜像源或是按照网上以及ai说的配置dns、防火墙、关闭ipv6等方法都无法成功拉取镜像进行docker login、通过curl命令访问docker镜像仓库也是一律超时或拒绝访问,在我捣鼓了一个下午后终于成功找到解决方法。下面我将针对使用VPN代理的用户以及不使用VPN的用户分别给出解决方案
+卸载原先安装的Docker及相关配置123456789101...
                         
                     </div>
 
@@ -686,8 +772,8 @@
                     <div class="home-article-content markdown-body">
                         
                             
-                            在Ubuntu将可执行程序显示在应用程序中，以Cursor为例由于cursor官网只提供AppImage格式，下载后不能像通过deb安装的软件一样自动显示在应用程序中或dock栏，但我们可以手动进行装配，类似于手动创建一个快捷方式。不只是AppImage格式的可以这样做，其他可执行文件也是一样可以的哦
-步骤 1：创建 .desktop 文件1. 新建 .desktop 文件在终端中运行以下命...
+                            由于cursor官网只提供AppImage格式，下载后不能像通过deb安装的软件一样自动显示在应用程序中或dock栏，但我们可以手动进行装配，类似于手动创建一个快捷方式。不只是AppImage格式的可以这样做，其他可执行文件也是一样可以的哦
+步骤 1：创建 .desktop 文件1. 新建 .desktop 文件在终端中运行以下命令，创建 cursor.desktop(改为自己软件的名称) ...
                         
                     </div>
 
@@ -743,8 +829,10 @@
                     <div class="home-article-content markdown-body">
                         
                             
-                            每日一题:P2962 统计最大元素出现至少 K 次的子数组(滑动窗口)题目描述给你一个整数数组 nums 和一个正整数 k，统计满足「nums 中的最大元素至少出现 k 次」的子数组数目。
-示例 1：123输入：nums = [1,3,2,3,3], k = 2输出：6解释：包含元素 3 至少 2 次的子数组为：[1,3,2,3]、[1,3,2,3,3]、[3,2,3]、[3,2,3,3]、...
+                            题目描述给你一个整数数组 nums 和一个正整数 k，统计满足「nums 中的最大元素至少出现 k 次」的子数组数目。
+示例 1：123输入：nums = [1,3,2,3,3], k = 2输出：6解释：包含元素 3 至少 2 次的子数组为：[1,3,2,3]、[1,3,2,3,3]、[3,2,3]、[3,2,3,3]、[2,3,3] 和 [3,3]。
+
+示例 2：123输入：nums =...
                         
                     </div>
 
@@ -958,13 +1046,14 @@ U盘准备准备一个10GB以上的U盘用来制作系统盘，安装好Ubuntu�
                     <div class="home-article-content markdown-body">
                         
                             
-                            Docker安装与使用安装Docker参考该文章:https://blog.csdn.net/SoulruiA/article/details/147655089?spm=1001.2014.3001.5501
+                            安装Docker参考该文章:https://blog.csdn.net/SoulruiA/article/details/147655089?spm=1001.2014.3001.5501
 Docker常用命令运行容器1docker run [选项] 镜像名 [命令]
 常用选项：
 
 -d 后台运行  
 -it 交互模式（通常与 bash 结合）  
---name 指定容...
+--name 指定容器名称  
+-p 主机...
                         
                     </div>
 
@@ -1008,7 +1097,7 @@ Docker常用命令运行容器1docker run [选项] 镜像名 [命令]
                 
                 <div class="flex flex-col gap-5 px-7 pb-7 pt-7">
                     <h3 class="home-article-title">
-                        <a href="/SpringBoot/mybatis-plus/mp-api/">
+                        <a href="/SpringBoot/Java/mybatis-plus/mp-api/">
                             BaseMapper、IService方法使用
                         </a>
                     </h3>
@@ -1066,7 +1155,7 @@ Docker常用命令运行容器1docker run [选项] 镜像名 [命令]
         
     </div>
 
-    <a href="/SpringBoot/mybatis-plus/mp-api/">Read more<span class="seo-reader-text">BaseMapper、IService方法使用</span>&nbsp;<i class="fa-solid fa-angle-right"></i></a>
+    <a href="/SpringBoot/Java/mybatis-plus/mp-api/">Read more<span class="seo-reader-text">BaseMapper、IService方法使用</span>&nbsp;<i class="fa-solid fa-angle-right"></i></a>
 </div>
 
                 </div>
@@ -1081,7 +1170,7 @@ Docker常用命令运行容器1docker run [选项] 镜像名 [命令]
                 
                 <div class="flex flex-col gap-5 px-7 pb-7 pt-7">
                     <h3 class="home-article-title">
-                        <a href="/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/http/">
+                        <a href="/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/Java/http/">
                             http请求中请求体三种常见的Content-Type前后端交互
                         </a>
                     </h3>
@@ -1135,116 +1224,7 @@ Docker常用命令运行容器1docker run [选项] 镜像名 [命令]
         
     </div>
 
-    <a href="/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/http/">Read more<span class="seo-reader-text">http请求中请求体三种常见的Content-Type前后端交互</span>&nbsp;<i class="fa-solid fa-angle-right"></i></a>
-</div>
-
-                </div>
-            </li>
-        
-            <li class="home-article-item">
-
-                
-
-                
-
-                
-                <div class="flex flex-col gap-5 px-7 pb-7 pt-7">
-                    <h3 class="home-article-title">
-                        <a href="/SpringBoot/mybatis-plus/mybatis-plus-rel/">
-                            mybatis-plus-rel
-                        </a>
-                    </h3>
-
-                    <div class="home-article-content markdown-body">
-                        
-                            
-                            关于使用mp的json处理器时出现java.lang.IllegalStateException: Failed to load ApplicationContext解决方法 Success!相关类mp相关接口、相关类均已正确配置，单元测试时使用了IService的getById方法
-User类1234567891011121314151617181920212223242526272829...
-                        
-                    </div>
-
-                    <div class="home-article-meta-info-container">
-    <div class="home-article-meta-info">
-        <span><i class="fa-solid fa-calendars"></i>&nbsp;
-            <span class="home-article-date" data-date="Tue Apr 15 2025 16:55:38 GMT+0800">
-                
-                    2025-04-15
-                
-            </span>
-        </span>
-        
-            <span class="home-article-category">
-                <i class="fa-solid fa-folders"></i>&nbsp;
-            <ul>
-                
-                
-                    
-                        
-                        <li>
-                            <a href="/categories/SpringBoot/">SpringBoot</a>&nbsp;
-                        </li>
-                    
-                    
-                
-            </ul>
-        </span>
-        
-        
-            <span class="home-article-tag">
-                <i class="fa-solid fa-tags"></i>&nbsp;
-                <ul>
-                    
-                        <li>
-                            
-                            <a href="/tags/mybatis-plus/">mybatis-plus</a>&nbsp;
-                        </li>
-                    
-                </ul>
-            </span>
-        
-    </div>
-
-    <a href="/SpringBoot/mybatis-plus/mybatis-plus-rel/">Read more<span class="seo-reader-text">mybatis-plus-rel</span>&nbsp;<i class="fa-solid fa-angle-right"></i></a>
-</div>
-
-                </div>
-            </li>
-        
-            <li class="home-article-item">
-
-                
-
-                
-
-                
-                <div class="flex flex-col gap-5 px-7 pb-7 pt-7">
-                    <h3 class="home-article-title">
-                        <a href="/uncategorized/knife4j/">
-                            knife4j
-                        </a>
-                    </h3>
-
-                    <div class="home-article-content markdown-body">
-                        
-                            
-                            在Spring Boot 3中集成Knife4j 4.x需要进行以下配置步骤：添加依赖   在pom.xml中引入Knife4j的OpenAPI3规范适配依赖（需JDK ≥ 17）：   12345&lt;dependency&gt;    &lt;groupId&gt;com.github.xiaoymin&lt;/groupId&gt;    &lt;artifactId&gt;knif...
-                        
-                    </div>
-
-                    <div class="home-article-meta-info-container">
-    <div class="home-article-meta-info">
-        <span><i class="fa-solid fa-calendars"></i>&nbsp;
-            <span class="home-article-date" data-date="Mon Apr 14 2025 11:58:07 GMT+0800">
-                
-                    2025-04-14
-                
-            </span>
-        </span>
-        
-        
-    </div>
-
-    <a href="/uncategorized/knife4j/">Read more<span class="seo-reader-text">knife4j</span>&nbsp;<i class="fa-solid fa-angle-right"></i></a>
+    <a href="/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/Java/http/">Read more<span class="seo-reader-text">http请求中请求体三种常见的Content-Type前后端交互</span>&nbsp;<i class="fa-solid fa-angle-right"></i></a>
 </div>
 
                 </div>
@@ -1280,7 +1260,7 @@ User类1234567891011121314151617181920212223242526272829...
                 
                 <p class="post-count space-x-0.5">
                     <span>
-                        16 posts in total
+                        17 posts in total
                     </span>
                     
                 </p>
