@@ -1,0 +1,1098 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="Hexo Theme Redefine">
+    
+    <meta name="author" content="Aer">
+    <!-- preconnect -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    
+        
+        
+        
+            <link rel="preconnect" href="https://registry.npmmirror.com" crossorigin>
+        
+    
+    <!--- Seo Part-->
+    
+    <link rel="canonical" href="http://example.com/uncategorized/es/"/>
+    <meta name="robots" content="index,follow">
+    <meta name="googlebot" content="index,follow">
+    <meta name="revisit-after" content="1 days">
+    
+    
+    
+        
+        <meta name="description" content="Hexo Theme Redefine, Redefine Your Hexo Journey.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="剖析电商搜索要点并基于Es+Redis模拟电商搜索行为">
+<meta property="og:url" content="http://example.com/uncategorized/es/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="Hexo Theme Redefine, Redefine Your Hexo Journey.">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/images/redefine-og.webp">
+<meta property="article:published_time" content="2025-06-10T10:33:26.000Z">
+<meta property="article:modified_time" content="2025-06-14T12:37:51.615Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/images/redefine-og.webp">
+    
+    
+    <!--- Icon Part-->
+    <link rel="icon" type="image/png" href="/static/Aer.jpg" sizes="192x192">
+    <link rel="apple-touch-icon" sizes="180x180" href="/static/Aer.jpg">
+    <meta name="theme-color" content="#A31F34">
+    <link rel="shortcut icon" href="/static/Aer.jpg">
+    <!--- Page Info-->
+    
+    <title>
+        
+            剖析电商搜索要点并基于Es+Redis模拟电商搜索行为 | Aer-Home
+        
+    </title>
+
+    <link rel="stylesheet" href="https://registry.npmmirror.com/hexo-theme-redefine/2.8.2/files/source/fonts/Chillax/chillax.css">
+
+    <!--- Inject Part-->
+    
+        
+            
+    
+            
+    
+            
+                
+                    <script data-swup-reload-script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js"></script>
+                
+    
+            
+                
+                    <script data-swup-reload-script>
+  MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$', '$$'], ['\\[', '\\]']],
+      processEscapes: true
+    }
+  };
+</script>
+
+                
+    
+            
+                
+                    <link rel="stylesheet" href="/css/mathjax.css">
+                
+    
+            
+                
+                    <link rel="stylesheet" href="/css/custom.css">
+                
+    
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    
+        <link rel="stylesheet" href="https://registry.npmmirror.com/hexo-theme-redefine/2.8.2/files/source/css/build/tailwind.css">
+    
+
+    <link rel="stylesheet" href="https://registry.npmmirror.com/hexo-theme-redefine/2.8.2/files/source/fonts/GeistMono/geist-mono.css">
+    <link rel="stylesheet" href="https://registry.npmmirror.com/hexo-theme-redefine/2.8.2/files/source/fonts/Geist/geist.css">
+    <!--- Font Part-->
+    
+    
+    
+    
+    
+    
+        <script  src="https://registry.npmmirror.com/hexo-theme-redefine/2.8.2/files/source/js/build/libs/anime.min.js" ></script>
+    
+
+    <script id="hexo-configurations">
+    window.config = {"hostname":"example.com","root":"/","language":"en"};
+    window.theme = {"articles":{"style":{"font_size":"16px","line_height":1.5,"image_border_radius":"14px","image_alignment":"center","image_caption":false,"link_icon":true,"delete_mask":false,"title_alignment":"left","headings_top_spacing":{"h1":"3.2rem","h2":"2.4rem","h3":"1.9rem","h4":"1.6rem","h5":"1.4rem","h6":"1.3rem"}},"word_count":{"enable":true,"count":true,"min2read":true},"author_label":{"enable":true,"auto":false,"list":[]},"code_block":{"copy":true,"style":"mac","highlight_theme":{"light":"atom-one-light","dark":"vs2015"},"font":{"enable":false,"family":null,"url":null}},"toc":{"enable":true,"max_depth":3,"number":false,"expand":true,"init_open":true},"copyright":{"enable":false,"default":"cc_by_nc_sa"},"lazyload":true,"pangu_js":false,"recommendation":{"enable":false,"title":"推荐阅读","limit":3,"mobile_limit":2,"placeholder":"/images/wallhaven-wqery6-light.webp","skip_dirs":[]}},"colors":{"primary":"#A31F34","secondary":"#A31F34","default_mode":"light"},"global":{"fonts":{"chinese":{"enable":false,"family":null,"url":null},"english":{"enable":false,"family":null,"url":null},"title":{"enable":false,"family":null,"url":null}},"content_max_width":"1000px","sidebar_width":"210px","hover":{"shadow":true,"scale":false},"scroll_progress":{"bar":false,"percentage":true},"website_counter":{"url":"https://cn.vercount.one/js","enable":true,"site_pv":false,"site_uv":false,"post_pv":true},"single_page":true,"preloader":{"enable":true,"custom_message":"Aer-Home"},"open_graph":{"enable":true,"image":"/images/redefine-og.webp","description":"Hexo Theme Redefine, Redefine Your Hexo Journey."},"google_analytics":{"enable":false,"id":null}},"home_banner":{"enable":true,"style":"fixed","image":{"light":"/images/wallhaven-wqery6-light.webp","dark":"/images/wallhaven-wqery6-dark.webp"},"title":"Javaer","subtitle":{"text":[],"hitokoto":{"enable":false,"show_author":false,"api":"https://v1.hitokoto.cn"},"typing_speed":100,"backing_speed":80,"starting_delay":500,"backing_delay":1500,"loop":true,"smart_backspace":true},"text_color":{"light":"#fff","dark":"#d1d1b6"},"text_style":{"title_size":"2.8rem","subtitle_size":"1.5rem","line_height":1.2},"custom_font":{"enable":false,"family":null,"url":null},"social_links":{"enable":false,"style":"default","links":{"github":null,"instagram":null,"zhihu":null,"twitter":null,"email":null},"qrs":{"weixin":null}}},"plugins":{"feed":{"enable":false},"aplayer":{"enable":false,"type":"fixed","audios":[{"name":null,"artist":null,"url":null,"cover":null,"lrc":null}]},"mermaid":{"enable":true,"version":"11.4.1"}},"version":"2.8.2","navbar":{"auto_hide":true,"color":{"left":"#f78736","right":"#367df7","transparency":35},"width":{"home":"1200px","pages":"1000px"},"links":{"Home":{"path":"/","icon":"fa-regular fa-house"},"Tags":{"path":"/tags","icon":"fa-solid fa-tags"},"Categories":{"icon":"fa-solid fa-folder","path":"/categories/"}},"search":{"enable":false,"preload":true}},"page_templates":{"friends_column":2,"tags_style":"blur"},"home":{"sidebar":{"enable":true,"position":"left","first_item":"menu","announcement":null,"show_on_mobile":true,"links":{"Tags":{"path":"/tags","icon":"fa-solid fa-tags"},"Categories":{"icon":"fa-solid fa-folder","path":"/categories/"}}},"article_date_format":"auto","excerpt_length":200,"categories":{"enable":true,"limit":3},"tags":{"enable":true,"limit":3}},"footerStart":"2025/3/27 11:45:14"};
+    window.lang_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"};
+    window.data = {"masonry":false};
+  </script>
+    
+    <!--- Fontawesome Part-->
+    <link rel="stylesheet" href="https://registry.npmmirror.com/hexo-theme-redefine/2.8.2/files/source/fontawesome/fontawesome.min.css">
+    <link rel="stylesheet" href="https://registry.npmmirror.com/hexo-theme-redefine/2.8.2/files/source/fontawesome/brands.min.css">
+    <link rel="stylesheet" href="https://registry.npmmirror.com/hexo-theme-redefine/2.8.2/files/source/fontawesome/solid.min.css">
+    <link rel="stylesheet" href="https://registry.npmmirror.com/hexo-theme-redefine/2.8.2/files/source/fontawesome/regular.min.css">
+    
+    
+    
+    
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+
+<body>
+	<div class="progress-bar-container">
+	
+
+	
+	<span class="pjax-progress-bar"></span>
+	<!--        <span class="swup-progress-icon">-->
+	<!--            <i class="fa-solid fa-circle-notch fa-spin"></i>-->
+	<!--        </span>-->
+	
+</div>
+
+<style>
+    :root {
+        --preloader-background-color: #fff;
+        --preloader-text-color: #000;
+    }
+
+    @media (prefers-color-scheme: dark) {
+        :root {
+            --preloader-background-color: #202124;
+            --preloader-text-color: #fff;
+        }
+    }
+
+    @media (prefers-color-scheme: light) {
+        :root {
+            --preloader-background-color: #fff;
+            --preloader-text-color: #000;
+        }
+    }
+
+    @media (max-width: 600px) {
+        .ml13 {
+            font-size: 2.6rem !important; /* Adjust this value as needed */
+        }
+    }
+
+    .preloader {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem; /* Tailwind 'gap-4' is 1rem */
+        align-items: center;
+        justify-content: center;
+        position: fixed;
+        padding: 12px;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh; /* 'h-screen' is 100% of the viewport height */
+        background-color: var(--preloader-background-color);
+        z-index: 1100; /* 'z-[1100]' sets the z-index */
+        transition: opacity 0.2s ease-in-out;
+    }
+
+    .ml13 {
+        font-size: 3.2rem;
+        /* text-transform: uppercase; */
+        color: var(--preloader-text-color);
+        letter-spacing: -1px;
+        font-weight: 500;
+        font-family: 'Chillax-Variable', sans-serif;
+        text-align: center;
+    }
+
+    .ml13 .word {
+        display: inline-flex;
+        flex-wrap: wrap;
+        white-space: nowrap;
+    }
+
+    .ml13 .letter {
+        display: inline-block;
+        line-height: 1em;
+    }
+</style>
+
+<div class="preloader">
+    <h2 class="ml13">
+        Aer-Home
+    </h2>
+    <script>
+        var textWrapper = document.querySelector('.ml13');
+        // Split text into words
+        var words = textWrapper.textContent.trim().split(' ');
+
+        // Clear the existing content
+        textWrapper.innerHTML = '';
+
+        // Wrap each word and its letters in spans
+        words.forEach(function(word) {
+            var wordSpan = document.createElement('span');
+            wordSpan.classList.add('word');
+            wordSpan.innerHTML = word.replace(/\S/g, "<span class='letter'>$&</span>");
+            textWrapper.appendChild(wordSpan);
+            textWrapper.appendChild(document.createTextNode(' ')); // Add space between words
+        });
+
+        var animation = anime.timeline({ loop: true })
+            .add({
+                targets: '.ml13 .letter',
+                translateY: [20, 0],
+                translateZ: 0,
+                opacity: [0, 1],
+                filter: ['blur(5px)', 'blur(0px)'],
+                easing: "easeOutExpo",
+                duration: 1200,
+                delay: (el, i) => 300 + 20 * i,
+            })
+            .add({
+                targets: '.ml13 .letter',
+                translateY: [0, -20],
+                opacity: [1, 0],
+                filter: ['blur(0px)', 'blur(5px)'],
+                easing: "easeInExpo",
+                duration: 1000,
+                delay: (el, i) => 15 * i,
+                complete: function() {
+                    hidePreloader();
+                }
+            }, '-=700');
+
+
+        let themeStatus = JSON.parse(localStorage.getItem('REDEFINE-THEME-STATUS'))?.isDark;
+
+        // If the theme status is not found in local storage, check the preferred color scheme
+        if (themeStatus === undefined || themeStatus === null) {
+            if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                themeStatus = 'dark';
+            } else {
+                themeStatus = 'light';
+            }
+        }
+
+        // Now you can use the themeStatus variable in your code
+        if (themeStatus) {
+            document.documentElement.style.setProperty('--preloader-background-color', '#202124');
+            document.documentElement.style.setProperty('--preloader-text-color', '#fff');
+        } else {
+            document.documentElement.style.setProperty('--preloader-background-color', '#fff');
+            document.documentElement.style.setProperty('--preloader-text-color', '#000');
+        }
+
+        window.addEventListener('load', function () {
+            setTimeout(hidePreloader, 5000); // Call hidePreloader after 5000 milliseconds if not already called by animation
+        });
+
+        function hidePreloader() {
+            var preloader = document.querySelector('.preloader');
+            preloader.style.opacity = '0';
+            setTimeout(function () {
+                preloader.style.display = 'none';
+            }, 200);
+        }
+    </script>
+</div>
+
+<main class="page-container" id="swup">
+
+	
+
+	<div class="main-content-container flex flex-col justify-between min-h-dvh">
+		<div class="main-content-header">
+			<header class="navbar-container px-6 md:px-12">
+    <div class="navbar-content transition-navbar ">
+        <div class="left">
+            
+            <a class="logo-title" href="/">
+                
+                Aer-Home
+                
+            </a>
+        </div>
+
+        <div class="right">
+            <!-- PC -->
+            <div class="desktop">
+                <ul class="navbar-list">
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class=""
+                                   href="/"
+                                        >
+                                    <i class="fa-regular fa-house fa-fw"></i>
+                                    HOME
+                                    
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class=""
+                                   href="/tags"
+                                        >
+                                    <i class="fa-solid fa-tags fa-fw"></i>
+                                    TAGS
+                                    
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class=""
+                                   href="/categories/"
+                                        >
+                                    <i class="fa-solid fa-folder fa-fw"></i>
+                                    CATEGORIES
+                                    
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                    
+                </ul>
+            </div>
+            <!-- Mobile -->
+            <div class="mobile">
+                
+                <div class="icon-item navbar-bar">
+                    <div class="navbar-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mobile sheet -->
+    <div class="navbar-drawer h-dvh w-full absolute top-0 left-0 bg-background-color flex flex-col justify-between">
+        <ul class="drawer-navbar-list flex flex-col px-4 justify-center items-start">
+            
+                
+                    
+
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                           href="/"
+                        >
+                            <span>
+                                HOME
+                            </span>
+                            
+                                <i class="fa-regular fa-house fa-sm fa-fw"></i>
+                            
+                        </a>
+                        
+
+                        
+                    </li>
+            
+                
+                    
+
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                           href="/tags"
+                        >
+                            <span>
+                                TAGS
+                            </span>
+                            
+                                <i class="fa-solid fa-tags fa-sm fa-fw"></i>
+                            
+                        </a>
+                        
+
+                        
+                    </li>
+            
+                
+                    
+
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                           href="/categories/"
+                        >
+                            <span>
+                                CATEGORIES
+                            </span>
+                            
+                                <i class="fa-solid fa-folder fa-sm fa-fw"></i>
+                            
+                        </a>
+                        
+
+                        
+                    </li>
+            
+
+            
+            
+                
+                    
+                    
+            
+        </ul>
+
+        <div class="statistics flex justify-around my-2.5">
+    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/tags">
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">7</div>
+        <div class="label text-third-text-color text-sm">Tags</div>
+    </a>
+    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/categories">
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">6</div>
+        <div class="label text-third-text-color text-sm">Categories</div>
+    </a>
+    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/archives">
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">18</div>
+        <div class="label text-third-text-color text-sm">Posts</div>
+    </a>
+</div>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+		</div>
+
+		<div class="main-content-body transition-fade-up">
+			
+
+			<div class="main-content">
+				<div class="post-page-container flex relative justify-between box-border w-full h-full">
+	<div class="article-content-container">
+
+		<div class="article-title relative w-full">
+			
+			<div class="w-full flex items-center pt-6 justify-start">
+				<h1 class="article-title-regular text-second-text-color tracking-tight text-4xl md:text-6xl font-semibold px-2 sm:px-6 md:px-8 py-3">剖析电商搜索要点并基于Es+Redis模拟电商搜索行为</h1>
+			</div>
+			
+		</div>
+
+		
+		<div class="article-header flex flex-row gap-2 items-center px-2 sm:px-6 md:px-8">
+			<div class="avatar w-[46px] h-[46px] flex-shrink-0 rounded-medium border border-border-color p-[1px]">
+				<img src="/static/Aer.jpg">
+			</div>
+			<div class="info flex flex-col justify-between">
+				<div class="author flex items-center">
+					<span class="name text-default-text-color text-lg font-semibold">Aer</span>
+					
+					<span class="author-label ml-1.5 text-xs px-2 py-0.5 rounded-small text-third-text-color border border-shadow-color-1">Lv3</span>
+					
+				</div>
+				<div class="meta-info">
+					<div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fa-regular fa-pen-fancy"></i>&nbsp;
+        <span class="desktop">2025-06-10 18:33:26</span>
+        <span class="mobile">2025-06-10 18:33:26</span>
+        <span class="hover-info">Created</span>
+    </span>
+    
+        <span class="article-date article-meta-item">
+            <i class="fa-regular fa-wrench"></i>&nbsp;
+            <span class="desktop">2025-06-14 20:37:51</span>
+            <span class="mobile">2025-06-14 20:37:51</span>
+            <span class="hover-info">Updated</span>
+        </span>
+    
+
+    
+    
+
+    
+    
+    
+    
+        <span class="article-pv article-meta-item">
+            <i class="fa-regular fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+        </span>
+    
+</div>
+
+				</div>
+			</div>
+		</div>
+		
+
+		
+
+
+		<div class="article-content markdown-body px-2 sm:px-6 md:px-8 pb-8">
+			<h1 id="电商搜索要点剖析"><a href="#电商搜索要点剖析" class="headerlink" title="电商搜索要点剖析"></a>电商搜索要点剖析</h1><blockquote>
+<p>前言： 由于水平受限，该文章并不能深度去剖析真实电商搜索功能的底层，接下来的部分主要是我根据网页查询+ai问答总结而得 希望大家多多包涵，同时也欢迎纠错指正！  </p>
+</blockquote>
+<hr>
+<p>各大电商平台的搜索大致可分为三个阶段  </p>
+<p><strong>1.Query理解：对于用户输入的关键字进行纠错、改写、扩展、分词等</strong></p>
+<p><strong>2.召回阶段：根据查询词，从商品库中召回有效正确的商品候选集</strong></p>
+<p><strong>3.排序阶段：给定召回商品候选集合，根据众多因子对商品排序</strong> </p>
+<hr>
+<p><em>京东分享-电商搜索中语义检索与商品排序：<a class="link"   target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/465504164" >https://zhuanlan.zhihu.com/p/465504164<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></em><br><em>论文:<a class="link"   target="_blank" rel="noopener" href="https://arxiv.org/pdf/2006.02282" >https://arxiv.org/pdf/2006.02282<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></em><br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://jiangdata.oss-cn-guangzhou.aliyuncs.com/es/jd.png"
+                     
+                ></p>
+<div style="text-align: center;">
+图 1
+</div>
+
+<hr>
+<p>淘宝搜索<br>相关论文：《Embedding-based Product Retrieval in Taobao Search》<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://jiangdata.oss-cn-guangzhou.aliyuncs.com/es/taobao.png"
+                     
+                ></p>
+<div style="text-align: center;">
+图 2
+</div>
+
+<h2 id="Query理解阶段"><a href="#Query理解阶段" class="headerlink" title="Query理解阶段"></a>Query理解阶段</h2><p>目前各大电商搜索基本都应用了NLP(自然语言处理)技术，query阶段主要流程为：<code>拼写纠错</code>–&gt;<code>分词</code>–&gt;<code>类目预测</code><br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://jiangdata.oss-cn-guangzhou.aliyuncs.com/es/nlp.png"
+                     
+                ></p>
+<table>
+<thead>
+<tr>
+<th>阶段</th>
+<th>主要目的</th>
+<th>使用技术</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>拼写纠错</strong></td>
+<td>修正用户拼音&#x2F;别字&#x2F;错字</td>
+<td>编辑距离、拼音映射、语言模型、BERT等</td>
+</tr>
+<tr>
+<td><strong>分词</strong></td>
+<td>将连续文本切成有意义词单元</td>
+<td>词典分词、CRF、BiLSTM-CRF、BERT等</td>
+</tr>
+<tr>
+<td><strong>类目预测</strong></td>
+<td>识别Query对应的商品类目</td>
+<td>TextCNN、FastText、BERT分类器、向量匹配</td>
+</tr>
+</tbody></table>
+<h2 id="召回阶段"><a href="#召回阶段" class="headerlink" title="召回阶段"></a>召回阶段</h2><p>这个阶段主要基于Query阶段进行，如果用户主动选择了商品类目则根据用户所选进行召回，否则按照上一阶段类目预测进行类目筛选</p>
+<h3 id="多路召回"><a href="#多路召回" class="headerlink" title="多路召回"></a>多路召回</h3><table>
+<thead>
+<tr>
+<th>召回方式</th>
+<th>原理</th>
+<th>举例说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>关键词匹配召回</strong></td>
+<td>倒排索引，基于分词匹配</td>
+<td>Query中含“耐克鞋”，命中耐克商品</td>
+</tr>
+<tr>
+<td><strong>类目召回</strong></td>
+<td>通过类目ID匹配商品类目</td>
+<td>类目预测是“运动鞋”，召回该类商品</td>
+</tr>
+<tr>
+<td><strong>属性召回</strong></td>
+<td>匹配颜色、尺码、功能等属性</td>
+<td>“夏季防滑”，召回“凉鞋”类商品</td>
+</tr>
+<tr>
+<td><strong>品牌召回</strong></td>
+<td>品牌识别结果匹配商品品牌字段</td>
+<td>“苹果手机壳”，召回 Apple 的配件</td>
+</tr>
+<tr>
+<td><strong>向量召回</strong></td>
+<td>Query 转成 Embedding 向量</td>
+<td>“网红同款裙子” → 语义检索相似商品</td>
+</tr>
+<tr>
+<td><strong>历史行为召回</strong></td>
+<td>利用用户画像&#x2F;点击历史</td>
+<td>你经常搜“iPhone壳” → 优先相关商品</td>
+</tr>
+<tr>
+<td><strong>同义词扩展召回</strong></td>
+<td>Query改写扩展词匹配商品</td>
+<td>“牛仔裤”扩展为“牛仔长裤”、“jeans”</td>
+</tr>
+</tbody></table>
+<p>多路召回确保了商品尽可能命中，有效避免了搜索商品为空的情况  </p>
+<hr>
+<p>🧠 举个完整例子<br>当用户输入：<code>苹果13手机可透明防摔</code><br>经过<code>Query</code>处理后得到</p>
+<ul>
+<li>品牌：苹果</li>
+<li>商品意图：配件-&gt;手机壳</li>
+<li>属性：透明、防摔</li>
+<li>类目预测：手机配件&gt;手机壳</li>
+</ul>
+<p>然后召回</p>
+<table>
+<thead>
+<tr>
+<th>通道类型</th>
+<th>召回商品</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>关键词召回</td>
+<td>命中“苹果”、“手机壳”</td>
+</tr>
+<tr>
+<td>类目召回</td>
+<td>所有“手机壳”类目商品</td>
+</tr>
+<tr>
+<td>属性召回</td>
+<td>带有“防摔”、“透明”标签的商品</td>
+</tr>
+<tr>
+<td>品牌召回</td>
+<td>Apple 品牌下的配件</td>
+</tr>
+<tr>
+<td>向量召回</td>
+<td>含有“保护壳”或“壳套”的近义商品</td>
+</tr>
+</tbody></table>
+<h2 id="排序阶段"><a href="#排序阶段" class="headerlink" title="排序阶段"></a>排序阶段</h2><h3 id="🧱-排序阶段的总体结构："><a href="#🧱-排序阶段的总体结构：" class="headerlink" title="🧱 排序阶段的总体结构："></a>🧱 排序阶段的总体结构：</h3><p>排序阶段一般会分成 <strong>三级排序</strong>（粗到精）：</p>
+<p>初排（粗排） → 精排（主排序） → 重排（个性化&#x2F;多目标）</p>
+<hr>
+<h4 id="1️⃣-初排（粗排-pre-ranking）"><a href="#1️⃣-初排（粗排-pre-ranking）" class="headerlink" title="1️⃣ 初排（粗排 &#x2F; pre-ranking）"></a>1️⃣ 初排（粗排 &#x2F; pre-ranking）</h4><ul>
+<li><strong>目的</strong>：快速过滤掉明显不相关或低质量商品，减少计算负担</li>
+<li><strong>模型</strong>：轻量模型（如LR、Tree-based、Wide&amp;Deep）</li>
+<li><strong>特征</strong>：Query词命中数、类目匹配、价格过滤、是否违规等</li>
+</ul>
+<hr>
+<h4 id="2️⃣-精排（主排序-ranking）"><a href="#2️⃣-精排（主排序-ranking）" class="headerlink" title="2️⃣ 精排（主排序 &#x2F; ranking）"></a>2️⃣ 精排（主排序 &#x2F; ranking）</h4><ul>
+<li><p><strong>目的</strong>：主力打分，精细评估每个商品的价值</p>
+</li>
+<li><p><strong>模型</strong>：深度学习模型（CTR&#x2F;CVR预测），如：</p>
+<ul>
+<li>DNN、DSSM、DIN、DeepFM、Transformer</li>
+</ul>
+</li>
+<li><p><strong>特征举例</strong>：</p>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>类别</th>
+<th>特征示例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Query特征</td>
+<td>Query长度、词性、意图类型</td>
+</tr>
+<tr>
+<td>商品特征</td>
+<td>价格、销量、评价、品牌、库存</td>
+</tr>
+<tr>
+<td>用户特征</td>
+<td>历史兴趣、性别、年龄、最近浏览行为等</td>
+</tr>
+<tr>
+<td>用户-商品</td>
+<td>用户是否点击过该商品、用户是否收藏过等</td>
+</tr>
+<tr>
+<td>Query-商品</td>
+<td>分词重合度、类目相关性、品牌一致性等</td>
+</tr>
+</tbody></table>
+<ul>
+<li><strong>目标</strong>：最大化CTR（点击率）或 GMV（成交额）</li>
+</ul>
+<hr>
+<h4 id="3️⃣-重排（后排序-re-ranking）"><a href="#3️⃣-重排（后排序-re-ranking）" class="headerlink" title="3️⃣ 重排（后排序 &#x2F; re-ranking）"></a>3️⃣ 重排（后排序 &#x2F; re-ranking）</h4><ul>
+<li><p><strong>目的</strong>：提升多目标表现，强化个性化、多样性</p>
+</li>
+<li><p><strong>操作内容</strong>：</p>
+<ul>
+<li>加入冷启动保护、新品扶持、打散重复品牌</li>
+<li>引入上下文特征（如用户最近浏览行为）</li>
+<li>考虑业务规则：广告插入、黑名单屏蔽、活动优先等</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="📌-排序还要考虑的特殊场景："><a href="#📌-排序还要考虑的特殊场景：" class="headerlink" title="📌 排序还要考虑的特殊场景："></a>📌 排序还要考虑的特殊场景：</h3><ul>
+<li><strong>广告排序融合</strong>：搜索广告商品会和自然排序混合</li>
+<li><strong>新商品冷启动保护</strong>：避免因点击少而排序靠后</li>
+<li><strong>业务打分融合</strong>：平台可以插入指定商品、活动商品</li>
+</ul>
+<hr>
+<h1 id="Es-Redis模拟电商搜索"><a href="#Es-Redis模拟电商搜索" class="headerlink" title="Es+Redis模拟电商搜索"></a>Es+Redis模拟电商搜索</h1><blockquote>
+<p>由于技术有限，这里就直接采用ik分词器进行分词，采用es进行模糊匹配，大家要是有更好改进的点可以在评论区分享呀，我也是最近刚学习了Es突发奇想做的小demo，效果在文章末有展示<br>Github地址：<a class="link"   target="_blank" rel="noopener" href="https://github.com/Aeroeia/ElasticSearch" >https://github.com/Aeroeia/ElasticSearch<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a> 大家要是这样觉得有用的话可以点个小星星呀</p>
+</blockquote>
+<h2 id="环境准备"><a href="#环境准备" class="headerlink" title="环境准备"></a>环境准备</h2><ul>
+<li>Jdk11+</li>
+<li>Maven</li>
+<li>Redis</li>
+<li>Mysql</li>
+<li>Elasticsearch 7.x、ik分词器</li>
+</ul>
+<h2 id="es索引库结构"><a href="#es索引库结构" class="headerlink" title="es索引库结构"></a>es索引库结构</h2><div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">PUT /item </span><br><span class="line">&#123;</span><br><span class="line">  &quot;settings&quot;: &#123;</span><br><span class="line">    &quot;analysis&quot;: &#123;</span><br><span class="line">      &quot;analyzer&quot;: &#123;</span><br><span class="line">        &quot;suggest_analyzer&quot;: &#123;</span><br><span class="line">          &quot;tokenizer&quot;: &quot;keyword&quot;,</span><br><span class="line">          &quot;filter&quot;: [&quot;lowercase&quot;, &quot;trim&quot;]</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  &quot;mappings&quot;: &#123;</span><br><span class="line">    &quot;properties&quot;: &#123;</span><br><span class="line">      &quot;id&quot;: &#123; &quot;type&quot;: &quot;keyword&quot; &#125;,</span><br><span class="line">      &quot;name&quot;: &#123;</span><br><span class="line">        &quot;type&quot;: &quot;text&quot;,</span><br><span class="line">        &quot;analyzer&quot;: &quot;ik_max_word&quot; </span><br><span class="line">      &#125;,</span><br><span class="line">      &quot;brand&quot;: &#123; </span><br><span class="line">        &quot;type&quot;: &quot;keyword&quot;</span><br><span class="line">      &#125;,</span><br><span class="line">      &quot;category&quot;: &#123;</span><br><span class="line">        &quot;type&quot;: &quot;keyword&quot;</span><br><span class="line">      &#125;,</span><br><span class="line">      &quot;suggest_keywords&quot;: &#123;</span><br><span class="line">        &quot;type&quot;: &quot;completion&quot;,</span><br><span class="line">        &quot;analyzer&quot;: &quot;suggest_analyzer&quot;,</span><br><span class="line">        &quot;preserve_separators&quot;: false,</span><br><span class="line">        &quot;preserve_position_increments&quot;: false</span><br><span class="line">      &#125;,</span><br><span class="line">      &quot;price&quot;: &#123; &quot;type&quot;: &quot;integer&quot; , &quot;index&quot;: false&#125;,</span><br><span class="line">      &quot;image&quot;: &#123; &quot;type&quot;: &quot;keyword&quot; , &quot;index&quot;: false&#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+<p>Mysql中也基本是这些字段，只不过没有<code>suggest_keywords</code></p>
+<h2 id="后端实现-SpringBoot-RestHighLevelClient-SpringCache-Redis"><a href="#后端实现-SpringBoot-RestHighLevelClient-SpringCache-Redis" class="headerlink" title="后端实现(SpringBoot+RestHighLevelClient+SpringCache(Redis))"></a>后端实现(SpringBoot+RestHighLevelClient+SpringCache(Redis))</h2><h3 id="Maven依赖"><a href="#Maven依赖" class="headerlink" title="Maven依赖"></a>Maven依赖</h3><div class="code-container" data-rel="Xml"><figure class="iseeu highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br></pre></td><td class="code"><pre><span class="line">    <span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!-- Elasticsearch 客户端 --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.elasticsearch.client<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>elasticsearch-rest-high-level-client<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">version</span>&gt;</span>7.12.1<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">&lt;!-- 数据库连接池 --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.alibaba<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>druid-spring-boot-starter<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.2.1<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">&lt;!-- Redis依赖 --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-data-redis<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">&lt;!-- MySQL驱动 --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.mysql<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>mysql-connector-j<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">scope</span>&gt;</span>runtime<span class="tag">&lt;/<span class="name">scope</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">&lt;!-- Spring Web --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-web<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">&lt;!-- Lombok --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.projectlombok<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>lombok<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.18.30<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">&lt;!-- MyBatis Plus --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.baomidou<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>mybatis-plus-boot-starter<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">version</span>&gt;</span>3.5.6<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">&lt;!-- Spring Boot 基础依赖 --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">&lt;!-- Spring Boot 测试依赖 --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-test<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">scope</span>&gt;</span>test<span class="tag">&lt;/<span class="name">scope</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--        hutool工具包--&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>cn.hutool<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>hutool-all<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">version</span>&gt;</span>5.8.11<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></span><br></pre></td></tr></table></figure></div>
+<h3 id="配置类"><a href="#配置类" class="headerlink" title="配置类"></a>配置类</h3><div class="code-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">EsConfiguration</span> &#123;</span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="keyword">public</span> RestHighLevelClient <span class="title function_">restHighLevelClient</span><span class="params">()</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">RestHighLevelClient</span>(RestClient.builder(</span><br><span class="line">                HttpHost.create(<span class="string">&quot;192.168.112.128:9200&quot;</span>) <span class="comment">//写成自己es的ip端口</span></span><br><span class="line">        ));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+<h3 id="Controller"><a href="#Controller" class="headerlink" title="Controller"></a>Controller</h3><div class="code-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@RestController</span></span><br><span class="line"><span class="meta">@Slf4j</span></span><br><span class="line"><span class="meta">@RequestMapping(&quot;es&quot;)</span></span><br><span class="line"><span class="meta">@RequiredArgsConstructor</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">EsController</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> IItemService itemService;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//用于获取搜索建议</span></span><br><span class="line">    <span class="meta">@GetMapping(&quot;/suggestions&quot;)</span></span><br><span class="line">    <span class="keyword">public</span> List&lt;String&gt; <span class="title function_">getSuggestions</span><span class="params">(<span class="meta">@RequestParam</span> String keyword)</span>&#123;</span><br><span class="line">        log.info(<span class="string">&quot;keyword:&#123;&#125;&quot;</span>,keyword);</span><br><span class="line">        <span class="keyword">return</span> itemService.getSuggestions(keyword);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//查询商品接口</span></span><br><span class="line">    <span class="meta">@GetMapping(&quot;/search&quot;)</span></span><br><span class="line">    <span class="keyword">public</span> List&lt;ItemVO&gt; <span class="title function_">search</span><span class="params">(<span class="meta">@RequestParam(required = false)</span> String keyword, <span class="meta">@RequestParam(required = false)</span> String brand, <span class="meta">@RequestParam(required = false)</span> String category)</span>&#123;</span><br><span class="line">        log.info(<span class="string">&quot;keyword:&#123;&#125;&quot;</span>,keyword);</span><br><span class="line">        log.info(<span class="string">&quot;brand:&#123;&#125;&quot;</span>,brand);</span><br><span class="line">        log.info(<span class="string">&quot;category:&#123;&#125;&quot;</span>,category);</span><br><span class="line">        <span class="keyword">return</span> itemService.search(keyword,brand,category);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure></div>
+<h3 id="ServiceImpl"><a href="#ServiceImpl" class="headerlink" title="ServiceImpl"></a>ServiceImpl</h3><div class="code-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Service</span></span><br><span class="line"><span class="meta">@Slf4j</span></span><br><span class="line"><span class="meta">@RequiredArgsConstructor</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">ItemServiceImpl</span> <span class="keyword">extends</span> <span class="title class_">ServiceImpl</span>&lt;ItemMapper, Item&gt; <span class="keyword">implements</span> <span class="title class_">IItemService</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> RestHighLevelClient client;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//自定义字段</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> <span class="type">String</span> <span class="variable">suggestionName</span> <span class="operator">=</span> <span class="string">&quot;sug&quot;</span>;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="meta">@Cacheable(value = &quot;suggestions&quot;,key = &quot;#keyword&quot;)</span></span><br><span class="line">    <span class="keyword">public</span> List&lt;String&gt; <span class="title function_">getSuggestions</span><span class="params">(String keyword)</span> &#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="comment">// 构建搜索建议请求</span></span><br><span class="line">            <span class="type">SuggestBuilder</span> <span class="variable">sb</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">SuggestBuilder</span>();</span><br><span class="line">            sb.addSuggestion(suggestionName,</span><br><span class="line">                    SuggestBuilders.completionSuggestion(<span class="string">&quot;suggest_keywords&quot;</span>)</span><br><span class="line">                            .prefix(keyword)</span><br><span class="line">                            .size(<span class="number">10</span>) <span class="comment">//最多十条建议</span></span><br><span class="line">                            .skipDuplicates(<span class="literal">true</span>)</span><br><span class="line">            );</span><br><span class="line">            </span><br><span class="line">            <span class="type">SearchSourceBuilder</span> <span class="variable">src</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">SearchSourceBuilder</span>().suggest(sb).size(<span class="number">0</span>);</span><br><span class="line">            <span class="type">SearchRequest</span> <span class="variable">req</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">SearchRequest</span>(<span class="string">&quot;item&quot;</span>).source(src);</span><br><span class="line"></span><br><span class="line">            </span><br><span class="line">            <span class="comment">// 执行搜索</span></span><br><span class="line">            <span class="type">SearchResponse</span> <span class="variable">resp</span> <span class="operator">=</span> client.search(req, RequestOptions.DEFAULT);</span><br><span class="line">            log.info(<span class="string">&quot;搜索响应: &#123;&#125;&quot;</span>, resp);</span><br><span class="line">            </span><br><span class="line">            <span class="comment">// 解析建议结果</span></span><br><span class="line">            <span class="type">CompletionSuggestion</span> <span class="variable">suggestion</span> <span class="operator">=</span> resp.getSuggest().getSuggestion(suggestionName);</span><br><span class="line">            <span class="keyword">if</span> (suggestion == <span class="literal">null</span>) &#123;</span><br><span class="line">                log.warn(<span class="string">&quot;未找到建议结果&quot;</span>);</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line">            &#125;</span><br><span class="line">            </span><br><span class="line">            List&lt;String&gt; suggestions = suggestion.getOptions().stream()</span><br><span class="line">                    .map(option -&gt; &#123;</span><br><span class="line">                        <span class="type">String</span> <span class="variable">str</span> <span class="operator">=</span> option.getText().toString();</span><br><span class="line">                        <span class="comment">//关键词高亮</span></span><br><span class="line">                        <span class="type">StringBuilder</span> <span class="variable">builder</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">StringBuilder</span>(str);</span><br><span class="line">                        builder.insert(<span class="number">0</span>,<span class="string">&quot;&lt;em&gt;&quot;</span>);</span><br><span class="line">                        builder.insert(keyword.length()+<span class="number">4</span>,<span class="string">&quot;&lt;/em&gt;&quot;</span>);</span><br><span class="line">                        <span class="keyword">return</span> builder.toString();</span><br><span class="line">                    &#125;)</span><br><span class="line">                    .collect(Collectors.toList());</span><br><span class="line">            <span class="keyword">return</span> suggestions;</span><br><span class="line">            </span><br><span class="line">        &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">            log.error(<span class="string">&quot;搜索建议时发生错误&quot;</span>, e);</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">RuntimeException</span>(<span class="string">&quot;搜索建议失败&quot;</span>, e);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment">//同步mysql数据到es</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">syncData</span><span class="params">()</span> &#123;</span><br><span class="line">        log.info(<span class="string">&quot;开始同步数据到ES&quot;</span>);</span><br><span class="line">        List&lt;Item&gt; list = <span class="built_in">this</span>.list();</span><br><span class="line">        <span class="type">BulkRequest</span> <span class="variable">request</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">BulkRequest</span>();</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span> (Item item : list) &#123;</span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                List&lt;String&gt; suggestions = SuggestionsUtil.getSuggestions(item.getName(), item.getBrand(), item.getCategory());</span><br><span class="line">                <span class="type">EsItem</span> <span class="variable">esItem</span> <span class="operator">=</span> BeanUtil.copyProperties(item, EsItem.class);</span><br><span class="line">                </span><br><span class="line">                <span class="comment">// 构建completion suggester所需的特定格式</span></span><br><span class="line">                Map&lt;String, Object&gt; suggest = <span class="keyword">new</span> <span class="title class_">HashMap</span>&lt;&gt;();</span><br><span class="line">                suggest.put(<span class="string">&quot;input&quot;</span>, suggestions);</span><br><span class="line">                suggest.put(<span class="string">&quot;weight&quot;</span>, <span class="number">10</span>);</span><br><span class="line">                esItem.setSuggest_keywords(suggest);</span><br><span class="line">                </span><br><span class="line">                <span class="type">String</span> <span class="variable">jsonString</span> <span class="operator">=</span> JSONUtil.toJsonStr(esItem);</span><br><span class="line">                </span><br><span class="line">                request.add(<span class="keyword">new</span> <span class="title class_">IndexRequest</span>(<span class="string">&quot;item&quot;</span>)</span><br><span class="line">                        .id(item.getId().toString())</span><br><span class="line">                        .source(jsonString, XContentType.JSON));</span><br><span class="line">                </span><br><span class="line">            &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">                log.error(<span class="string">&quot;处理商品数据时发生错误, ID: &#123;&#125;&quot;</span>, item.getId(), e);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            client.bulk(request, RequestOptions.DEFAULT);</span><br><span class="line">            log.info(<span class="string">&quot;数据同步完成，共同步 &#123;&#125; 条记录&quot;</span>, list.size());</span><br><span class="line">        &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">            log.error(<span class="string">&quot;批量同步数据时发生错误&quot;</span>, e);</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">RuntimeException</span>(<span class="string">&quot;同步数据失败&quot;</span>, e);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="meta">@Cacheable(value = &quot;search&quot;,key = &quot;#keyword+&#x27;-&#x27;+#brand+&#x27;-&#x27;+#category&quot;)</span></span><br><span class="line">    <span class="keyword">public</span> List&lt;ItemVO&gt; <span class="title function_">search</span><span class="params">(String keyword, String brand, String category)</span> &#123;</span><br><span class="line">        <span class="type">SearchRequest</span> <span class="variable">request</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">SearchRequest</span>(<span class="string">&quot;item&quot;</span>);</span><br><span class="line">        <span class="comment">//将keyword匹配name、brand、category</span></span><br><span class="line">        BoolQueryBuilder boolQueryBuilder;</span><br><span class="line">        <span class="keyword">if</span>(StrUtil.isNotBlank(keyword))&#123;</span><br><span class="line">            boolQueryBuilder  = QueryBuilders.boolQuery().must(QueryBuilders.multiMatchQuery(</span><br><span class="line">                    keyword, <span class="string">&quot;name&quot;</span>, <span class="string">&quot;brand&quot;</span>, <span class="string">&quot;category&quot;</span></span><br><span class="line">            ));</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span>&#123;</span><br><span class="line">            boolQueryBuilder = QueryBuilders.boolQuery().must(QueryBuilders.matchAllQuery());</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(StrUtil.isNotBlank(brand))&#123;</span><br><span class="line">            boolQueryBuilder.filter(QueryBuilders.termQuery(<span class="string">&quot;brand&quot;</span>, brand));</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(StrUtil.isNotBlank(category))&#123;</span><br><span class="line">            boolQueryBuilder.filter(QueryBuilders.termQuery(<span class="string">&quot;category&quot;</span>, category));</span><br><span class="line">        &#125;</span><br><span class="line">        request.source().query(boolQueryBuilder)</span><br><span class="line">                .highlighter(SearchSourceBuilder.highlight().field(<span class="string">&quot;name&quot;</span>));</span><br><span class="line">        request.source().size(<span class="number">10</span>);</span><br><span class="line">        SearchResponse response;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            response = client.search(request, RequestOptions.DEFAULT);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">RuntimeException</span>(e);</span><br><span class="line">        &#125;</span><br><span class="line">        SearchHit[] hits = response.getHits().getHits();</span><br><span class="line">        List&lt;ItemVO&gt; list = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">var</span> hit : hits)&#123;</span><br><span class="line">            Map&lt;String, HighlightField&gt; highlightFields = hit.getHighlightFields();</span><br><span class="line">            <span class="type">HighlightField</span> <span class="variable">highlightField</span> <span class="operator">=</span> highlightFields.get(<span class="string">&quot;name&quot;</span>);</span><br><span class="line">            <span class="type">String</span> <span class="variable">highlight</span> <span class="operator">=</span> <span class="literal">null</span>;</span><br><span class="line">            <span class="type">String</span> <span class="variable">source</span> <span class="operator">=</span> hit.getSourceAsString();</span><br><span class="line">            <span class="type">ItemVO</span> <span class="variable">itemVO</span> <span class="operator">=</span> JSONUtil.toBean(source, ItemVO.class);</span><br><span class="line">            <span class="keyword">if</span>(highlightField!=<span class="literal">null</span>)&#123;</span><br><span class="line">                highlight = highlightField.getFragments()[<span class="number">0</span>].toString();</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span>&#123;</span><br><span class="line">                highlight = itemVO.getName();</span><br><span class="line">            &#125;</span><br><span class="line">            itemVO.setHighlight(highlight);</span><br><span class="line">            list.add(itemVO);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> list;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+<h3 id="生成suggest-keyword工具类"><a href="#生成suggest-keyword工具类" class="headerlink" title="生成suggest_keyword工具类"></a>生成suggest_keyword工具类</h3><div class="code-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">SuggestionsUtil</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> List&lt;String&gt; <span class="title function_">getSuggestions</span><span class="params">(String name, String brand, String category)</span> &#123;</span><br><span class="line">        <span class="comment">//简单按照名字中空格作为划分区</span></span><br><span class="line">        List&lt;String&gt; suggestions = Arrays.stream(name.split(<span class="string">&quot;\\s+&quot;</span>))</span><br><span class="line">                .filter(word -&gt; word.length() &gt;= <span class="number">2</span>)</span><br><span class="line">                .distinct()</span><br><span class="line">                .collect(Collectors.toList());</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 将品牌和分类直接加入搜索建议（如果不为空）</span></span><br><span class="line">        <span class="keyword">if</span> (StrUtil.isNotBlank(brand)) &#123;</span><br><span class="line">            suggestions.add(brand.trim());</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (StrUtil.isNotBlank(category)) &#123;</span><br><span class="line">            suggestions.add(category.trim());</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> suggestions;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure></div>
+<h3 id="SpringTask-定时将mysql数据同步到es"><a href="#SpringTask-定时将mysql数据同步到es" class="headerlink" title="SpringTask 定时将mysql数据同步到es"></a>SpringTask 定时将mysql数据同步到es</h3><div class="code-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="meta">@RequiredArgsConstructor</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">EsTask</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> IItemService itemService;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> RestHighLevelClient client;</span><br><span class="line">    <span class="meta">@Scheduled(cron = &quot;0 */5 * * * ?&quot;)</span> <span class="comment">// 每5分钟执行一次</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">syncProductToEs</span><span class="params">()</span> &#123;</span><br><span class="line">        itemService.syncData();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+<h1 id="效果展示"><a href="#效果展示" class="headerlink" title="效果展示"></a>效果展示</h1><p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://jiangdata.oss-cn-guangzhou.aliyuncs.com/es/es.gif"
+                     
+                ></p>
+
+		</div>
+
+		
+
+		
+
+		
+
+		
+		<div class="article-nav my-8 flex justify-between items-center px-2 sm:px-6 md:px-8">
+			
+			
+			<div class="article-next border-border-color shadow-redefine-flat shadow-shadow-color-2 rounded-medium px-4 py-2 hover:shadow-redefine-flat-hover hover:shadow-shadow-color-2">
+				<a class="next" rel="next" href="/uncategorized/nacos/">
+					<span class="title flex justify-center items-center">
+						<span class="post-nav-title-item">nacos配置与使用</span>
+						<span class="post-nav-item">Next posts</span>
+					</span>
+					<span class="right arrow-icon flex justify-center items-center">
+						<i class="fa-solid fa-chevron-right"></i>
+					</span>
+				</a>
+			</div>
+			
+		</div>
+		
+
+
+		
+		<div class="comment-container px-2 sm:px-6 md:px-8 pb-8">
+			<div class="comments-container mt-10 w-full ">
+    <div id="comment-anchor" class="w-full h-2.5"></div>
+    <div class="comment-area-title w-full my-1.5 md:my-2.5 text-xl md:text-3xl font-bold">
+        Comments
+    </div>
+    
+
+        
+            
+    <div id="waline"></div>
+    <script type="module" data-swup-reload-script>
+      import { init } from '/js/libs/waline.mjs';
+
+      function loadWaline() {
+        init({
+          el: '#waline',
+          serverURL: 'https://example.example.com',
+          lang: 'zh-CN',
+          dark: 'body[class~="dark-mode"]',
+          reaction: false,
+          requiredMeta: ['nick', 'mail'],
+          emoji: [],
+          
+          
+        });
+      }
+
+      if (typeof swup !== 'undefined') {
+        loadWaline();
+      } else {
+        window.addEventListener('DOMContentLoaded', loadWaline);
+      }
+    </script>
+
+
+
+        
+    
+</div>
+
+		</div>
+		
+	</div>
+
+	
+	<div class="toc-content-container">
+		<div class="post-toc-wrap">
+	<div class="post-toc">
+		<div class="toc-title">On this page</div>
+		<div class="page-title">剖析电商搜索要点并基于Es+Redis模拟电商搜索行为</div>
+		<ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%94%B5%E5%95%86%E6%90%9C%E7%B4%A2%E8%A6%81%E7%82%B9%E5%89%96%E6%9E%90"><span class="nav-text">电商搜索要点剖析</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Query%E7%90%86%E8%A7%A3%E9%98%B6%E6%AE%B5"><span class="nav-text">Query理解阶段</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%AC%E5%9B%9E%E9%98%B6%E6%AE%B5"><span class="nav-text">召回阶段</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A4%9A%E8%B7%AF%E5%8F%AC%E5%9B%9E"><span class="nav-text">多路召回</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8E%92%E5%BA%8F%E9%98%B6%E6%AE%B5"><span class="nav-text">排序阶段</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%F0%9F%A7%B1-%E6%8E%92%E5%BA%8F%E9%98%B6%E6%AE%B5%E7%9A%84%E6%80%BB%E4%BD%93%E7%BB%93%E6%9E%84%EF%BC%9A"><span class="nav-text">🧱 排序阶段的总体结构：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%F0%9F%93%8C-%E6%8E%92%E5%BA%8F%E8%BF%98%E8%A6%81%E8%80%83%E8%99%91%E7%9A%84%E7%89%B9%E6%AE%8A%E5%9C%BA%E6%99%AF%EF%BC%9A"><span class="nav-text">📌 排序还要考虑的特殊场景：</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Es-Redis%E6%A8%A1%E6%8B%9F%E7%94%B5%E5%95%86%E6%90%9C%E7%B4%A2"><span class="nav-text">Es+Redis模拟电商搜索</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%8E%AF%E5%A2%83%E5%87%86%E5%A4%87"><span class="nav-text">环境准备</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#es%E7%B4%A2%E5%BC%95%E5%BA%93%E7%BB%93%E6%9E%84"><span class="nav-text">es索引库结构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%90%8E%E7%AB%AF%E5%AE%9E%E7%8E%B0-SpringBoot-RestHighLevelClient-SpringCache-Redis"><span class="nav-text">后端实现(SpringBoot+RestHighLevelClient+SpringCache(Redis))</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Maven%E4%BE%9D%E8%B5%96"><span class="nav-text">Maven依赖</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE%E7%B1%BB"><span class="nav-text">配置类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Controller"><span class="nav-text">Controller</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ServiceImpl"><span class="nav-text">ServiceImpl</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%94%9F%E6%88%90suggest-keyword%E5%B7%A5%E5%85%B7%E7%B1%BB"><span class="nav-text">生成suggest_keyword工具类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SpringTask-%E5%AE%9A%E6%97%B6%E5%B0%86mysql%E6%95%B0%E6%8D%AE%E5%90%8C%E6%AD%A5%E5%88%B0es"><span class="nav-text">SpringTask 定时将mysql数据同步到es</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%95%88%E6%9E%9C%E5%B1%95%E7%A4%BA"><span class="nav-text">效果展示</span></a></li></ol>
+
+	</div>
+</div>
+	</div>
+	
+</div>
+			</div>
+
+			
+		</div>
+
+		<div class="main-content-footer">
+			<footer class="footer mt-5 py-5 h-auto text-base text-third-text-color relative border-t-2 border-t-border-color">
+    <div class="info-container py-3 text-center">
+        
+        <div class="text-center">
+            &copy;
+            
+              <span>2025</span>
+              -
+            
+            2025&nbsp;&nbsp;<i class="fa-solid fa-bell fa-shake" style="--fa-animation-duration: 0.5s; color: rgb(251,181,147)"></i>&nbsp;&nbsp;<a href="/">Aer</a>
+            
+                
+                <p class="post-count space-x-0.5">
+                    <span>
+                        18 posts in total
+                    </span>
+                    
+                </p>
+            
+        </div>
+        
+            <script data-swup-reload-script src="https://cn.vercount.one/js"></script>
+            <div class="relative text-center lg:absolute lg:right-[20px] lg:top-1/2 lg:-translate-y-1/2 lg:text-right">
+                
+                
+            </div>
+        
+        <div class="relative text-center lg:absolute lg:left-[20px] lg:top-1/2 lg:-translate-y-1/2 lg:text-left">
+            <span class="lg:block text-sm">POWERED BY <?xml version="1.0" encoding="utf-8"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg class="relative top-[2px] inline-block align-baseline" version="1.1" id="圖層_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="1rem" height="1rem" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve"><path fill="#0E83CD" d="M256.4,25.8l-200,115.5L56,371.5l199.6,114.7l200-115.5l0.4-230.2L256.4,25.8z M349,354.6l-18.4,10.7l-18.6-11V275H200v79.6l-18.4,10.7l-18.6-11v-197l18.5-10.6l18.5,10.8V237h112v-79.6l18.5-10.6l18.5,10.8V354.6z"/></svg><a target="_blank" class="text-base" href="https://hexo.io">Hexo</a></span>
+            <span class="text-sm lg:block">THEME&nbsp;<a class="text-base" target="_blank" href="https://github.com/EvanNotFound/hexo-theme-redefine">Redefine v2.8.2</a></span>
+        </div>
+        
+        
+            <div>
+                Blog up for <span class="odometer" id="runtime_days" ></span> days <span class="odometer" id="runtime_hours"></span> hrs <span class="odometer" id="runtime_minutes"></span> Min <span class="odometer" id="runtime_seconds"></span> Sec
+            </div>
+        
+        
+            <script data-swup-reload-script>
+                try {
+                    function odometer_init() {
+                    const elements = document.querySelectorAll('.odometer');
+                    elements.forEach(el => {
+                        new Odometer({
+                            el,
+                            format: '( ddd).dd',
+                            duration: 200
+                        });
+                    });
+                    }
+                    odometer_init();
+                } catch (error) {}
+            </script>
+        
+        
+            
+                
+        
+                
+        
+        
+    </div>  
+</footer>
+		</div>
+	</div>
+
+	
+	<div class="post-tools">
+		<div class="post-tools-container">
+	<ul class="article-tools-list">
+		<!-- TOC aside toggle -->
+		
+		<li class="right-bottom-tools page-aside-toggle">
+			<i class="fa-regular fa-outdent"></i>
+		</li>
+		
+
+		<!-- go comment -->
+		
+		<li class="go-comment">
+			<i class="fa-regular fa-comments"></i>
+		</li>
+		
+	</ul>
+</div>
+	</div>
+	
+
+	<div class="right-side-tools-container">
+		<div class="side-tools-container">
+	<ul class="hidden-tools-list">
+		<li class="right-bottom-tools tool-font-adjust-plus flex justify-center items-center">
+			<i class="fa-regular fa-magnifying-glass-plus"></i>
+		</li>
+
+		<li class="right-bottom-tools tool-font-adjust-minus flex justify-center items-center">
+			<i class="fa-regular fa-magnifying-glass-minus"></i>
+		</li>
+
+		<li class="right-bottom-tools tool-dark-light-toggle flex justify-center items-center">
+			<i class="fa-regular fa-moon"></i>
+		</li>
+
+		<!-- rss -->
+		
+
+		
+
+		<li class="right-bottom-tools tool-scroll-to-bottom flex justify-center items-center">
+			<i class="fa-regular fa-arrow-down"></i>
+		</li>
+	</ul>
+
+	<ul class="visible-tools-list">
+		<li class="right-bottom-tools toggle-tools-list flex justify-center items-center">
+			<i class="fa-regular fa-cog fa-spin"></i>
+		</li>
+		
+		<li class="right-bottom-tools tool-scroll-to-top flex justify-center items-center">
+			<i class="arrow-up fas fa-arrow-up"></i>
+			<span class="percent"></span>
+		</li>
+		
+		
+	</ul>
+</div>
+	</div>
+
+	<div class="image-viewer-container">
+	<img src="">
+</div>
+
+	
+
+</main>
+
+
+<script  src="https://registry.npmmirror.com/hexo-theme-redefine/2.8.2/files/source/js/build/libs/Swup.min.js" ></script><script  src="https://registry.npmmirror.com/hexo-theme-redefine/2.8.2/files/source/js/build/libs/SwupSlideTheme.min.js" ></script><script  src="https://registry.npmmirror.com/hexo-theme-redefine/2.8.2/files/source/js/build/libs/SwupScriptsPlugin.min.js" ></script><script  src="https://registry.npmmirror.com/hexo-theme-redefine/2.8.2/files/source/js/build/libs/SwupProgressPlugin.min.js" ></script><script  src="https://registry.npmmirror.com/hexo-theme-redefine/2.8.2/files/source/js/build/libs/SwupScrollPlugin.min.js" ></script><script  src="https://registry.npmmirror.com/hexo-theme-redefine/2.8.2/files/source/js/build/libs/SwupPreloadPlugin.min.js" ></script>
+<script>
+    const swup = new Swup({
+        plugins: [
+            new SwupScriptsPlugin({
+                optin: true,
+            }),
+            new SwupProgressPlugin(),
+            new SwupScrollPlugin({
+                offset: 80,
+            }),
+            new SwupSlideTheme({
+                mainElement: ".main-content-body",
+            }),
+            new SwupPreloadPlugin(),
+        ],
+        containers: ["#swup"],
+    });
+</script>
+
+
+
+
+	<script type="module" src="https://registry.npmmirror.com/hexo-theme-redefine/2.8.2/files/source/js/build/tools/imageViewer.js" ></script><script type="module" src="https://registry.npmmirror.com/hexo-theme-redefine/2.8.2/files/source/js/build/utils.js" ></script><script type="module" src="https://registry.npmmirror.com/hexo-theme-redefine/2.8.2/files/source/js/build/main.js" ></script><script type="module" src="https://registry.npmmirror.com/hexo-theme-redefine/2.8.2/files/source/js/build/layouts/navbarShrink.js" ></script><script type="module" src="https://registry.npmmirror.com/hexo-theme-redefine/2.8.2/files/source/js/build/tools/scrollTopBottom.js" ></script><script type="module" src="https://registry.npmmirror.com/hexo-theme-redefine/2.8.2/files/source/js/build/tools/lightDarkSwitch.js" ></script><script type="module" src="https://registry.npmmirror.com/hexo-theme-redefine/2.8.2/files/source/js/build/layouts/categoryList.js" ></script>
+
+
+
+
+    <script type="module" src="https://registry.npmmirror.com/hexo-theme-redefine/2.8.2/files/source/js/build/tools/codeBlock.js" ></script>
+
+
+
+    <script type="module" src="https://registry.npmmirror.com/hexo-theme-redefine/2.8.2/files/source/js/build/layouts/lazyload.js" ></script>
+
+
+
+    <script  src="https://registry.npmmirror.com/hexo-theme-redefine/2.8.2/files/source/js/build/tools/runtime.js" ></script>
+    <script  src="https://registry.npmmirror.com/hexo-theme-redefine/2.8.2/files/source/js/build/libs/odometer.min.js" ></script>
+    <link rel="stylesheet" href="https://registry.npmmirror.com/hexo-theme-redefine/2.8.2/files/source/assets/odometer-theme-minimal.css">
+
+
+
+  <script  src="https://registry.npmmirror.com/hexo-theme-redefine/2.8.2/files/source/js/build/libs/Typed.min.js" ></script>
+  <script type="module" src="https://registry.npmmirror.com/hexo-theme-redefine/2.8.2/files/source/js/build/plugins/typed.js" ></script>
+
+
+
+    
+        <script  src="https://registry.npmmirror.com/hexo-theme-redefine/2.8.2/files/source/js/build/libs/mermaid.min.js" ></script>
+    
+    <script  src="https://registry.npmmirror.com/hexo-theme-redefine/2.8.2/files/source/js/build/plugins/mermaid.js" ></script>
+
+
+
+
+
+
+
+
+    <script type="module" src="https://registry.npmmirror.com/hexo-theme-redefine/2.8.2/files/source/js/build/tools/tocToggle.js" data-swup-reload-script></script><script type="module" src="https://registry.npmmirror.com/hexo-theme-redefine/2.8.2/files/source/js/build/layouts/toc.js" data-swup-reload-script></script><script type="module" src="https://registry.npmmirror.com/hexo-theme-redefine/2.8.2/files/source/js/build/plugins/tabs.js" data-swup-reload-script></script>
+
+
+<script  src="https://registry.npmmirror.com/hexo-theme-redefine/2.8.2/files/source/js/build/libs/moment-with-locales.min.js" data-swup-reload-script></script>
+<script type="module" src="https://registry.npmmirror.com/hexo-theme-redefine/2.8.2/files/source/js/build/layouts/essays.js" data-swup-reload-script></script>
+
+
+
+
+	
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</body>
+
+</html>
