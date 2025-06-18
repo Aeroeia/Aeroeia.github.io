@@ -19,7 +19,7 @@
     
     <!--- Seo Part-->
     
-    <link rel="canonical" href="http://example.com/springboot/java/mybatis-plus/mp-api/"/>
+    <link rel="canonical" href="http://example.com/uncategorized/innerclass/"/>
     <meta name="robots" content="index,follow">
     <meta name="googlebot" content="index,follow">
     <meta name="revisit-after" content="1 days">
@@ -29,16 +29,15 @@
         
         <meta name="description" content="Hexo Theme Redefine, Redefine Your Hexo Journey.">
 <meta property="og:type" content="article">
-<meta property="og:title" content="BaseMapper、IService方法使用">
-<meta property="og:url" content="http://example.com/SpringBoot/Java/mybatis-plus/mp-api/index.html">
+<meta property="og:title" content="一文讲清Java内部类：全面解析静态与非静态内部类">
+<meta property="og:url" content="http://example.com/uncategorized/InnerClass/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="Hexo Theme Redefine, Redefine Your Hexo Journey.">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://example.com/images/redefine-og.webp">
-<meta property="article:published_time" content="2025-04-19T07:38:13.000Z">
-<meta property="article:modified_time" content="2025-04-28T11:26:04.000Z">
+<meta property="article:published_time" content="2025-06-18T07:24:08.000Z">
+<meta property="article:modified_time" content="2025-06-18T10:34:57.503Z">
 <meta property="article:author" content="John Doe">
-<meta property="article:tag" content="mybatis-plus">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://example.com/images/redefine-og.webp">
     
@@ -52,7 +51,7 @@
     
     <title>
         
-            BaseMapper、IService方法使用 | Aer-Home
+            一文讲清Java内部类：全面解析静态与非静态内部类 | Aer-Home
         
     </title>
 
@@ -455,11 +454,11 @@
 
         <div class="statistics flex justify-around my-2.5">
     <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/tags">
-        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">7</div>
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">6</div>
         <div class="label text-third-text-color text-sm">Tags</div>
     </a>
     <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/categories">
-        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">6</div>
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">5</div>
         <div class="label text-third-text-color text-sm">Categories</div>
     </a>
     <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/archives">
@@ -486,7 +485,7 @@
 		<div class="article-title relative w-full">
 			
 			<div class="w-full flex items-center pt-6 justify-start">
-				<h1 class="article-title-regular text-second-text-color tracking-tight text-4xl md:text-6xl font-semibold px-2 sm:px-6 md:px-8 py-3">BaseMapper、IService方法使用</h1>
+				<h1 class="article-title-regular text-second-text-color tracking-tight text-4xl md:text-6xl font-semibold px-2 sm:px-6 md:px-8 py-3">一文讲清Java内部类：全面解析静态与非静态内部类</h1>
 			</div>
 			
 		</div>
@@ -507,47 +506,20 @@
 					<div class="article-meta-info">
     <span class="article-date article-meta-item">
         <i class="fa-regular fa-pen-fancy"></i>&nbsp;
-        <span class="desktop">2025-04-19 15:38:13</span>
-        <span class="mobile">2025-04-19 15:38:13</span>
+        <span class="desktop">2025-06-18 15:24:08</span>
+        <span class="mobile">2025-06-18 15:24:08</span>
         <span class="hover-info">Created</span>
     </span>
     
         <span class="article-date article-meta-item">
             <i class="fa-regular fa-wrench"></i>&nbsp;
-            <span class="desktop">2025-04-28 19:26:04</span>
-            <span class="mobile">2025-04-28 19:26:04</span>
+            <span class="desktop">2025-06-18 18:34:57</span>
+            <span class="mobile">2025-06-18 18:34:57</span>
             <span class="hover-info">Updated</span>
         </span>
     
 
     
-        <span class="article-categories article-meta-item">
-            <i class="fa-regular fa-folders"></i>&nbsp;
-            <ul>
-                
-                
-                    
-                        
-                        <li>
-                            <a href="/categories/SpringBoot/">SpringBoot</a>&nbsp;
-                        </li>
-                    
-                    
-                
-            </ul>
-        </span>
-    
-    
-        <span class="article-tags article-meta-item">
-            <i class="fa-regular fa-tags"></i>&nbsp;
-            <ul>
-                
-                    <li>
-                        <a href="/tags/mybatis-plus/">mybatis-plus</a>&nbsp;
-                    </li>
-                
-            </ul>
-        </span>
     
 
     
@@ -569,324 +541,98 @@
 
 
 		<div class="article-content markdown-body px-2 sm:px-6 md:px-8 pb-8">
-			<p>在 MyBatis-Plus（简称 MP）中，<strong>IService<T></strong> 是一个通用的 Service 接口，封装了对单一实体类的常用数据库操作。它是 MyBatis-Plus 提供的一个顶层接口，继承自 <strong>IService<T></strong> 的实现类（比如 <strong>ServiceImpl<T></strong>）可以直接调用这些方法，避免了写大量的重复代码。<br>下面是 <strong>IService<T></strong> 接口中主要的方法以及详细介绍：</p>
-<hr>
-<h2 id="一、基本的-CRUD-操作"><a href="#一、基本的-CRUD-操作" class="headerlink" title="一、基本的 CRUD 操作"></a>一、基本的 CRUD 操作</h2><table>
-<thead>
-<tr>
-<th>方法</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><strong>boolean save(T entity)</strong></td>
-<td>插入一条记录。</td>
-</tr>
-<tr>
-<td><strong>boolean saveBatch(Collection<T> entityList)</strong></td>
-<td>批量插入记录（默认每次插入 1000 条）。</td>
-</tr>
-<tr>
-<td><strong>boolean saveBatch(Collection<T> entityList, int batchSize)</strong></td>
-<td>指定批次数量的批量插入。</td>
-</tr>
-</tbody></table>
-<hr>
-<h2 id="二、删除操作"><a href="#二、删除操作" class="headerlink" title="二、删除操作"></a>二、删除操作</h2><table>
-<thead>
-<tr>
-<th>方法</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><strong>boolean removeById(Serializable id)</strong></td>
-<td>根据 ID 删除。</td>
-</tr>
-<tr>
-<td><strong>boolean removeByMap(Map&lt;String, Object&gt; columnMap)</strong></td>
-<td>根据 columnMap 条件删除记录。</td>
-</tr>
-<tr>
-<td><strong>boolean remove(QueryWrapper<T> queryWrapper)</strong></td>
-<td>根据条件构造器删除记录。</td>
-</tr>
-<tr>
-<td><strong>boolean removeByIds(Collection&lt;? extends Serializable&gt; idList)</strong></td>
-<td>批量根据 ID 删除。</td>
-</tr>
-</tbody></table>
-<hr>
-<h2 id="三、更新操作"><a href="#三、更新操作" class="headerlink" title="三、更新操作"></a>三、更新操作</h2><table>
-<thead>
-<tr>
-<th>方法</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><strong>boolean updateById(T entity)</strong></td>
-<td>根据 ID 更新记录。</td>
-</tr>
-<tr>
-<td><strong>boolean update(T entity, UpdateWrapper<T> updateWrapper)</strong></td>
-<td>根据条件构造器更新记录。</td>
-</tr>
-<tr>
-<td><strong>boolean updateBatchById(Collection<T> entityList)</strong></td>
-<td>批量更新记录（默认 1000 条）。</td>
-</tr>
-<tr>
-<td><strong>boolean updateBatchById(Collection<T> entityList, int batchSize)</strong></td>
-<td>指定批次数量的批量更新。</td>
-</tr>
-</tbody></table>
-<hr>
-<h2 id="四、查询操作"><a href="#四、查询操作" class="headerlink" title="四、查询操作"></a>四、查询操作</h2><table>
-<thead>
-<tr>
-<th>方法</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><strong>T getById(Serializable id)</strong></td>
-<td>根据 ID 查询记录。</td>
-</tr>
-<tr>
-<td><strong>List<T> listByIds(Collection&lt;? extends Serializable&gt; idList)</strong></td>
-<td>根据多个 ID 查询记录。</td>
-</tr>
-<tr>
-<td><strong>List<T> listByMap(Map&lt;String, Object&gt; columnMap)</strong></td>
-<td>根据 columnMap 查询记录。</td>
-</tr>
-<tr>
-<td><strong>T getOne(QueryWrapper<T> queryWrapper)</strong></td>
-<td>获取一条记录，若有多条会抛异常。</td>
-</tr>
-<tr>
-<td><strong>T getOne(QueryWrapper<T> queryWrapper, boolean throwEx)</strong></td>
-<td>同上，<code>throwEx</code> 为 <code>false</code> 则返回第一条，不抛异常。</td>
-</tr>
-<tr>
-<td><strong>Map&lt;String, Object&gt; getMap(QueryWrapper<T> queryWrapper)</strong></td>
-<td>获取一条记录并转为 Map。</td>
-</tr>
-<tr>
-<td><strong>List&lt;Map&lt;String, Object&gt;&gt; listMaps(QueryWrapper<T> queryWrapper)</strong></td>
-<td>查询多条记录，返回 Map 列表。</td>
-</tr>
-<tr>
-<td><strong>List&lt;Object&gt; listObjs(QueryWrapper<T>queryWrapper)</strong></td>
-<td>查询多条记录，仅返回某个字段的值（通常用于单列查询）。</td>
-</tr>
-<tr>
-<td><strong>long count()</strong></td>
-<td>查询总记录数。</td>
-</tr>
-<tr>
-<td><strong>long count(QueryWrapper<T> queryWrapper)</strong></td>
-<td>条件统计记录数。</td>
-</tr>
-</tbody></table>
-<hr>
-<h2 id="五、分页操作"><a href="#五、分页操作" class="headerlink" title="五、分页操作"></a>五、分页操作</h2><table>
-<thead>
-<tr>
-<th>方法</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><strong>IPage<T> page(IPage<T> page)</strong></td>
-<td>无条件分页查询。</td>
-</tr>
-<tr>
-<td><strong>IPage<T> page(IPage<T> page, QueryWrapper<T> queryWrapper)</strong></td>
-<td>条件分页查询。</td>
-</tr>
-<tr>
-<td><strong>IPage&lt;Map&lt;String, Object&gt;&gt; pageMaps(IPage<T> page, QueryWrapper<T> queryWrapper)</strong></td>
-<td>条件分页查询，返回 Map。</td>
-</tr>
-</tbody></table>
-<hr>
-<h2 id="六、列表查询"><a href="#六、列表查询" class="headerlink" title="六、列表查询"></a>六、列表查询</h2><table>
-<thead>
-<tr>
-<th>方法</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><strong>List<T> list()</strong></td>
-<td>查询所有记录。</td>
-</tr>
-<tr>
-<td><strong>List<T> list(QueryWrapper<T> queryWrapper)</strong></td>
-<td>条件查询记录列表。</td>
-</tr>
-</tbody></table>
-<hr>
-<h2 id="七、保存或更新"><a href="#七、保存或更新" class="headerlink" title="七、保存或更新"></a>七、保存或更新</h2><table>
-<thead>
-<tr>
-<th>方法</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><strong>boolean saveOrUpdate(T entity)</strong></td>
-<td>根据 ID 判断是插入还是更新。</td>
-</tr>
-<tr>
-<td><strong>boolean saveOrUpdateBatch(Collection<T> entityList)</strong></td>
-<td>批量插入或更新。</td>
-</tr>
-<tr>
-<td><strong>boolean saveOrUpdateBatch(Collection<T> entityList, int batchSize)</strong></td>
-<td>批量插入或更新并指定批次数。</td>
-</tr>
-</tbody></table>
-<hr>
-<h2 id="八、常见泛型类型"><a href="#八、常见泛型类型" class="headerlink" title="八、常见泛型类型"></a>八、常见泛型类型</h2><ul>
-<li><strong>T</strong>：实体类的类型。</li>
-<li><strong>IPage<T></strong>：分页接口，常用实现类是 <strong>Page<T></strong>。</li>
-<li><strong>QueryWrapper<T></strong>：用于构造查询条件的工具类。</li>
-<li><strong>UpdateWrapper<T></strong>：用于构造更新条件的工具类。</li>
+			<h1 id="​​一、成员内部类​​（非静态内部类）"><a href="#​​一、成员内部类​​（非静态内部类）" class="headerlink" title="​​一、成员内部类​​（非静态内部类）"></a>​​一、成员内部类​​（非静态内部类）</h1><blockquote>
+<p>成员内部类属于外部实例，必须创建外部实例才能创建成员内部类实例</p>
+</blockquote>
+<h3 id="基本用法"><a href="#基本用法" class="headerlink" title="基本用法"></a>基本用法</h3><div class="code-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">java</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="comment">//创建内部类实例对象</span></span><br><span class="line">        Outer.<span class="type">Inner</span> <span class="variable">inner</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Outer</span>().<span class="keyword">new</span> <span class="title class_">Inner</span>();</span><br><span class="line">        System.out.println(inner.innerPrivate);</span><br><span class="line">        inner.display();</span><br><span class="line"></span><br><span class="line">         <span class="comment">//成员内部类属于外部实例</span></span><br><span class="line">        <span class="type">Outer</span> <span class="variable">outer</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Outer</span>();</span><br><span class="line">        Outer.<span class="type">Inner</span> <span class="variable">inner1</span> <span class="operator">=</span> outer.<span class="keyword">new</span> <span class="title class_">Inner</span>();</span><br><span class="line">        Outer.<span class="type">Inner</span> <span class="variable">inner2</span> <span class="operator">=</span> outer.<span class="keyword">new</span> <span class="title class_">Inner</span>();</span><br><span class="line"></span><br><span class="line">        <span class="comment">//测试内部类静态方法</span></span><br><span class="line">        testStatic();</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//java16以前不允许</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">testStatic</span><span class="params">()</span>&#123;</span><br><span class="line">        <span class="comment">//静态成员/方法独立于内部/外部类而存在,直接存于方法区</span></span><br><span class="line">        System.out.println(Outer.Inner.innerStatic);</span><br><span class="line">        Outer.Inner.methodStatic();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Outer</span> &#123;</span><br><span class="line">    <span class="comment">// 外部类成员变量</span></span><br><span class="line">    <span class="keyword">private</span> <span class="type">int</span> <span class="variable">outerPrivate</span> <span class="operator">=</span> <span class="number">10</span>;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">String</span> <span class="variable">outerPublic</span> <span class="operator">=</span> <span class="string">&quot;Public Outer&quot;</span>;</span><br><span class="line">    <span class="keyword">static</span> <span class="type">int</span> <span class="variable">outerStatic</span> <span class="operator">=</span> <span class="number">100</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 外部类成员方法</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">outerMethod</span><span class="params">()</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;Outer method called&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 外部类静态方法</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">outerStaticMethod</span><span class="params">()</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;外部类静态方法&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//访问内部成员方法</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">visitInner</span><span class="params">()</span>&#123;</span><br><span class="line">        <span class="type">Inner</span> <span class="variable">inner</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Inner</span>();</span><br><span class="line">        inner.display();</span><br><span class="line">        System.out.println(inner.innerPrivate);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 成员内部类</span></span><br><span class="line">    <span class="keyword">class</span> <span class="title class_">Inner</span> &#123;</span><br><span class="line">        <span class="comment">// 内部类成员变量</span></span><br><span class="line">        <span class="keyword">public</span> <span class="type">int</span> <span class="variable">innerPrivate</span> <span class="operator">=</span> <span class="number">20</span>;</span><br><span class="line">        <span class="comment">//java15以前成员内部类不允许定义静态成员</span></span><br><span class="line">        <span class="keyword">public</span> <span class="keyword">static</span> <span class="type">int</span> <span class="variable">innerStatic</span> <span class="operator">=</span> <span class="number">30</span>;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 内部类成员方法</span></span><br><span class="line">        <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">display</span><span class="params">()</span> &#123;</span><br><span class="line">            <span class="comment">//隐式调用Outer.this</span></span><br><span class="line">            System.out.println(<span class="string">&quot;Outer private: &quot;</span> + outerPrivate);  <span class="comment">// 访问外部类私有成员 </span></span><br><span class="line">            System.out.println(<span class="string">&quot;Outer public: &quot;</span> + outerPublic);    <span class="comment">// 访问外部类公有成员</span></span><br><span class="line">            System.out.println(<span class="string">&quot;Outer static: &quot;</span> + outerStatic);    <span class="comment">// 访问外部类静态成员</span></span><br><span class="line">            outerMethod();                                         <span class="comment">// 调用外部类方法</span></span><br><span class="line">            outerStaticMethod();                                   <span class="comment">// 调用外部类静态方法</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//java15以前不允许</span></span><br><span class="line">        <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">methodStatic</span><span class="params">()</span> &#123;</span><br><span class="line">            System.out.println(<span class="string">&quot;Inner static called&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+<h3 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h3><ul>
+<li>成员内部类可以访问外部类的<strong>所有成员</strong>（包括private和static）</li>
+<li><strong>成员内部类属于外部实例</strong>,一个外部类实例可以有多个内部类实例</li>
+<li>必须先创建外部类实例才能创建内部类实例,</li>
+<li>内部类中可以使用<code>Outer.this</code>显式引用外部类实例</li>
 </ul>
-<hr>
-<h2 id="示例：使用-IService"><a href="#示例：使用-IService" class="headerlink" title="示例：使用 IService"></a>示例：使用 <code>IService</code></h2><p>假设你有一个 <code>User</code> 实体类，你可以这样写：</p>
-<div class="code-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Service</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">UserServiceImpl</span> <span class="keyword">extends</span> <span class="title class_">ServiceImpl</span>&lt;UserMapper, User&gt; <span class="keyword">implements</span> <span class="title class_">UserService</span> &#123;</span><br><span class="line">    <span class="comment">// 你可以直接用 IService 的方法</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
-
-<p>然后在控制层调用：</p>
-<div class="code-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Autowired</span></span><br><span class="line"><span class="keyword">private</span> UserService userService;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">test</span><span class="params">()</span> &#123;</span><br><span class="line">    <span class="type">User</span> <span class="variable">user</span> <span class="operator">=</span> userService.getById(<span class="number">1</span>); <span class="comment">// 查询</span></span><br><span class="line">    user.setName(<span class="string">&quot;新名字&quot;</span>);</span><br><span class="line">    userService.updateById(user); <span class="comment">// 更新</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">---</span><br></pre></td></tr></table></figure></div>
-<p>MyBatis-Plus 的 <strong>BaseMapper<T></strong> 是对 MyBatis 的 <strong>Mapper 层接口</strong> 的封装，它为每个实体类提供了基础的 CRUD 操作，<strong>免写 XML 和接口方法</strong>，大大提高了开发效率。</p>
-<hr>
-<h2 id="✅-一、什么是-BaseMapper"><a href="#✅-一、什么是-BaseMapper" class="headerlink" title="✅ 一、什么是 BaseMapper"></a>✅ 一、什么是 <strong>BaseMapper<T></strong></h2><p><strong>BaseMapper<T></strong> 是 MyBatis-Plus 提供的基础接口，它封装了大量通用的数据库操作方法。你只需要写一个接口继承它，就能自动拥有各种 CRUD 能力。</p>
-<div class="code-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title class_">UserMapper</span> <span class="keyword">extends</span> <span class="title class_">BaseMapper</span>&lt;User&gt; &#123;</span><br><span class="line">    <span class="comment">// 可以写一些自定义的方法，基本的增删改查方法已经有了</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
-
-<hr>
-<h2 id="✅-二、BaseMapper-的常用方法详解"><a href="#✅-二、BaseMapper-的常用方法详解" class="headerlink" title="✅ 二、BaseMapper 的常用方法详解"></a>✅ 二、<strong>BaseMapper</strong> 的常用方法详解</h2><table>
+<p><em>java16以前成员内部类不允许定义静态成员&#x2F;静态方法</em></p>
+<h1 id="二、静态嵌套类（静态内部类）"><a href="#二、静态嵌套类（静态内部类）" class="headerlink" title="二、静态嵌套类（静态内部类）"></a>二、静态嵌套类（静态内部类）</h1><blockquote>
+<p>​​静态内部类（static inner class）不属于外部类的实例​​，它更像是一个​​独立​​的类，只是​​嵌套在另一个类的作用域内​​。可以把它理解为一个普通的类，只是它的类名是 Outer.StaticInner，而不是 StaticInner，这也解释了为什么静态内部类只能调用外部类的静态成员</p>
+</blockquote>
+<h3 id="基本用法-1"><a href="#基本用法-1" class="headerlink" title="基本用法"></a>基本用法</h3><div class="code-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">java</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">    	<span class="comment">//实例创建</span></span><br><span class="line">        Outer.<span class="type">StaticInner</span> <span class="variable">inner</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Outer</span>.StaticInner();</span><br><span class="line">        inner.innerMethod();<span class="comment">//内部类方法</span></span><br><span class="line">        Outer.StaticInner.staticInnerMethod();<span class="comment">//内部类静态方法</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"> <span class="keyword">class</span> <span class="title class_">Outer</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">String</span> <span class="variable">outerField</span> <span class="operator">=</span> <span class="string">&quot;外部类私有字段&quot;</span>;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="type">String</span> <span class="variable">staticOuterField</span> <span class="operator">=</span> <span class="string">&quot;外部类静态字段&quot;</span>;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">outerMethod</span><span class="params">()</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;外部类方法&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">staticOuterMethod</span><span class="params">()</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;外部类静态方法&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 静态内部类</span></span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">class</span> <span class="title class_">StaticInner</span> &#123;</span><br><span class="line">        <span class="keyword">private</span> <span class="type">String</span> <span class="variable">innerField</span> <span class="operator">=</span> <span class="string">&quot;静态内部类字段&quot;</span>;</span><br><span class="line">        <span class="keyword">private</span> <span class="keyword">static</span> <span class="type">String</span> <span class="variable">staticInnerField</span> <span class="operator">=</span> <span class="string">&quot;静态内部类静态字段&quot;</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">innerMethod</span><span class="params">()</span> &#123;</span><br><span class="line">            <span class="comment">// 只能访问外部类的静态成员</span></span><br><span class="line">            System.out.println(staticOuterField);</span><br><span class="line">            staticOuterMethod();</span><br><span class="line"></span><br><span class="line">            <span class="comment">// 不能访问外部类的非静态成员</span></span><br><span class="line">            <span class="comment">// System.out.println(outerField); // 编译错误</span></span><br><span class="line">            <span class="comment">// outerMethod(); // 编译错误</span></span><br><span class="line"></span><br><span class="line">            <span class="comment">// 访问自己的成员</span></span><br><span class="line">            System.out.println(innerField);</span><br><span class="line">            System.out.println(staticInnerField);</span><br><span class="line">            staticInnerMethod();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">staticInnerMethod</span><span class="params">()</span> &#123;</span><br><span class="line">            <span class="comment">//只能访问外部静态成员方法</span></span><br><span class="line">            System.out.println(staticOuterField);</span><br><span class="line">            staticOuterMethod();;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+<h1 id="成员内部类-vs-静态内部类-对比"><a href="#成员内部类-vs-静态内部类-对比" class="headerlink" title="成员内部类 vs 静态内部类 对比"></a>成员内部类 vs 静态内部类 对比</h1><table>
 <thead>
 <tr>
-<th>方法</th>
-<th>说明</th>
+<th><strong>特性</strong></th>
+<th><strong>成员内部类（非静态内部类）</strong></th>
+<th><strong>静态内部类</strong></th>
 </tr>
 </thead>
 <tbody><tr>
-<td><strong>int insert(T entity)</strong></td>
-<td>插入一条记录。成功返回影响行数。</td>
+<td><strong>依赖外部类实例</strong></td>
+<td>✅ 必须依赖（<code>outer.new Inner()</code>）</td>
+<td>❌ 不依赖（直接 <code>new Outer.Inner()</code>）</td>
 </tr>
 <tr>
-<td><strong>int deleteById(Serializable id)</strong></td>
-<td>根据主键 ID 删除。</td>
+<td><strong>访问外部类实例成员</strong></td>
+<td>✅ 能访问（包括 <code>private</code> 成员）</td>
+<td>❌ 不能访问（只能访问 <code>static</code> 成员）</td>
 </tr>
 <tr>
-<td><strong>int deleteByMap(Map&lt;String, Object&gt; columnMap)</strong></td>
-<td>根据 columnMap 条件删除记录。</td>
+<td><strong>访问外部类静态成员</strong></td>
+<td>✅ 能访问</td>
+<td>✅ 能访问</td>
 </tr>
 <tr>
-<td><strong>int delete(QueryWrapper<T> wrapper)</strong></td>
-<td>根据条件构造器删除。</td>
+<td><strong>定义 <code>static</code> 成员</strong></td>
+<td><code>java16</code>以前不能（除非 <code>static final</code> 常量）<code>java16</code>后可以</td>
+<td>✅ 可以定义 <code>static</code> 方法&#x2F;字段</td>
 </tr>
 <tr>
-<td><strong>int deleteBatchIds(Collection&lt;? extends Serializable&gt; idList)</strong></td>
-<td>根据多个 ID 批量删除。</td>
+<td><strong>内存占用</strong></td>
+<td>隐式持有外部类引用（<code>this$0</code>）</td>
+<td>不持有外部类引用，更独立</td>
 </tr>
 <tr>
-<td><strong>int updateById(T entity)</strong></td>
-<td>根据主键 ID 更新记录。</td>
+<td><strong>典型用途</strong></td>
+<td>需要访问外部类实例的场景（如事件监听）</td>
+<td>工具类、Builder 模式、线程安全单例</td>
 </tr>
 <tr>
-<td><strong>int update(@Param(Constants.ENTITY) T entity, @Param(Constants.WRAPPER) Wrapper<T> updateWrapper)</strong></td>
-<td>根据条件构造器更新记录。</td>
-</tr>
-<tr>
-<td><strong>T selectById(Serializable id)</strong></td>
-<td>根据主键 ID 查询记录。</td>
-</tr>
-<tr>
-<td><strong>List<T> selectBatchIds(Collection&lt;? extends Serializable&gt; idList)</strong></td>
-<td>批量 ID 查询记录。</td>
-</tr>
-<tr>
-<td><strong>List<T> selectByMap(Map&lt;String, Object&gt; columnMap)</strong></td>
-<td>根据 columnMap 查询记录。</td>
-</tr>
-<tr>
-<td><strong>T selectOne(QueryWrapper<T> wrapper)</strong></td>
-<td>查询一条记录，如果结果多于一条会报错。</td>
-</tr>
-<tr>
-<td><strong>Integer selectCount(QueryWrapper<T> wrapper)</strong></td>
-<td>根据条件查询记录数。</td>
-</tr>
-<tr>
-<td><strong>List<T> selectList(QueryWrapper<T> wrapper)</strong></td>
-<td>根据条件查询列表。</td>
-</tr>
-<tr>
-<td><strong>List&lt;Map&lt;String, Object&gt;&gt; selectMaps(QueryWrapper<T> wrapper)</strong></td>
-<td>查询列表并返回 Map 集合。</td>
-</tr>
-<tr>
-<td><strong>List<Object> selectObjs(QueryWrapper<T> wrapper)</strong></td>
-<td>查询某一列的所有值集合。</td>
-</tr>
-<tr>
-<td><strong>IPage<T> selectPage(IPage<T> page, QueryWrapper<T> wrapper)</strong></td>
-<td>分页查询记录。</td>
-</tr>
-<tr>
-<td><strong>IPage&lt;Map&lt;String, Object&gt;&gt; selectMapsPage(IPage<T> page, QueryWrapper<T> wrapper)</strong></td>
-<td>分页查询 Map 类型数据。</td>
+<td><strong>创建方式</strong></td>
+<td><code>Outer outer = new Outer();</code><br><code>Outer.Inner inner = outer.new Inner();</code></td>
+<td><code>Outer.Inner inner = new Outer.Inner();</code></td>
 </tr>
 </tbody></table>
 <hr>
-<h2 id="✅-三、使用示例"><a href="#✅-三、使用示例" class="headerlink" title="✅ 三、使用示例"></a>✅ 三、使用示例</h2><h3 id="示例一：插入一条记录"><a href="#示例一：插入一条记录" class="headerlink" title="示例一：插入一条记录"></a>示例一：插入一条记录</h3><div class="code-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">User</span> <span class="variable">user</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">User</span>();</span><br><span class="line">user.setName(<span class="string">&quot;张三&quot;</span>);</span><br><span class="line">user.setAge(<span class="number">20</span>);</span><br><span class="line">userMapper.insert(user);  <span class="comment">// 自动填充 ID（如果配置了雪花 ID）</span></span><br></pre></td></tr></table></figure></div>
-
-<hr>
-<h3 id="示例二：根据-ID-查询"><a href="#示例二：根据-ID-查询" class="headerlink" title="示例二：根据 ID 查询"></a>示例二：根据 ID 查询</h3><div class="code-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">User</span> <span class="variable">user</span> <span class="operator">=</span> userMapper.selectById(<span class="number">1L</span>);</span><br></pre></td></tr></table></figure></div>
-
-<hr>
-<h3 id="示例三：条件查询"><a href="#示例三：条件查询" class="headerlink" title="示例三：条件查询"></a>示例三：条件查询</h3><div class="code-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">QueryWrapper&lt;User&gt; wrapper = <span class="keyword">new</span> <span class="title class_">QueryWrapper</span>&lt;&gt;();</span><br><span class="line">wrapper.eq(<span class="string">&quot;age&quot;</span>, <span class="number">20</span>);</span><br><span class="line">List&lt;User&gt; users = userMapper.selectList(wrapper);</span><br></pre></td></tr></table></figure></div>
-
-<hr>
-<h3 id="示例四：分页查询"><a href="#示例四：分页查询" class="headerlink" title="示例四：分页查询"></a>示例四：分页查询</h3><div class="code-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Page&lt;User&gt; page = <span class="keyword">new</span> <span class="title class_">Page</span>&lt;&gt;(<span class="number">1</span>, <span class="number">10</span>); <span class="comment">// 第1页，每页10条</span></span><br><span class="line">QueryWrapper&lt;User&gt; wrapper = <span class="keyword">new</span> <span class="title class_">QueryWrapper</span>&lt;&gt;();</span><br><span class="line">wrapper.gt(<span class="string">&quot;age&quot;</span>, <span class="number">18</span>);</span><br><span class="line">IPage&lt;User&gt; userPage = userMapper.selectPage(page, wrapper);</span><br></pre></td></tr></table></figure></div>
-
-<hr>
-<h3 id="示例五：条件更新"><a href="#示例五：条件更新" class="headerlink" title="示例五：条件更新"></a>示例五：条件更新</h3><div class="code-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">UpdateWrapper&lt;User&gt; wrapper = <span class="keyword">new</span> <span class="title class_">UpdateWrapper</span>&lt;&gt;();</span><br><span class="line">wrapper.eq(<span class="string">&quot;name&quot;</span>, <span class="string">&quot;张三&quot;</span>);</span><br><span class="line"><span class="type">User</span> <span class="variable">user</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">User</span>();</span><br><span class="line">user.setAge(<span class="number">30</span>);</span><br><span class="line">userMapper.update(user, wrapper);</span><br></pre></td></tr></table></figure></div>
-
-<hr>
-<h2 id="✅-四、使用小贴士"><a href="#✅-四、使用小贴士" class="headerlink" title="✅ 四、使用小贴士"></a>✅ 四、使用小贴士</h2><ol>
-<li><strong>BaseMapper</strong> 是 MyBatis-Plus 的核心，封装的是最基本的数据库操作，<strong>适合简单直接的增删改查操作</strong>。</li>
-<li>如果逻辑比较复杂，建议在 Service 层通过组合方式来处理，而不是在 Mapper 层拼很多复杂语句。</li>
-<li><code>@Mapper</code> 注解必须加（或者在启动类用 <code>@MapperScan</code> 扫描路径）。</li>
-<li>不支持批量插入（insertBatch），如果需要请在 XML 中自定义。</li>
+<h3 id="关键区别总结"><a href="#关键区别总结" class="headerlink" title="关键区别总结"></a>关键区别总结</h3><ol>
+<li><p><strong>依赖关系</strong>  </p>
+<ul>
+<li>成员内部类必须绑定到外部类实例（<code>outer.new Inner()</code>）。  </li>
+<li>静态内部类独立存在（直接 <code>new Outer.Inner()</code>）。</li>
+</ul>
+</li>
+<li><p><strong>访问权限</strong>  </p>
+<ul>
+<li>成员内部类可以访问外部类的<strong>所有成员</strong>（包括 <code>private</code> 实例字段&#x2F;方法）。  </li>
+<li>静态内部类只能访问外部类的 <code>static</code> 成员。</li>
+</ul>
+</li>
+<li><p><strong>静态成员支持</strong>  </p>
+<ul>
+<li>成员内部类<strong>不能有 <code>static</code> 方法&#x2F;字段</strong>（除非是 <code>static final</code> 常量）。  </li>
+<li>静态内部类可以自由定义 <code>static</code> 成员。</li>
+</ul>
+</li>
+<li><p><strong>内存管理</strong>  </p>
+<ul>
+<li>成员内部类隐式持有外部类引用（可能导致内存泄漏）。  </li>
+<li>静态内部类不持有外部类引用，更安全。</li>
+</ul>
+</li>
 </ol>
 <hr>
-<h2 id="✅-五、配合实体类使用"><a href="#✅-五、配合实体类使用" class="headerlink" title="✅ 五、配合实体类使用"></a>✅ 五、配合实体类使用</h2><p>实体类（例如 <code>User.java</code>）应符合如下规则：</p>
-<div class="code-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Data</span></span><br><span class="line"><span class="meta">@TableName(&quot;user&quot;)</span>  <span class="comment">// 表名</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">User</span> &#123;</span><br><span class="line">    <span class="meta">@TableId(type = IdType.AUTO)</span>  <span class="comment">// 主键策略</span></span><br><span class="line">    <span class="keyword">private</span> Long id;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line">    <span class="keyword">private</span> Integer age;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
-<pre><code>
----
-
-这份文档现在可以直接用于博客发布或技术分享。如果你还需要我生成 PDF 或封面图，或者想对比下加粗与未加粗的版本展示效果，也可以告诉我～
-</code></pre>
 
 		</div>
 
 		
 
-		
-		<ul class="post-tags-box text-lg mt-1.5 flex-wrap justify-center flex md:hidden">
-			
-			<li class="tag-item mx-0.5">
-				<a href="/tags/mybatis-plus/">#mybatis-plus</a>&nbsp;
-			</li>
-			
-		</ul>
 		
 
 		
@@ -894,23 +640,11 @@
 		
 		<div class="article-nav my-8 flex justify-between items-center px-2 sm:px-6 md:px-8">
 			
-			<div class="article-prev border-border-color shadow-redefine-flat shadow-shadow-color-2 rounded-medium px-4 py-2 hover:shadow-redefine-flat-hover hover:shadow-shadow-color-2">
-				<a class="prev" rel="prev" href="/uncategorized/Linux/Docker/">
-					<span class="left arrow-icon flex justify-center items-center">
-						<i class="fa-solid fa-chevron-left"></i>
-					</span>
-					<span class="title flex justify-center items-center">
-						<span class="post-nav-title-item">Docker</span>
-						<span class="post-nav-item">Prev posts</span>
-					</span>
-				</a>
-			</div>
-			
 			
 			<div class="article-next border-border-color shadow-redefine-flat shadow-shadow-color-2 rounded-medium px-4 py-2 hover:shadow-redefine-flat-hover hover:shadow-shadow-color-2">
-				<a class="next" rel="next" href="/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/Java/http/">
+				<a class="next" rel="next" href="/uncategorized/es/">
 					<span class="title flex justify-center items-center">
-						<span class="post-nav-title-item">http请求中请求体三种常见的Content-Type前后端交互</span>
+						<span class="post-nav-title-item">剖析电商搜索要点并基于Es+Redis模拟电商搜索行为</span>
 						<span class="post-nav-item">Next posts</span>
 					</span>
 					<span class="right arrow-icon flex justify-center items-center">
@@ -974,8 +708,8 @@
 		<div class="post-toc-wrap">
 	<div class="post-toc">
 		<div class="toc-title">On this page</div>
-		<div class="page-title">BaseMapper、IService方法使用</div>
-		<ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E5%9F%BA%E6%9C%AC%E7%9A%84-CRUD-%E6%93%8D%E4%BD%9C"><span class="nav-text">一、基本的 CRUD 操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E5%88%A0%E9%99%A4%E6%93%8D%E4%BD%9C"><span class="nav-text">二、删除操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%89%E3%80%81%E6%9B%B4%E6%96%B0%E6%93%8D%E4%BD%9C"><span class="nav-text">三、更新操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%9B%E3%80%81%E6%9F%A5%E8%AF%A2%E6%93%8D%E4%BD%9C"><span class="nav-text">四、查询操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%94%E3%80%81%E5%88%86%E9%A1%B5%E6%93%8D%E4%BD%9C"><span class="nav-text">五、分页操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%AD%E3%80%81%E5%88%97%E8%A1%A8%E6%9F%A5%E8%AF%A2"><span class="nav-text">六、列表查询</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%83%E3%80%81%E4%BF%9D%E5%AD%98%E6%88%96%E6%9B%B4%E6%96%B0"><span class="nav-text">七、保存或更新</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%AB%E3%80%81%E5%B8%B8%E8%A7%81%E6%B3%9B%E5%9E%8B%E7%B1%BB%E5%9E%8B"><span class="nav-text">八、常见泛型类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%A4%BA%E4%BE%8B%EF%BC%9A%E4%BD%BF%E7%94%A8-IService"><span class="nav-text">示例：使用 IService</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E2%9C%85-%E4%B8%80%E3%80%81%E4%BB%80%E4%B9%88%E6%98%AF-BaseMapper"><span class="nav-text">✅ 一、什么是 BaseMapper</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E2%9C%85-%E4%BA%8C%E3%80%81BaseMapper-%E7%9A%84%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95%E8%AF%A6%E8%A7%A3"><span class="nav-text">✅ 二、BaseMapper 的常用方法详解</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E2%9C%85-%E4%B8%89%E3%80%81%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B"><span class="nav-text">✅ 三、使用示例</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A4%BA%E4%BE%8B%E4%B8%80%EF%BC%9A%E6%8F%92%E5%85%A5%E4%B8%80%E6%9D%A1%E8%AE%B0%E5%BD%95"><span class="nav-text">示例一：插入一条记录</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A4%BA%E4%BE%8B%E4%BA%8C%EF%BC%9A%E6%A0%B9%E6%8D%AE-ID-%E6%9F%A5%E8%AF%A2"><span class="nav-text">示例二：根据 ID 查询</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A4%BA%E4%BE%8B%E4%B8%89%EF%BC%9A%E6%9D%A1%E4%BB%B6%E6%9F%A5%E8%AF%A2"><span class="nav-text">示例三：条件查询</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A4%BA%E4%BE%8B%E5%9B%9B%EF%BC%9A%E5%88%86%E9%A1%B5%E6%9F%A5%E8%AF%A2"><span class="nav-text">示例四：分页查询</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A4%BA%E4%BE%8B%E4%BA%94%EF%BC%9A%E6%9D%A1%E4%BB%B6%E6%9B%B4%E6%96%B0"><span class="nav-text">示例五：条件更新</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E2%9C%85-%E5%9B%9B%E3%80%81%E4%BD%BF%E7%94%A8%E5%B0%8F%E8%B4%B4%E5%A3%AB"><span class="nav-text">✅ 四、使用小贴士</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E2%9C%85-%E4%BA%94%E3%80%81%E9%85%8D%E5%90%88%E5%AE%9E%E4%BD%93%E7%B1%BB%E4%BD%BF%E7%94%A8"><span class="nav-text">✅ 五、配合实体类使用</span></a></li></ol>
+		<div class="page-title">一文讲清Java内部类：全面解析静态与非静态内部类</div>
+		<ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E2%80%8B%E2%80%8B%E4%B8%80%E3%80%81%E6%88%90%E5%91%98%E5%86%85%E9%83%A8%E7%B1%BB%E2%80%8B%E2%80%8B%EF%BC%88%E9%9D%9E%E9%9D%99%E6%80%81%E5%86%85%E9%83%A8%E7%B1%BB%EF%BC%89"><span class="nav-text">​​一、成员内部类​​（非静态内部类）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95"><span class="nav-text">基本用法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%89%B9%E7%82%B9"><span class="nav-text">特点</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E9%9D%99%E6%80%81%E5%B5%8C%E5%A5%97%E7%B1%BB%EF%BC%88%E9%9D%99%E6%80%81%E5%86%85%E9%83%A8%E7%B1%BB%EF%BC%89"><span class="nav-text">二、静态嵌套类（静态内部类）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95-1"><span class="nav-text">基本用法</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%88%90%E5%91%98%E5%86%85%E9%83%A8%E7%B1%BB-vs-%E9%9D%99%E6%80%81%E5%86%85%E9%83%A8%E7%B1%BB-%E5%AF%B9%E6%AF%94"><span class="nav-text">成员内部类 vs 静态内部类 对比</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%B3%E9%94%AE%E5%8C%BA%E5%88%AB%E6%80%BB%E7%BB%93"><span class="nav-text">关键区别总结</span></a></li></ol></li></ol></li></ol>
 
 	</div>
 </div>
@@ -1194,21 +928,6 @@
 
 
 	
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-            processEscapes: true
-        }
-    });
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax();
-        for (var i = 0; i < all.length; ++i)
-            all[i].SourceElement().parentNode.className += ' has-jax';
-    });
-</script>
-<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 </body>
 
 </html>
