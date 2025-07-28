@@ -19,7 +19,7 @@
     
     <!--- Seo Part-->
     
-    <link rel="canonical" href="http://example.com/tags/elasticsearch/"/>
+    <link rel="canonical" href="http://example.com/uncategorized/jvmfatal/"/>
     <meta name="robots" content="index,follow">
     <meta name="googlebot" content="index,follow">
     <meta name="revisit-after" content="1 days">
@@ -28,13 +28,15 @@
     
         
         <meta name="description" content="Hexo Theme Redefine, Redefine Your Hexo Journey.">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://example.com/tags/ElasticSearch/index.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JVM 崩溃（Fatal Error）解决方法">
+<meta property="og:url" content="http://example.com/uncategorized/JvmFatal/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="Hexo Theme Redefine, Redefine Your Hexo Journey.">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://example.com/images/redefine-og.webp">
+<meta property="article:published_time" content="2025-07-28T17:48:31.000Z">
+<meta property="article:modified_time" content="2025-07-28T17:57:30.046Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://example.com/images/redefine-og.webp">
@@ -49,7 +51,7 @@
     
     <title>
         
-            Tag: ElasticSearch | Aer-Home
+            JVM 崩溃（Fatal Error）解决方法 | Aer-Home
         
     </title>
 
@@ -335,7 +337,7 @@
 
                             <li class="navbar-item">
                                 <!-- Menu -->
-                                <a class="active"
+                                <a class=""
                                    href="/tags"
                                         >
                                     <i class="fa-solid fa-tags fa-fw"></i>
@@ -406,7 +408,7 @@
 
                     <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
                         
-                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full active"
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
                            href="/tags"
                         >
                             <span>
@@ -477,58 +479,202 @@
 			
 
 			<div class="main-content">
-				<div class="page-template-container">
-	
+				<div class="post-page-container flex relative justify-between box-border w-full h-full">
+	<div class="article-content-container">
 
-	
-	<div class="tag-name">
-    <i class="fa-solid fa-tag"></i>&nbsp;ElasticSearch
+		<div class="article-title relative w-full">
+			
+			<div class="w-full flex items-center pt-6 justify-start">
+				<h1 class="article-title-regular text-second-text-color tracking-tight text-4xl md:text-6xl font-semibold px-2 sm:px-6 md:px-8 py-3">JVM 崩溃（Fatal Error）解决方法</h1>
+			</div>
+			
+		</div>
+
+		
+		<div class="article-header flex flex-row gap-2 items-center px-2 sm:px-6 md:px-8">
+			<div class="avatar w-[46px] h-[46px] flex-shrink-0 rounded-medium border border-border-color p-[1px]">
+				<img src="/static/Aer.jpg">
+			</div>
+			<div class="info flex flex-col justify-between">
+				<div class="author flex items-center">
+					<span class="name text-default-text-color text-lg font-semibold">Aer</span>
+					
+					<span class="author-label ml-1.5 text-xs px-2 py-0.5 rounded-small text-third-text-color border border-shadow-color-1">Lv3</span>
+					
+				</div>
+				<div class="meta-info">
+					<div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fa-regular fa-pen-fancy"></i>&nbsp;
+        <span class="desktop">2025-07-29 01:48:31</span>
+        <span class="mobile">2025-07-29 01:48:31</span>
+        <span class="hover-info">Created</span>
+    </span>
+    
+        <span class="article-date article-meta-item">
+            <i class="fa-regular fa-wrench"></i>&nbsp;
+            <span class="desktop">2025-07-29 01:57:30</span>
+            <span class="mobile">2025-07-29 01:57:30</span>
+            <span class="hover-info">Updated</span>
+        </span>
+    
+
+    
+    
+
+    
+    
+    
+    
+        <span class="article-pv article-meta-item">
+            <i class="fa-regular fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+        </span>
+    
 </div>
-<div class="tag-post-list">
+
+				</div>
+			</div>
+		</div>
+		
+
+		
+
+
+		<div class="article-content markdown-body px-2 sm:px-6 md:px-8 pb-8">
+			<h2 id="遇到的问题："><a href="#遇到的问题：" class="headerlink" title="遇到的问题："></a>遇到的问题：</h2><p>我在使用idea运行java服务的时候报出以下错误<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://i-blog.csdnimg.cn/img_convert/6e9b1e707e7b2977a40c001436f02ac8.png"
+                     
+                ></p>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">#</span><br><span class="line"># A fatal error has been detected by the Java Runtime Environment:</span><br><span class="line">#</span><br><span class="line">#  SIGSEGV (0xb) at pc=0x00000001039a63c8, pid=13662, tid=4355</span><br><span class="line">#</span><br><span class="line"># JRE version: OpenJDK Runtime Environment Microsoft-11367290 (11.0.27+6) (build 11.0.27+6-LTS)</span><br><span class="line"># Java VM: OpenJDK 64-Bit Server VM Microsoft-11367290 (11.0.27+6-LTS, mixed mode, tiered, compressed oops, g1 gc, bsd-aarch64)</span><br><span class="line"># Problematic frame:</span><br><span class="line"># V  [libjvm.dylib+0x67e3c8]  AccessInternal::PostRuntimeDispatch&lt;G1BarrierSet::AccessBarrier&lt;1097844ull, G1BarrierSet&gt;, (AccessInternal::BarrierType)2, 1097844ull&gt;::oop_access_barrier(void*)+0x8</span><br><span class="line">#</span><br><span class="line"># No core dump will be written. Core dumps have been disabled. To enable core dumping, try &quot;ulimit -c unlimited&quot; before starting Java again</span><br><span class="line">#</span><br><span class="line"># An error report file with more information is saved as:</span><br><span class="line"># /Users/aer/IdeaProjects/tjxt/hs_err_pid13662.log</span><br><span class="line">#</span><br><span class="line"># If you would like to submit a bug report, please visit:</span><br><span class="line">#   https://github.com/microsoft/openjdk/issues</span><br><span class="line">#</span><br></pre></td></tr></table></figure></div>
+<p>这个问题我一共遇到了两次，今天是第二次 上一次我更换了jdk+重启糊里糊涂地不知道为什么就又能成功运行了，之后我就没管了(那时候我在测试循环依赖报错，恰巧就出现了这个jvm崩溃错误，我还以为是循环依赖导致的问题)。但是今天啥也没干一运行突然又出现了这个错误。拷打gpt后找到解决方法如下</p>
+<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p><strong>将Idea的启用定时调试器关掉</strong><br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://i-blog.csdnimg.cn/img_convert/ebdd16f33727b086b120cabc94323ecb.png"
+                     
+                ><br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://i-blog.csdnimg.cn/img_convert/f5c1031b8424e9c779081d08eb2f19b4.png"
+                     
+                ><br>将这个关掉后就又能成功运行啦！<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://i-blog.csdnimg.cn/img_convert/4ce817173fe4c10a65b74f9fee63e0df.png"
+                     
+                ></p>
+<h2 id="报错原因"><a href="#报错原因" class="headerlink" title="报错原因"></a>报错原因</h2><blockquote>
+<p>根本原因是：JetBrains 的定时任务调试器（Scheduled Debug Agent）使用了不稳定的 native 代码，它和 JDK 的 G1 垃圾回收机制发生了冲突。</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>责任方</th>
+<th>是否是主要原因</th>
+<th>原因</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>✅ JetBrains 的调试器（<code>libscheduled.dylib</code>）</td>
+<td><strong>是主要原因</strong></td>
+<td>它注入 native 代码，访问 JVM 内存结构，<strong>实现不稳定、适配差</strong>，在 macOS ARM 架构下触发崩溃</td>
+</tr>
+<tr>
+<td>⚠️ JVM</td>
+<td>有一定关系</td>
+<td>G1 GC 的内部结构复杂，<strong>对外暴露接口不适合被 native 调用篡改</strong>，但它本身没错，除非是低版本才算 bug</td>
+</tr>
+</tbody></table>
+
+		</div>
+
+		
+
+		
+
+		
+
+		
+		<div class="article-nav my-8 flex justify-between items-center px-2 sm:px-6 md:px-8">
+			
+			
+			<div class="article-next border-border-color shadow-redefine-flat shadow-shadow-color-2 rounded-medium px-4 py-2 hover:shadow-redefine-flat-hover hover:shadow-shadow-color-2">
+				<a class="next" rel="next" href="/C/Java/Class/">
+					<span class="title flex justify-center items-center">
+						<span class="post-nav-title-item">一文吃透 C++ 类的继承与多态机制，从语法到内存布局(含虚函数详解)</span>
+						<span class="post-nav-item">Next posts</span>
+					</span>
+					<span class="right arrow-icon flex justify-center items-center">
+						<i class="fa-solid fa-chevron-right"></i>
+					</span>
+				</a>
+			</div>
+			
+		</div>
+		
+
+
+		
+		<div class="comment-container px-2 sm:px-6 md:px-8 pb-8">
+			<div class="comments-container mt-10 w-full ">
+    <div id="comment-anchor" class="w-full h-2.5"></div>
+    <div class="comment-area-title w-full my-1.5 md:my-2.5 text-xl md:text-3xl font-bold">
+        Comments
+    </div>
     
-<div class="archive-list-container">
-    
-        <section class="archive-item mb-spacing-unit last:mb-0">
-            <div class="archive-item-header flex flex-row items-center mb-2">
-                <span class="archive-year font-semibold text-3xl mr-2">2025</span>
-                <span class="archive-year-post-count text-xs md:text-sm font-bold rounded-small bg-third-background-color py-[2px] px-[10px] border border-border-color">1</span>
-            </div>
+
+        
             
-            <ul class="article-list pl-0 md:pl-8 text-lg leading-[1.5]">
-                
-                    
-                    
-                         <!-- Close the previous LI if not the first item -->
-                        <li class="article-item space-y-2 px-6 pt-10 pb-2 text-xl relative border-l-2 border-border-color" date-is='06-10'>
-                    
-                    <a href="/Java/es/" class="block w-fit">
-                        <span class="article-title my-0.5 text-2xl">剖析电商搜索要点并基于Es+Redis模拟电商搜索行为</span>
-                    </a>
-                    
-                
-                </li> <!-- Ensure the last item is properly closed -->
-            </ul>
-        </section>
+    <div id="waline"></div>
+    <script type="module" data-swup-reload-script>
+      import { init } from '/js/libs/waline.mjs';
+
+      function loadWaline() {
+        init({
+          el: '#waline',
+          serverURL: 'https://example.example.com',
+          lang: 'zh-CN',
+          dark: 'body[class~="dark-mode"]',
+          reaction: false,
+          requiredMeta: ['nick', 'mail'],
+          emoji: [],
+          
+          
+        });
+      }
+
+      if (typeof swup !== 'undefined') {
+        loadWaline();
+      } else {
+        window.addEventListener('DOMContentLoaded', loadWaline);
+      }
+    </script>
+
+
+
+        
     
 </div>
-</div>
+
+		</div>
+		
+	</div>
+
 	
+	<div class="toc-content-container">
+		<div class="post-toc-wrap">
+	<div class="post-toc">
+		<div class="toc-title">On this page</div>
+		<div class="page-title">JVM 崩溃（Fatal Error）解决方法</div>
+		<ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98%EF%BC%9A"><span class="nav-text">遇到的问题：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8A%A5%E9%94%99%E5%8E%9F%E5%9B%A0"><span class="nav-text">报错原因</span></a></li></ol>
 
-	<div class="page-template-content markdown-body">
-		
-
-		
-	</div>
-
-	<div class="page-template-comments">
-		
 	</div>
 </div>
-
-<div class="paginator">
-	<span class="page-number current">1</span>
+	</div>
+	
 </div>
-  
 			</div>
 
 			
@@ -602,6 +748,26 @@
 	</div>
 
 	
+	<div class="post-tools">
+		<div class="post-tools-container">
+	<ul class="article-tools-list">
+		<!-- TOC aside toggle -->
+		
+		<li class="right-bottom-tools page-aside-toggle">
+			<i class="fa-regular fa-outdent"></i>
+		</li>
+		
+
+		<!-- go comment -->
+		
+		<li class="go-comment">
+			<i class="fa-regular fa-comments"></i>
+		</li>
+		
+	</ul>
+</div>
+	</div>
+	
 
 	<div class="right-side-tools-container">
 		<div class="side-tools-container">
@@ -671,6 +837,7 @@
         containers: ["#swup"],
     });
 </script>
+
 
 
 
